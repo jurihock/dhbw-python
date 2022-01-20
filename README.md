@@ -8,6 +8,12 @@ Install:
 pip install dhbw
 ```
 
+Upgrade:
+
+```
+pip install dhbw --upgrade
+```
+
 Use:
 
 ```
