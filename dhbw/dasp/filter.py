@@ -24,7 +24,9 @@ def zeros(b, a):
     return z
 
 
-def impulse(b, a, n=10):
+def response(b, a, n=10):
+    """Returns impulse response of the transfer function specified by b and a coefficients."""
+
     i = numpy.zeros(n)
     i[0] = 1
 

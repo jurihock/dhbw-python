@@ -13,6 +13,8 @@ FS = 44100  # default sample rate in hertz
 
 
 def timeline(duration, fs=FS):
+    """Returns a timeline of the specified duration in seconds
+       and sample rate in hertz which defaults to 44100 Hz."""
 
     return numpy.arange(0, duration, 1 / fs)
 
