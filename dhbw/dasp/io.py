@@ -6,6 +6,23 @@ from dhbw import dasp
 
 
 def read(path):
+    """
+    Reads a .wav file.
+
+    Parameters
+    ----------
+    path : string
+        File path with or without the .wav extension.
+
+    Returns
+    -------
+    data : ndarray
+        Content of the .wav file.
+    time : ndarray
+        Corresponding timeline array.
+    fs : integer
+        Sample rate in hertz.
+    """
 
     if not path.lower().endswith('.wav'):
         path += '.wav'
@@ -40,6 +57,20 @@ def read(path):
 
 
 def write(path, data, fs=None, bits=24):
+    """
+    Writes a .wav file.
+
+    Parameters
+    ----------
+    path : string
+        File path with or without the .wav extension.
+    data : ndarray
+        Content of the .wav file.
+    fs : integer, optional
+        Sample rate in hertz.
+    bits : integer, optional
+        Sample bitwidth.
+    """
 
     fs = fs if fs is not None else dasp.FS
 
