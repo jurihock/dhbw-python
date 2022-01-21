@@ -11,7 +11,8 @@ pip install dhbw
 Upgrade:
 
 ```
-pip install dhbw --upgrade
+pip uninstall dhbw
+pip install dhbw
 ```
 
 Use:
