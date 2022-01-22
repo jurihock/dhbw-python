@@ -84,7 +84,7 @@ def signal(x, y=None, xlim=None, ylim=1.1):
 
 class fft:
 
-    def abs(x, y, xlim=None, ylim=-120):
+    def abs(x, y, xlim=None, ylim=-120, **kwargs):
 
         def lim():
 
@@ -106,7 +106,7 @@ class fft:
         if isinstance(y, dict):
             for i, (k, v) in enumerate(y.items()):
                 plotpy.gcf().add_subplot(len(y), 1, i + 1, title=k)
-                f, a = dasp.fft.abs(x, v)
+                f, a = dasp.fft.abs(x, v, **kwargs)
                 plotpy.plot(f, a)
                 plotpy.ylabel('dB')
                 lim()
@@ -114,12 +114,12 @@ class fft:
             for i, v in enumerate(y):
                 plotpy.gcf().add_subplot(len(y), 1, i + 1)
                 plotpy.plot(x, v)
-                f, a = dasp.fft.abs(x, v)
+                f, a = dasp.fft.abs(x, v, **kwargs)
                 plotpy.plot(f, a)
                 plotpy.ylabel('dB')
                 lim()
         else:
-            f, a = dasp.fft.abs(x, y)
+            f, a = dasp.fft.abs(x, y, **kwargs)
             plotpy.plot(f, a)
             plotpy.ylabel('dB')
 
@@ -127,7 +127,7 @@ class fft:
 
         return plot
 
-    def arg(x, y, xlim=None, ylim=None):
+    def arg(x, y, xlim=None, ylim=None, **kwargs):
 
         def lim():
 
@@ -149,7 +149,7 @@ class fft:
         if isinstance(y, dict):
             for i, (k, v) in enumerate(y.items()):
                 plotpy.gcf().add_subplot(len(y), 1, i + 1, title=k)
-                f, a = dasp.fft.arg(x, v)
+                f, a = dasp.fft.arg(x, v, **kwargs)
                 plotpy.plot(f, a)
                 plotpy.ylabel('rad')
                 lim()
@@ -157,12 +157,12 @@ class fft:
             for i, v in enumerate(y):
                 plotpy.gcf().add_subplot(len(y), 1, i + 1)
                 plotpy.plot(x, v)
-                f, a = dasp.fft.arg(x, v)
+                f, a = dasp.fft.arg(x, v, **kwargs)
                 plotpy.plot(f, a)
                 plotpy.ylabel('rad')
                 lim()
         else:
-            f, a = dasp.fft.arg(x, y)
+            f, a = dasp.fft.arg(x, y, **kwargs)
             plotpy.plot(f, a)
             plotpy.ylabel('rad')
 
