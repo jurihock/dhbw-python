@@ -26,7 +26,7 @@ def plot(*args, **kwargs):
 
     plotpy.plot(*args, **kwargs)
 
-    return plot
+    return dasp.plot
 
 
 def signal(x, y=None, xlim=None, ylim=1.1):
@@ -79,7 +79,7 @@ def signal(x, y=None, xlim=None, ylim=1.1):
 
         plotpy.xlabel('s')
 
-    return plot
+    return dasp.plot
 
 
 class fft:
@@ -125,7 +125,7 @@ class fft:
 
         plotpy.xlabel('Hz')
 
-        return plot
+        return dasp.plot
 
     def arg(x, y, xlim=None, ylim=None, **kwargs):
 
@@ -168,7 +168,7 @@ class fft:
 
         plotpy.xlabel('Hz')
 
-        return plot
+        return dasp.plot
 
 
 class filter:
@@ -183,7 +183,7 @@ class filter:
         plotpy.xlabel('Frequency [Hz]')
         plotpy.ylabel('Response [dB]')
 
-        return plotpy
+        return dasp.plot
 
     def poleszeros(b, a):
         """See also: https://gist.github.com/endolith/4625838"""
@@ -213,4 +213,4 @@ class filter:
         axis.axis('scaled')
         axis.axis([-r, +r, -r, +r])
 
-        return plotpy
+        return dasp.plot
