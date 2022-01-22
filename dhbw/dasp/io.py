@@ -1,8 +1,55 @@
 import numpy
+import subprocess
 import sys
 import wave
 
 from dhbw import dasp
+
+
+def open(path, cmd='audacity', shell=False, wait=False):
+    """
+    Executes custom command with specified .wav file path as an argument.
+
+    Parameters
+    ----------
+    path : string
+        File path with or without the .wav extension.
+    cmd : string
+        Command to execute, e.g. audacity (https://www.audacityteam.org).
+    shell : bool
+        If true, the command will be executed through the shell.
+    wait : bool
+        If true, wait for child process to terminate.
+    """
+
+    if not path.lower().endswith('.wav'):
+        path += '.wav'
+
+    process = subprocess.Popen([cmd, path], shell=shell)
+
+    if wait:
+        return process.wait()
+    else:
+        return process.pid
+
+
+def play(path, cmd='play', shell=False, wait=True):
+    """
+    Executes custom command with specified .wav file path as an argument.
+
+    Parameters
+    ----------
+    path : string
+        File path with or without the .wav extension.
+    cmd : string
+        Command to execute, e.g. play (http://sox.sourceforge.net).
+    shell : bool
+        If true, the command will be executed through the shell.
+    wait : bool
+        If true, wait for child process to terminate.
+    """
+
+    return open(path, cmd=cmd, shell=shell, wait=wait)
 
 
 def read(path):
