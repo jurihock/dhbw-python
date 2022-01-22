@@ -29,18 +29,51 @@ def plot(*args, **kwargs):
     return plot
 
 
-def signal(x, y=None, l=None, p=(-1.1, +1.1)):
+def signal(x, y=None, xlim=None, ylim=1.1):
 
-    if y is not None:
-        plotpy.plot(x, y)
+    def lim():
+
+        if xlim is not None:
+            if isinstance(xlim, (list, tuple)):
+                plotpy.xlim(xlim)
+            else:
+                plotpy.xlim(0, xlim)
+
+        if ylim is not None:
+            if isinstance(ylim, (list, tuple)):
+                plotpy.ylim(ylim)
+            else:
+                plotpy.ylim(-ylim, +ylim)
+
+    if y is None:
+
+        assert x is not None
+        y = x
+        x = None
+
+    if isinstance(y, dict):
+        for i, (k, v) in enumerate(y.items()):
+            plotpy.gcf().add_subplot(len(y), 1, i + 1, title=k)
+            if x is not None:
+                plotpy.plot(x, v)
+            else:
+                plotpy.plot(v)
+            lim()
+    elif isinstance(y, (list, tuple)):
+        for i, v in enumerate(y):
+            plotpy.gcf().add_subplot(len(y), 1, i + 1)
+            plotpy.plot(x, v)
+            if x is not None:
+                plotpy.plot(x, v)
+            else:
+                plotpy.plot(v)
+            lim()
     else:
-        plotpy.plot(x)
-
-    if l:
-        plotpy.xlim(0, l)
-
-    if p:
-        plotpy.ylim(p)
+        if x is not None:
+            plotpy.plot(x, y)
+        else:
+            plotpy.plot(y)
+        lim()
 
     return plot
 
