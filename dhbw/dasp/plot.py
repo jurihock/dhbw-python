@@ -78,6 +78,91 @@ def signal(x, y=None, xlim=None, ylim=1.1):
     return plot
 
 
+class fft:
+
+    def abs(x, y, xlim=None, ylim=-120):
+
+        def lim():
+
+            if xlim is not None:
+                if isinstance(xlim, (list, tuple)):
+                    plotpy.xlim(xlim)
+                else:
+                    plotpy.xlim(0, xlim)
+
+            if ylim is not None:
+                if isinstance(ylim, (list, tuple)):
+                    plotpy.ylim(ylim)
+                else:
+                    plotpy.ylim(ylim, 0)
+
+        assert x is not None
+        assert y is not None
+
+        if isinstance(y, dict):
+            for i, (k, v) in enumerate(y.items()):
+                plotpy.gcf().add_subplot(len(y), 1, i + 1, title=k)
+                f, a = dasp.fft.abs(x, v)
+                plotpy.plot(f, a)
+                plotpy.ylabel('dB')
+                lim()
+        elif isinstance(y, (list, tuple)):
+            for i, v in enumerate(y):
+                plotpy.gcf().add_subplot(len(y), 1, i + 1)
+                plotpy.plot(x, v)
+                f, a = dasp.fft.abs(x, v)
+                plotpy.plot(f, a)
+                plotpy.ylabel('dB')
+                lim()
+        else:
+            f, a = dasp.fft.abs(x, y)
+            plotpy.plot(f, a)
+            plotpy.ylabel('dB')
+
+        plotpy.xlabel('Hz')
+
+    def arg(x, y, xlim=None, ylim=None):
+
+        def lim():
+
+            if xlim is not None:
+                if isinstance(xlim, (list, tuple)):
+                    plotpy.xlim(xlim)
+                else:
+                    plotpy.xlim(0, xlim)
+
+            if ylim is not None:
+                if isinstance(ylim, (list, tuple)):
+                    plotpy.ylim(ylim)
+                else:
+                    plotpy.ylim(ylim, 0)
+
+        assert x is not None
+        assert y is not None
+
+        if isinstance(y, dict):
+            for i, (k, v) in enumerate(y.items()):
+                plotpy.gcf().add_subplot(len(y), 1, i + 1, title=k)
+                f, a = dasp.fft.arg(x, v)
+                plotpy.plot(f, a)
+                plotpy.ylabel('rad')
+                lim()
+        elif isinstance(y, (list, tuple)):
+            for i, v in enumerate(y):
+                plotpy.gcf().add_subplot(len(y), 1, i + 1)
+                plotpy.plot(x, v)
+                f, a = dasp.fft.arg(x, v)
+                plotpy.plot(f, a)
+                plotpy.ylabel('rad')
+                lim()
+        else:
+            f, a = dasp.fft.arg(x, y)
+            plotpy.plot(f, a)
+            plotpy.ylabel('rad')
+
+        plotpy.xlabel('Hz')
+
+
 class filter:
 
     def frequency(b, a, fs=None, fn=1024):
