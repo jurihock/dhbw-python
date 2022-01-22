@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pip uninstall dhbw
+pip uninstall -y dhbw
