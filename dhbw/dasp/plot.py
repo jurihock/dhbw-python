@@ -75,6 +75,10 @@ def signal(x, y=None, xlim=None, ylim=1.1):
             plotpy.plot(y)
         lim()
 
+    if x is not None:
+
+        plotpy.xlabel('s')
+
     return plot
 
 
