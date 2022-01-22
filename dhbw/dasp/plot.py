@@ -121,6 +121,8 @@ class fft:
 
         plotpy.xlabel('Hz')
 
+        return plot
+
     def arg(x, y, xlim=None, ylim=None):
 
         def lim():
@@ -161,6 +163,8 @@ class fft:
             plotpy.ylabel('rad')
 
         plotpy.xlabel('Hz')
+
+        return plot
 
 
 class filter:
