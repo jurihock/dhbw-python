@@ -178,39 +178,40 @@ class fft:
 
     def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, **kwargs):
 
+        def lim():
+
+            if xlim is not None:
+                if isinstance(xlim, (list, tuple)):
+                    plotpy.xlim(xlim)
+                else:
+                    plotpy.xlim(0, xlim)
+
+            if ylim is not None:
+                if isinstance(ylim, (list, tuple)):
+                    plotpy.ylim(ylim)
+                else:
+                    plotpy.ylim(0, ylim)
+
+            if clim is not None:
+                if isinstance(clim, (list, tuple)):
+                    plotpy.clim(clim)
+                else:
+                    plotpy.clim(clim, 0)
+
         s, t, f = dasp.fft.stft(x, y, s, t, **kwargs)
         s = dasp.math.abs(s, db=True)
 
-        extent = [numpy.min(t), numpy.max(t), numpy.max(f), numpy.min(f)]
+        # prefer real coordinates to indices (left, right, bottom, top)
+        extent = (numpy.min(t), numpy.max(t), numpy.min(f), numpy.max(f))
 
-        plotpy.imshow(s.T, extent=extent, aspect='auto', cmap='magma', interpolation='nearest')
-        cbar = plotpy.colorbar()
+        plotpy.imshow(s.T, aspect='auto', cmap='magma', extent=extent, interpolation='nearest', origin='lower')
+        colorbar = plotpy.colorbar()
 
         plotpy.xlabel('s')
         plotpy.ylabel('Hz')
-        cbar.set_label('dB')
+        colorbar.set_label('dB')
 
-        if xlim is not None:
-            if isinstance(xlim, (list, tuple)):
-                plotpy.xlim(xlim)
-            else:
-                plotpy.xlim(0, xlim)
-
-        if ylim is not None:
-            if isinstance(ylim, (list, tuple)):
-                plotpy.ylim(ylim[::-1])
-            else:
-                plotpy.ylim(ylim, 0)
-
-        if clim is not None:
-            if isinstance(clim, (list, tuple)):
-                plotpy.clim(clim)
-            else:
-                plotpy.clim(clim, 0)
-
-        # revert y axis
-        axis = plotpy.gca()
-        axis.set_ylim(axis.get_ylim()[::-1])
+        lim()
 
         return dasp.plot
 
