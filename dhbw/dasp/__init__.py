@@ -12,7 +12,7 @@ import numpy
 SR = 44100  # default sample rate in hertz
 
 
-def timeline(duration, sr=SR):
+def timeline(duration, sr=None):
     """
     Returns an array of numbers representing a
     discrete timeline of the specified duration in seconds
@@ -25,6 +25,8 @@ def timeline(duration, sr=SR):
     sr : int, float, optional
         Sample rate in hertz.
     """
+
+    sr = sr if sr is not None else SR
 
     return numpy.arange(0, duration, 1 / sr)
 
