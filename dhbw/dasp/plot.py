@@ -170,6 +170,44 @@ class fft:
 
         return dasp.plot
 
+    def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, **kwargs):
+
+        s, t, f = dasp.fft.stft(x, y, s, t)
+        s = dasp.math.abs(s)
+
+        extent = [numpy.min(t), numpy.max(t), numpy.max(f), numpy.min(f)]
+
+        plotpy.imshow(s.T, extent=extent, aspect='auto', cmap='magma', interpolation='nearest')
+        cbar = plotpy.colorbar()
+
+        plotpy.xlabel('s')
+        plotpy.ylabel('Hz')
+        cbar.set_label('dB')
+
+        if xlim is not None:
+            if isinstance(xlim, (list, tuple)):
+                plotpy.xlim(xlim)
+            else:
+                plotpy.xlim(0, xlim)
+
+        if ylim is not None:
+            if isinstance(ylim, (list, tuple)):
+                plotpy.ylim(ylim[::-1])
+            else:
+                plotpy.ylim(ylim, 0)
+
+        if clim is not None:
+            if isinstance(clim, (list, tuple)):
+                plotpy.clim(clim)
+            else:
+                plotpy.clim(clim, 0)
+
+        # revert y axis
+        axis = plotpy.gca()
+        axis.set_ylim(axis.get_ylim()[::-1])
+
+        return dasp.plot
+
 
 class filter:
 
