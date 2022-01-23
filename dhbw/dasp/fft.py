@@ -27,7 +27,7 @@ def window(name, size):
     raise Exception(f'Invalid or unsupported window "{name}"!')
 
 
-def transform(x, window='hanning'):
+def ft(x, window='hanning'):
     """Returns DFT of the specified real-valued array
        below the Nyquist frequency."""
 
@@ -50,7 +50,7 @@ def abs(x, y, db=True, **kwargs):
     sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
 
-    dft = dasp.fft.transform(y, **kwargs)
+    dft = dasp.fft.ft(y, **kwargs)
 
     freqs = numpy.linspace(0, sr / 2, len(dft))
     power = dasp.math.abs(dft, db=db)
@@ -66,7 +66,7 @@ def arg(x, y, unwrap=True, **kwargs):
     sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
 
-    dft = dasp.fft.transform(y, **kwargs)
+    dft = dasp.fft.ft(y, **kwargs)
 
     freqs = numpy.linspace(0, sr / 2, len(dft))
     phase = dasp.math.arg(dft, unwrap=unwrap)
@@ -107,7 +107,7 @@ def stft(x, y, s, t, window='hanning', wola=False, crop=True):
         frame = frame * w  # apply window
         frame = numpy.pad(frame, (dasp.math.pot(frame.size) - frame.size) // 2)  # pad left and right to pot
         frame = numpy.roll(frame, frame.size // 2)  # center frame data
-        frame = dasp.fft.transform(frame, window=None)  # compute dft without window
+        frame = dasp.fft.ft(frame, window=None)  # compute dft without window
         frames.append(frame)  # append to frame buffer
 
     hops = hops[:len(frames) - len(hops) if len(hops) > len(frames) else len(hops)]  # remove cropped hops
