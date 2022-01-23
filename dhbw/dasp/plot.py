@@ -176,7 +176,7 @@ class fft:
 
         return dasp.plot
 
-    def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, **kwargs):
+    def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, cmap='magma', **kwargs):
 
         def lim():
 
@@ -204,7 +204,7 @@ class fft:
         # prefer real coordinates to indices (left, right, bottom, top)
         extent = (numpy.min(t), numpy.max(t), numpy.min(f), numpy.max(f))
 
-        plotpy.imshow(s.T, aspect='auto', cmap='magma', extent=extent, interpolation='nearest', origin='lower')
+        plotpy.imshow(s.T, aspect='auto', cmap=cmap, extent=extent, interpolation='nearest', origin='lower')
         colorbar = plotpy.colorbar()
 
         plotpy.xlabel('s')
