@@ -178,8 +178,8 @@ class fft:
 
     def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, **kwargs):
 
-        s, t, f = dasp.fft.stft(x, y, s, t)
-        s = dasp.math.abs(s)
+        s, t, f = dasp.fft.stft(x, y, s, t, **kwargs)
+        s = dasp.math.abs(s, db=True)
 
         extent = [numpy.min(t), numpy.max(t), numpy.max(f), numpy.min(f)]
 
@@ -217,11 +217,9 @@ class fft:
 
 class filter:
 
-    def frequency(b, a, n=1024, sr=None):
+    def frequency(b, a, **kwargs):
 
-        sr = sr if sr is not None else dasp.SR
-
-        w, h = dasp.filter.frequency(b, a, n=n, sr=sr)
+        w, h = dasp.filter.frequency(b, a, **kwargs)
 
         plotpy.plot(w, dasp.math.abs(h, db=True))
         plotpy.xlabel('Frequency [Hz]')

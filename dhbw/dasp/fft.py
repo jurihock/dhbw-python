@@ -42,7 +42,7 @@ def ft(x, window='hanning'):
     return dft
 
 
-def abs(x, y, db=True, **kwargs):
+def abs(x, y, db=True, window='hanning'):
     """Returns DFT frequencies and corresponding absolute values
        of the specified timeline x and signal amplitudes y.
        Alternatively specify the sample rate instead of the timeline x."""
@@ -50,7 +50,7 @@ def abs(x, y, db=True, **kwargs):
     sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
 
-    dft = dasp.fft.ft(y, **kwargs)
+    dft = dasp.fft.ft(y, window=window)
 
     freqs = numpy.linspace(0, sr / 2, len(dft))
     power = dasp.math.abs(dft, db=db)
@@ -58,7 +58,7 @@ def abs(x, y, db=True, **kwargs):
     return freqs, power
 
 
-def arg(x, y, unwrap=True, **kwargs):
+def arg(x, y, unwrap=True, window='hanning'):
     """Returns DFT frequencies and corresponding angle values
        of the specified timeline x and signal amplitudes y.
        Alternatively specify the sample rate instead of the timeline x."""
@@ -66,7 +66,7 @@ def arg(x, y, unwrap=True, **kwargs):
     sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
 
-    dft = dasp.fft.ft(y, **kwargs)
+    dft = dasp.fft.ft(y, window=window)
 
     freqs = numpy.linspace(0, sr / 2, len(dft))
     phase = dasp.math.arg(dft, unwrap=unwrap)
