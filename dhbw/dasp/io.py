@@ -67,7 +67,7 @@ def read(path):
         Content of the .wav file.
     time : ndarray
         Corresponding timeline array.
-    fs : integer
+    sr : integer
         Sample rate in hertz.
     """
 
@@ -75,12 +75,12 @@ def read(path):
         path += '.wav'
 
     with wave.open(path, 'rb') as file:
-        fs = file.getframerate()
+        sr = file.getframerate()
         bytes = file.getsampwidth()
         channels = file.getnchannels()
         data = file.readframes(file.getnframes())
 
-    dasp.log.echo(f'Reading data from file {path} {dict(fs=fs, bytes=bytes, channels=channels, fn=len(data))}')
+    dasp.log.echo(f'Reading data from file {path} {dict(sr=sr, bytes=bytes, channels=channels, n=len(data))}')
 
     assert bytes in [1, 2, 3, 4]
     bits = bytes * 8
@@ -96,14 +96,14 @@ def read(path):
     data = (data + 0.5) / (scaler + 0.5)
     data = data.clip(-1, +1)
 
-    time = dasp.timeline(len(data) / fs, fs=fs)
+    time = dasp.timeline(len(data) / sr, sr=sr)
     data = data[:len(time), ...]
     data = data.flatten() if channels == 1 else data
 
-    return data, time, fs
+    return data, time, sr
 
 
-def write(path, data, fs=None, bits=24):
+def write(path, data, sr=None, bits=24):
     """
     Writes a .wav file.
 
@@ -113,13 +113,13 @@ def write(path, data, fs=None, bits=24):
         File path with or without the .wav extension.
     data : ndarray
         Content of the .wav file.
-    fs : integer, optional
+    sr : integer, optional
         Sample rate in hertz.
     bits : integer, optional
         Sample bitwidth.
     """
 
-    fs = fs if fs is not None else dasp.FS
+    sr = sr if sr is not None else dasp.SR
 
     if not path.lower().endswith('.wav'):
         path += '.wav'
@@ -155,10 +155,10 @@ def write(path, data, fs=None, bits=24):
         int(frame).to_bytes(length=bytes, signed=(bits != 8), byteorder=sys.byteorder)
         for frame in data])
 
-    dasp.log.echo(f'Writing data to file {path} {dict(fs=fs, bytes=bytes, channels=channels, fn=len(data))}')
+    dasp.log.echo(f'Writing data to file {path} {dict(sr=sr, bytes=bytes, channels=channels, n=len(data))}')
 
     with wave.open(path, 'wb') as file:
-        file.setframerate(fs)
+        file.setframerate(sr)
         file.setsampwidth(bytes)
         file.setnchannels(channels)
         file.writeframes(data)

@@ -47,12 +47,12 @@ def abs(x, y, db=True, **kwargs):
        of the specified timeline x and signal amplitudes y.
        Alternatively specify the sample rate instead of the timeline x."""
 
-    fs = x if numpy.isscalar(x) \
+    sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
 
     dft = dasp.fft.transform(y, **kwargs)
 
-    freqs = numpy.linspace(0, fs / 2, len(dft))
+    freqs = numpy.linspace(0, sr / 2, len(dft))
     power = dasp.math.abs(dft, db=db)
 
     return freqs, power
@@ -63,12 +63,12 @@ def arg(x, y, unwrap=True, **kwargs):
        of the specified timeline x and signal amplitudes y.
        Alternatively specify the sample rate instead of the timeline x."""
 
-    fs = x if numpy.isscalar(x) \
+    sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
 
     dft = dasp.fft.transform(y, **kwargs)
 
-    freqs = numpy.linspace(0, fs / 2, len(dft))
+    freqs = numpy.linspace(0, sr / 2, len(dft))
     phase = dasp.math.arg(dft, unwrap=unwrap)
 
     return freqs, phase
@@ -76,12 +76,12 @@ def arg(x, y, unwrap=True, **kwargs):
 
 def stft(x, y, s, t, window='hanning', wola=False, crop=True):
 
-    fs = x if numpy.isscalar(x) \
+    sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
 
     n = len(y)  # total input samples
-    s = int(s * fs)  # samples per hop
-    t = dasp.math.even(t * fs)  # samples per frame
+    s = int(s * sr)  # samples per hop
+    t = dasp.math.even(t * sr)  # samples per frame
     w = dasp.fft.window(window, t)  # window coefficients
 
     if wola:
@@ -112,8 +112,8 @@ def stft(x, y, s, t, window='hanning', wola=False, crop=True):
 
     hops = hops[:len(frames) - len(hops) if len(hops) > len(frames) else len(hops)]  # remove cropped hops
     frames = numpy.stack(frames)  # stack frames vertically (hop, dft)
-    timestamps = numpy.array([h / fs for h in hops])  # compute hop timestamps in seconds
-    frequencies = numpy.linspace(0, fs / 2, frames.shape[-1])  # compute dft frequencies
+    timestamps = numpy.array([h / sr for h in hops])  # compute hop timestamps in seconds
+    frequencies = numpy.linspace(0, sr / 2, frames.shape[-1])  # compute dft frequencies
 
     assert (timestamps.size == frames.shape[0])
     assert (frequencies.size == frames.shape[1])

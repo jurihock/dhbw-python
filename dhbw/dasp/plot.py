@@ -217,11 +217,11 @@ class fft:
 
 class filter:
 
-    def frequency(b, a, fs=None, fn=1024):
+    def frequency(b, a, n=1024, sr=None):
 
-        fs = fs if fs is not None else dasp.FS
+        sr = sr if sr is not None else dasp.SR
 
-        w, h = dasp.filter.frequency(b, a, fs=fs, fn=fn)
+        w, h = dasp.filter.frequency(b, a, n=n, sr=sr)
 
         plotpy.plot(w, dasp.math.abs(h, db=True))
         plotpy.xlabel('Frequency [Hz]')

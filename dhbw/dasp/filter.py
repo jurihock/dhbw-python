@@ -35,16 +35,16 @@ def response(b, a, n=10):
     return o
 
 
-def frequency(b, a, fs=None, fn=1024, log=False):
+def frequency(b, a, n=1024, sr=None, log=False):
     """Returns frequency response of the transfer function specified by b and a coefficients.
        See also: scipy.signal.freqz"""
 
-    fs = fs if fs is not None else dasp.FS
+    sr = sr if sr is not None else dasp.SR
 
-    # compute frequencies from 0 to pi or fs/2 but excluding the Nyquist frequency
-    w = numpy.linspace(0, numpy.pi, fn, endpoint=False) \
+    # compute frequencies from 0 to pi or sr/2 but excluding the Nyquist frequency
+    w = numpy.linspace(0, numpy.pi, n, endpoint=False) \
         if not log else \
-        numpy.logspace(numpy.log10(1), numpy.log10(numpy.pi), fn, endpoint=False, base=10)
+        numpy.logspace(numpy.log10(1), numpy.log10(numpy.pi), n, endpoint=False, base=10)
 
     # compute the z-domain transfer function
     z = numpy.exp(-1j * w)
@@ -52,7 +52,7 @@ def frequency(b, a, fs=None, fn=1024, log=False):
     y = numpy.polynomial.polynomial.polyval(z, b, tensor=False)
     h = y / x
 
-    # normalize frequencies according to fs
-    w = (w * fs) / (2 * numpy.pi)
+    # normalize frequencies according to sr
+    w = (w * sr) / (2 * numpy.pi)
 
     return w, h
