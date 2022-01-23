@@ -16,6 +16,12 @@ def show():
     return dasp.plot
 
 
+def tight():
+
+    plotpy.tight_layout()
+    return dasp.plot
+
+
 def figure(name=None):
 
     plotpy.figure(name)
