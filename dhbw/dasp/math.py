@@ -1,34 +1,6 @@
 import numpy
 
 
-def is_power_of_two(x):
-    """
-    Returns True if the specified number is power of two otherwise False.
-
-    Parameters
-    ----------
-    x : int
-        Input number.
-    """
-
-    assert isinstance(x, int)
-    return (x != 0) and (x & (x - 1) == 0)
-
-
-def next_power_of_two(x):
-    """
-    Returns power of two value next to the specified number.
-
-    Parameters
-    ----------
-    x : int
-        Input number.
-    """
-
-    assert isinstance(x, int)
-    return int(2 ** numpy.ceil(numpy.log2(x)))
-
-
 def abs(x, db=True):
     """
     Returns the absolute value of the specified complex number sequence.
@@ -59,3 +31,43 @@ def arg(x, unwrap=True):
 
     return numpy.unwrap(numpy.angle(x)) \
         if unwrap else numpy.angle(x)
+
+
+def even(x):
+    """
+    Returns even number next to the specified number.
+
+    Parameters
+    ----------
+    x : int, float
+        Input number.
+    """
+
+    return int(numpy.ceil(x / 2)) * 2
+
+
+def odd(x):
+    """
+    Returns odd number next to the specified number.
+
+    Parameters
+    ----------
+    x : int, float
+        Input number.
+    """
+
+    return int(numpy.ceil(x)) // 2 * 2 + 1
+
+
+def pot(x):
+    """
+    Returns power of two value next to the specified number.
+
+    Parameters
+    ----------
+    x : int
+        Input number.
+    """
+
+    assert isinstance(x, int)
+    return int(2 ** numpy.ceil(numpy.log2(x)))
