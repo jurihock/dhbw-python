@@ -24,3 +24,11 @@ def triangle(f, t):
 def chirp(f0, f1, t):
 
     return numpy.sin(2 * numpy.pi * ((t ** 2) * (f1 - f0) / 2) + t * f0)
+
+def overtones(f, n, t):
+
+    m = numpy.arange(1, n + 2)
+    a = 1 / m
+    o = [a[i - 1] * harmonic(f * i, t) for i in m]
+
+    return numpy.stack(o).sum(axis=0) / numpy.sum(a)
