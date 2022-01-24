@@ -2,6 +2,7 @@ from . import fft
 from . import filter
 from . import io
 from . import math
+from . import pitch
 from . import plot
 from . import signal
 
@@ -9,6 +10,7 @@ import click
 import numpy
 
 
+CP = 440    # default concert pitch in hertz
 SR = 44100  # default sample rate in hertz
 
 
