@@ -236,8 +236,8 @@ class fft:
                     plotpy.clim(clim)
                 else:
                     plotpy.clim(-clim, +clim)
-            # else:
-            #     plotpy.clim(-numpy.pi, +numpy.pi)
+            else:
+                plotpy.clim(-numpy.pi, +numpy.pi)
 
         s, t, f = dasp.fft.stft(x, y, s, t, **kwargs)
         s = dasp.math.arg(s, wrap=True)
