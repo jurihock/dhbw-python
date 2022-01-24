@@ -147,7 +147,7 @@ class fft:
                 if isinstance(ylim, (list, tuple)):
                     plotpy.ylim(ylim)
                 else:
-                    plotpy.ylim(ylim, 0)
+                    plotpy.ylim(+ylim, -ylim)
 
         assert x is not None
         assert y is not None
@@ -176,7 +176,7 @@ class fft:
 
         return dasp.plot
 
-    def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, cmap='magma', **kwargs):
+    def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, cmap='inferno', **kwargs):
 
         def lim():
 
@@ -210,6 +210,47 @@ class fft:
         plotpy.xlabel('s')
         plotpy.ylabel('Hz')
         colorbar.set_label('dB')
+
+        lim()
+
+        return dasp.plot
+
+    def phasogram(x, y, s, t, xlim=None, ylim=None, clim=None, cmap='twilight', **kwargs):
+
+        def lim():
+
+            if xlim is not None:
+                if isinstance(xlim, (list, tuple)):
+                    plotpy.xlim(xlim)
+                else:
+                    plotpy.xlim(0, xlim)
+
+            if ylim is not None:
+                if isinstance(ylim, (list, tuple)):
+                    plotpy.ylim(ylim)
+                else:
+                    plotpy.ylim(0, ylim)
+
+            if clim is not None:
+                if isinstance(clim, (list, tuple)):
+                    plotpy.clim(clim)
+                else:
+                    plotpy.clim(-clim, +clim)
+            # else:
+            #     plotpy.clim(-numpy.pi, +numpy.pi)
+
+        s, t, f = dasp.fft.stft(x, y, s, t, **kwargs)
+        s = dasp.math.arg(s, wrap=True)
+
+        # prefer real coordinates to indices (left, right, bottom, top)
+        extent = (numpy.min(t), numpy.max(t), numpy.min(f), numpy.max(f))
+
+        plotpy.imshow(s.T, aspect='auto', cmap=cmap, extent=extent, interpolation='nearest', origin='lower')
+        colorbar = plotpy.colorbar()
+
+        plotpy.xlabel('s')
+        plotpy.ylabel('Hz')
+        colorbar.set_label('rad')
 
         lim()
 

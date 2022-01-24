@@ -17,7 +17,7 @@ def abs(x, db=True):
         if db else numpy.abs(x)
 
 
-def arg(x, unwrap=True):
+def arg(x, wrap=None):
     """
     Returns the angle value of the specified complex number sequence.
 
@@ -25,12 +25,18 @@ def arg(x, unwrap=True):
     ----------
     x : array_like
         Input array.
-    unwrap : bool, optional
+    wrap : bool, optional
         Option whether to express the output values in 2*pi range.
     """
 
-    return numpy.unwrap(numpy.angle(x)) \
-        if unwrap else numpy.angle(x)
+    if wrap is None:
+        return numpy.angle(x)
+
+    if wrap:
+        # https://stackoverflow.com/questions/15927755
+        return (numpy.angle(x) + numpy.pi) % (2 * numpy.pi) - numpy.pi
+    else:
+        return numpy.unwrap(numpy.angle(x))
 
 
 def even(x):

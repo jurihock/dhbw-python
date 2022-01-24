@@ -37,7 +37,7 @@ def ft(x, window='hanning'):
     if window is not None:
         x = x * dasp.fft.window(window, n)
 
-    dft = numpy.fft.rfft(x, n=m)[:-1] / m  # skip nyquist and normalize
+    dft = numpy.fft.rfft(x, n=m)[1:] / m  # skip dc component and normalize
 
     return dft
 
@@ -58,7 +58,7 @@ def abs(x, y, db=True, window='hanning'):
     return freqs, power
 
 
-def arg(x, y, unwrap=True, window='hanning'):
+def arg(x, y, wrap=None, window='hanning'):
     """Returns DFT frequencies and corresponding angle values
        of the specified timeline x and signal amplitudes y.
        Alternatively specify the sample rate instead of the timeline x."""
@@ -69,7 +69,7 @@ def arg(x, y, unwrap=True, window='hanning'):
     dft = dasp.fft.ft(y, window=window)
 
     freqs = numpy.linspace(0, sr / 2, len(dft))
-    phase = dasp.math.arg(dft, unwrap=unwrap)
+    phase = dasp.math.arg(dft, wrap=wrap)
 
     return freqs, phase
 
@@ -80,9 +80,13 @@ def stft(x, y, s, t, window='hanning', wola=False, crop=True):
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
 
     n = len(y)  # total input samples
-    s = int(s * sr)  # samples per hop
+    s = max(1, int(s * sr))  # samples per hop
     t = dasp.math.even(t * sr)  # samples per frame
     w = dasp.fft.window(window, t)  # window coefficients
+
+    assert n > 0
+    assert s > 0
+    assert t > 0
 
     if wola:
         w /= numpy.sqrt(numpy.dot(w, w) / s)  # optionally prepare for wola
