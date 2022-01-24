@@ -68,7 +68,6 @@ def signal(x, y=None, xlim=None, ylim=1.1):
     elif isinstance(y, (list, tuple)):
         for i, v in enumerate(y):
             plotpy.gcf().add_subplot(len(y), 1, i + 1)
-            plotpy.plot(x, v)
             if x is not None:
                 plotpy.plot(x, v)
             else:
