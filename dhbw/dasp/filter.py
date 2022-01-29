@@ -99,7 +99,7 @@ def response(b, a, n=None, sr=None):
     return y, t
 
 
-def frequency(b, a, n=None, sr=None, log=False):
+def frequency(b, a, n=None, sr=None, norm=False, log=False):
     """
     Returns frequency response of the transfer function specified by b and a coefficients.
 
@@ -113,6 +113,8 @@ def frequency(b, a, n=None, sr=None, log=False):
         Optional number of samples.
     sr : int, float, optional
         Optional sample rate in hertz.
+    norm : bool
+        Option whether to normalize the output frequency response.
     log : bool
         Option whether to express the output frequency values logarithmically.
 
@@ -145,7 +147,10 @@ def frequency(b, a, n=None, sr=None, log=False):
     y = numpy.polynomial.polynomial.polyval(z, b, tensor=False)
     h = y / x
 
-    # normalize frequencies according to sr
+    # normalize frequency amplitudes
+    h /= len(h) if norm else 1
+
+    # normalize frequency values according to sr
     w = (w * sr) / (2 * numpy.pi)
 
     return h, w
