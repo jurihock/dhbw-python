@@ -7,7 +7,7 @@ def abs(x, db=True):
 
     Parameters
     ----------
-    x : array_like
+    x : array
         Input array.
     db : bool, optional
         Option whether to express the output values in decibels.
@@ -23,7 +23,7 @@ def arg(x, wrap=None):
 
     Parameters
     ----------
-    x : array_like
+    x : array
         Input array.
     wrap : bool, optional
         Option whether to express the output values in 2*pi range.
@@ -85,7 +85,7 @@ def rms(x):
 
     Parameters
     ----------
-    x : array_like
+    x : array
         Input array.
     """
 

@@ -5,8 +5,25 @@ from dhbw import dasp
 
 
 def poles(b, a):
-    """Returns poles of the transfer function specified by b and a coefficients.
-       See also: scipy.signal.tf2zpk"""
+    """
+    Returns poles of the transfer function specified by b and a coefficients.
+
+    Parameters
+    ----------
+    b : array
+        The numerator coefficient array.
+    a : array
+        The denominator coefficient array.
+
+    Returns
+    -------
+    p : array
+        Poles of the transfer function.
+
+    See also
+    --------
+        scipy.signal.tf2zpk
+    """
 
     a = numpy.array(a) / a[0]  # normalize by a0
     p = numpy.polynomial.polynomial.polyroots(a)
@@ -15,8 +32,25 @@ def poles(b, a):
 
 
 def zeros(b, a):
-    """Returns zeros of the transfer function specified by b and a coefficients.
-       See also: scipy.signal.tf2zpk"""
+    """
+    Returns zeros of the transfer function specified by b and a coefficients.
+
+    Parameters
+    ----------
+    b : array
+        The numerator coefficient array.
+    a : array
+        The denominator coefficient array.
+
+    Returns
+    -------
+    z : array
+        Zeros of the transfer function.
+
+    See also
+    --------
+        scipy.signal.tf2zpk
+    """
 
     b = numpy.array(b) / a[0]  # normalize by a0
     z = numpy.polynomial.polynomial.polyroots(b)
@@ -25,7 +59,31 @@ def zeros(b, a):
 
 
 def response(b, a, n=None, sr=None):
-    """Returns impulse response of the transfer function specified by b and a coefficients."""
+    """
+    Returns impulse response of the transfer function specified by b and a coefficients.
+
+    Parameters
+    ----------
+    b : array
+        The numerator coefficient array.
+    a : array
+        The denominator coefficient array.
+    n : int, optional
+        Optional number of samples.
+    sr : int, float, optional
+        Optional sample rate in hertz.
+
+    Returns
+    -------
+    y : array
+        Filter impulse response values.
+    t : array
+        Corresponding time values.
+
+    See also
+    --------
+        scipy.signal.lfilter
+    """
 
     assert isinstance(n, (int, type(None)))
     assert isinstance(sr, (int, float, type(None)))
@@ -42,8 +100,33 @@ def response(b, a, n=None, sr=None):
 
 
 def frequency(b, a, n=None, sr=None, log=False):
-    """Returns frequency response of the transfer function specified by b and a coefficients.
-       See also: scipy.signal.freqz"""
+    """
+    Returns frequency response of the transfer function specified by b and a coefficients.
+
+    Parameters
+    ----------
+    b : array
+        The numerator coefficient array.
+    a : array
+        The denominator coefficient array.
+    n : int, optional
+        Optional number of samples.
+    sr : int, float, optional
+        Optional sample rate in hertz.
+    log : bool
+        Option whether to express the output frequency values logarithmically.
+
+    Returns
+    -------
+    h : array
+        Filter frequency response values.
+    w : array
+        Corresponding frequency values.
+
+    See also
+    --------
+        scipy.signal.freqz
+    """
 
     assert isinstance(n, (int, type(None)))
     assert isinstance(sr, (int, float, type(None)))
