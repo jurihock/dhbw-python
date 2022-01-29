@@ -38,6 +38,9 @@ def chirp(f0, f1, t):
 
 def overtones(f, n, t):
 
+    assert isinstance(n, int)
+
+    n = numpy.abs(n)
     m = numpy.arange(1, n + 2)
     a = 1 / m
     o = [a[i - 1] * harmonic(f * i, t) for i in m]
