@@ -103,16 +103,16 @@ def chirp(f0, f1, t):
     return numpy.sin(2 * numpy.pi * ((t ** 2) * (f1 - f0) / 2) + t * f0)
 
 
-def noise(s, t):
+def noise(t, s=1):
     """
     Returns a random white noise based on the truncated normal distribution.
 
     Parameters
     ----------
-    s : float
-        Scale parameter between 0 and 1.
     t : array
         Timeline array.
+    s : float, optional
+        Scale parameter between 0 and 1.
     """
 
     a = -1 / s
