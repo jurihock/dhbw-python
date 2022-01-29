@@ -5,7 +5,19 @@ from dhbw import dasp
 
 
 def window(name, size):
-    """Returns coefficients of the specified window and size."""
+    """
+    Returns coefficients of the specified window and size.
+
+    Parameters
+    ----------
+    name : string
+        Window function name (rectangular, bartlett, blackman, hamming, hanning, kaiser).
+    size : int
+        Number of window coefficients to compute.
+    """
+
+    assert isinstance(name, str)
+    assert isinstance(size, int)
 
     if 'rectangular'.startswith(name.lower()):
         return numpy.ones(size)
@@ -28,9 +40,11 @@ def window(name, size):
     raise Exception(f'Invalid or unsupported window "{name}"!')
 
 
-def ft(x, window='hanning'):
-    """Returns normalized DFT of the specified real-valued array
-       but without DC component."""
+def ft(x, window='hanning', norm=True):
+    """
+    Returns normalized DFT of the specified real-valued array excluding the DC component,
+    so that the size of the resulting array will be exactly `dasp.math.pot(len(x)) / 2`.
+    """
 
     n = len(x)  # actual length
     m = dasp.math.pot(n)  # power of two length
@@ -39,27 +53,31 @@ def ft(x, window='hanning'):
         x = x * dasp.fft.window(window, n)
 
     y = numpy.fft.rfft(x, n=m)
-    y /= len(y)  # normalize
+    y /= len(y) if norm else 1  # normalize
     y = y[1:]  # skip dc component
 
     return y
 
 
-def ift(x):
-    """Returns IDFT of the specified complex-valued array
-       with inserted DC component."""
+def ift(x, norm=True):
+    """
+    Returns IDFT of the specified complex-valued array with inserted DC component.
+    """
 
     x = np.concatenate(([0 + 0j], x))  # prepend dc component skipped in ft
-    x *= len(x)  # denormalize
+    x *= len(x) if norm else 1  # denormalize
     y = numpy.fft.irfft(x)
 
     return y
 
 
 def abs(x, y, db=True, window='hanning'):
-    """Returns DFT frequencies and corresponding absolute values
-       of the specified timeline x and signal amplitudes y.
-       Alternatively specify the sample rate instead of the timeline x."""
+    """
+    Returns DFT frequencies and corresponding absolute values
+    of the specified timeline x and signal amplitudes y.
+
+    Alternatively specify the sample rate instead of the timeline x.
+    """
 
     sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
@@ -73,9 +91,12 @@ def abs(x, y, db=True, window='hanning'):
 
 
 def arg(x, y, wrap=None, window='hanning'):
-    """Returns DFT frequencies and corresponding angle values
-       of the specified timeline x and signal amplitudes y.
-       Alternatively specify the sample rate instead of the timeline x."""
+    """
+    Returns DFT frequencies and corresponding angle values
+    of the specified timeline x and signal amplitudes y.
+
+    Alternatively specify the sample rate instead of the timeline x.
+    """
 
     sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
