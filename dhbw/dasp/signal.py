@@ -1,9 +1,15 @@
 import numpy
+import scipy.stats
 
 
-def noise(t):
+def noise(s, t):
 
-    return numpy.random.uniform(-1, +1, len(t))
+    a = -1 / s
+    b = +1 / s
+    n = len(t)
+
+    crv = scipy.stats.truncnorm(a, b, loc=0, scale=s)
+    return crv.rvs(n)
 
 
 def harmonic(f, t):
