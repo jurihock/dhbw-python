@@ -127,6 +127,7 @@ class fft:
             f, a = dasp.fft.abs(x, y, **kwargs)
             plotpy.plot(f, a)
             plotpy.ylabel('dB')
+            lim()
 
         plotpy.xlabel('Hz')
 
@@ -170,6 +171,7 @@ class fft:
             f, a = dasp.fft.arg(x, y, **kwargs)
             plotpy.plot(f, a)
             plotpy.ylabel('rad')
+            lim()
 
         plotpy.xlabel('Hz')
 
