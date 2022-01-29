@@ -77,3 +77,16 @@ def pot(x):
 
     assert isinstance(x, int)
     return int(2 ** numpy.ceil(numpy.log2(x)))
+
+
+def rms(x):
+    """
+    Returns Root Mean Square value of the specified number sequence.
+
+    Parameters
+    ----------
+    x : array_like
+        Input array.
+    """
+
+    return numpy.sqrt(numpy.mean(x**2))
