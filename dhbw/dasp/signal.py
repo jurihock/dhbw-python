@@ -1,6 +1,11 @@
 import numpy
 
 
+def noise(t):
+
+    return numpy.random.uniform(-1, +1, len(t))
+
+
 def harmonic(f, t):
 
     return numpy.sin(2 * numpy.pi * f * t)
