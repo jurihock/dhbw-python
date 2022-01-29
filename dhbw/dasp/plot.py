@@ -260,13 +260,23 @@ class fft:
 
 class filter:
 
+    def response(b, a, **kwargs):
+
+        y, x = dasp.filter.response(b, a, **kwargs)
+
+        plotpy.plot(x, y)
+        plotpy.xlabel('s')
+        plotpy.ylabel('')
+
+        return dasp.plot
+
     def frequency(b, a, **kwargs):
 
-        w, h = dasp.filter.frequency(b, a, **kwargs)
+        y, x = dasp.filter.frequency(b, a, **kwargs)
 
-        plotpy.plot(w, dasp.math.abs(h, db=True))
-        plotpy.xlabel('Frequency [Hz]')
-        plotpy.ylabel('Response [dB]')
+        plotpy.plot(x, dasp.math.abs(y, db=True))
+        plotpy.xlabel('Hz')
+        plotpy.ylabel('dB')
 
         return dasp.plot
 
