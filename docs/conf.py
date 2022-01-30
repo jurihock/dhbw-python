@@ -40,5 +40,10 @@ exclude_patterns = [
     '.DS_Store',
 ]
 
-html_theme = 'sphinx_rtd_theme'
 html_baseurl = '/docs/html/'
+
+html_theme_options = {
+    'canonical_url': '/docs/html/',
+}
+
+html_theme = 'sphinx_rtd_theme'
