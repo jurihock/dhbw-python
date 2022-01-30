@@ -40,7 +40,5 @@ exclude_patterns = [
     '.DS_Store',
 ]
 
+html_title = f'{project} docs'
 html_theme = 'sphinx_rtd_theme'
-
-# see workaround in the makefile
-# html_baseurl = '/docs/html/'

@@ -1,13 +1,14 @@
 BASEURL = \/docs\/html\/
 
-.PHONY: help boot build docs install install-test reinstall uninstall upload upload-test which
+.PHONY: help boot build docs docs-fix install install-test reinstall uninstall upload upload-test which
 
 help:
-	@echo boot build docs install install-test reinstall uninstall upload upload-test which
+	@echo boot build docs docs-fix install install-test reinstall uninstall upload upload-test which
 
 boot:
-	@python -m pip install --upgrade build
-	@python -m pip install --upgrade twine
+	@pip install --upgrade build
+	@pip install --upgrade twine
+	@pip install --upgrade sphinx-rtd-theme
 
 build:
 	@rm -rf dist
@@ -19,6 +20,8 @@ docs:
 	@rm -rf docs/html
 	@sphinx-apidoc -o docs --tocfile index --separate --force .
 	@sphinx-build -M html docs docs
+
+docs-fix:
 	@find docs/html -type f -name '*.html' -exec sed -i '' 's/data-url_root=".\/"/data-url_root="$(BASEURL)"/g' {} \;
 	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="dhbw/href="$(BASEURL)dhbw/g' {} \;
 	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="genindex/href="$(BASEURL)genindex/g' {} \;
@@ -33,7 +36,7 @@ install:
 	@pip install dhbw
 
 install-test:
-	@python -m pip install --index-url https://test.pypi.org/simple/ --no-deps dhbw
+	@pip install --index-url https://test.pypi.org/simple/ --no-deps dhbw
 
 reinstall:
 	@pip uninstall -y dhbw
