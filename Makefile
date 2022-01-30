@@ -1,3 +1,5 @@
+BASEURL = \/docs\/html\/
+
 .PHONY: help boot build docs install install-test reinstall uninstall upload upload-test which
 
 help:
@@ -17,6 +19,15 @@ docs:
 	@rm -rf docs/html
 	@sphinx-apidoc -o docs --tocfile index --separate --force .
 	@sphinx-build -M html docs docs
+	@find docs/html -type f -name '*.html' -exec sed -i '' 's/data-url_root=".\/"/data-url_root="$(BASEURL)"/g' {} \;
+	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="dhbw/href="$(BASEURL)dhbw/g' {} \;
+	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="genindex/href="$(BASEURL)genindex/g' {} \;
+	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="index/href="$(BASEURL)index/g' {} \;
+	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="py-modindex/href="$(BASEURL)py-modindex/g' {} \;
+	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="search/href="$(BASEURL)search/g' {} \;
+	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="_static/href="$(BASEURL)_static/g' {} \;
+	@find docs/html -type f -name '*.html' -exec sed -i '' 's/src="_static/src="$(BASEURL)_static/g' {} \;
+	@find docs/html -type f -name '*.html' -exec sed -i '' 's/"searchindex.js"/"$(BASEURL)searchindex.js"/g' {} \;
 
 install:
 	@pip install dhbw
