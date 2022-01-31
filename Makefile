@@ -1,4 +1,4 @@
-HTML = docs/html -type f -name '*.html' -exec sed -i ''
+HTML = docs/html -type f -name '*.html'
 ROOT = \/docs\/html\/
 DOTS = \.\.\/
 DOT = \.\/
@@ -35,21 +35,21 @@ docs:
 	@sphinx-build -M html docs docs
 
 docs-fix:
-	@find $(HTML) 's|href="dhbw|href="$(ROOT)dhbw|g' {} \;
-	@find $(HTML) 's|href="genindex|href="$(ROOT)genindex|g' {} \;
-	@find $(HTML) 's|href="index|href="$(ROOT)index|g' {} \;
-	@find $(HTML) 's|href="py-modindex|href="$(ROOT)py-modindex|g' {} \;
-	@find $(HTML) 's|href="search|href="$(ROOT)search|g' {} \;
-	@find $(HTML) 's|href="_modules|href="$(ROOT)_modules|g' {} \;
-	@find $(HTML) 's|href="_static|href="$(ROOT)_static|g' {} \;
-	@find $(HTML) 's|src="_static|src="$(ROOT)_static|g' {} \;
-	@find $(HTML) 's|"searchindex.js"|"$(ROOT)searchindex.js"|g' {} \;
-	@find $(HTML) 's|$(DOTS)$(DOTS)$(DOTS)$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
-	@find $(HTML) 's|$(DOTS)$(DOTS)$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
-	@find $(HTML) 's|$(DOTS)$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
-	@find $(HTML) 's|$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
-	@find $(HTML) 's|$(DOTS)|$(ROOT)|g' {} \;
-	@find $(HTML) 's|"$(DOT)"|"$(ROOT)"|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|href="dhbw|href="$(ROOT)dhbw|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|href="genindex|href="$(ROOT)genindex|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|href="index|href="$(ROOT)index|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|href="py-modindex|href="$(ROOT)py-modindex|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|href="search|href="$(ROOT)search|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|href="_modules|href="$(ROOT)_modules|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|href="_static|href="$(ROOT)_static|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|src="_static|src="$(ROOT)_static|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|"searchindex.js"|"$(ROOT)searchindex.js"|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|$(DOTS)$(DOTS)$(DOTS)$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|$(DOTS)$(DOTS)$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|$(DOTS)$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|$(DOTS)|$(ROOT)|g' {} \;
+	@find $(HTML) -exec sed -i '' 's|"$(DOT)"|"$(ROOT)"|g' {} \;
 
 install:
 	@python -m pip install dhbw
