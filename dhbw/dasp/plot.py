@@ -1,3 +1,8 @@
+"""
+Collection of plot functions.
+Each function returns an instance of this module.
+"""
+
 import matplotlib.pyplot as plotpy
 import numpy
 import sys
@@ -6,36 +11,64 @@ from dhbw import dasp
 
 
 def exit():
+    """
+    Exit from Python.
+    """
 
     sys.exit()
 
 
-def show():
+def show(*args, **kwargs):
+    """
+     Display all open figures.
+    """
 
-    plotpy.show()
+    plotpy.show(*args, **kwargs)
     return dasp.plot
 
 
-def tight():
+def tight(*args, **kwargs):
+    """
+    Adjust the padding between and around subplots.
+    """
 
-    plotpy.tight_layout()
+    plotpy.tight_layout(*args, **kwargs)
     return dasp.plot
 
 
-def figure(name=None):
+def figure(*args, **kwargs):
+    """
+    Create a new figure.
+    """
 
-    plotpy.figure(name)
+    plotpy.figure(*args, **kwargs)
     return dasp.plot
 
 
 def plot(*args, **kwargs):
+    """
+    Plot y versus x.
+    """
 
     plotpy.plot(*args, **kwargs)
-
     return dasp.plot
 
 
 def signal(x, y=None, xlim=None, ylim=1.1):
+    """
+    Plot one or multiple audio signals.
+
+    Parameters
+    ----------
+    x : array or same as y
+        Timeline array if y is not None.
+    y : array, tuple or list of arrays, optional
+        Audio signal(s) to plot, e.g. mono (y) or stereo (y0, y1).
+    xlim : float, tuple, optional
+        Time limits.
+    ylim : float, tuple, optional
+        Amplitude limits.
+    """
 
     def lim():
 
@@ -90,6 +123,20 @@ def signal(x, y=None, xlim=None, ylim=1.1):
 class fft:
 
     def abs(x, y, xlim=None, ylim=-120, **kwargs):
+        """
+        Plot DFT amplitude of the audio signal.
+
+        Parameters
+        ----------
+        x : array
+            Timeline array.
+        y : array
+            Signal amplitude array.
+        xlim : float, tuple, optional
+            Frequency limits in Hz.
+        ylim : float, tuple, optional
+            DFT amplitude limits in dB.
+        """
 
         def lim():
 
@@ -134,6 +181,20 @@ class fft:
         return dasp.plot
 
     def arg(x, y, xlim=None, ylim=None, **kwargs):
+        """
+        Plot DFT phase of the audio signal.
+
+        Parameters
+        ----------
+        x : array
+            Timeline array.
+        y : array
+            Signal amplitude array.
+        xlim : float, tuple, optional
+            Frequency limits in Hz.
+        ylim : float, tuple, optional
+            DFT phase value limits.
+        """
 
         def lim():
 
@@ -178,6 +239,28 @@ class fft:
         return dasp.plot
 
     def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, cmap='inferno', **kwargs):
+        """
+        Plot STFT amplitude of the audio signal.
+
+        Parameters
+        ----------
+        x : array
+            Timeline array.
+        y : array
+            Signal amplitude array.
+        s : float
+            STFT step size in seconds.
+        t : float
+            STFT time span in seconds.
+        xlim : float, tuple, optional
+            Time limits.
+        ylim : float, tuple, optional
+            STFT frequency limits in Hz.
+        clim : float, tuple, optional
+            STFT amplitude limits in dB.
+        cmap : str, optional
+            Plot color map.
+        """
 
         def lim():
 
@@ -217,6 +300,28 @@ class fft:
         return dasp.plot
 
     def phasogram(x, y, s, t, xlim=None, ylim=None, clim=None, cmap='twilight', **kwargs):
+        """
+        Plot STFT phase of the audio signal.
+
+        Parameters
+        ----------
+        x : array
+            Timeline array.
+        y : array
+            Signal amplitude array.
+        s : float
+            STFT step size in seconds.
+        t : float
+            STFT time span in seconds.
+        xlim : float, tuple, optional
+            Time limits.
+        ylim : float, tuple, optional
+            STFT frequency limits in Hz.
+        clim : float, tuple, optional
+            STFT phase value limits in dB.
+        cmap : str, optional
+            Plot color map.
+        """
 
         def lim():
 
@@ -261,6 +366,16 @@ class fft:
 class filter:
 
     def response(b, a, **kwargs):
+        """
+        Plot impulse response of the transfer function specified by b and a coefficients.
+
+        Parameters
+        ----------
+        b : array
+            The numerator coefficient array.
+        a : array
+            The denominator coefficient array.
+        """
 
         y, x = dasp.filter.response(b, a, **kwargs)
 
@@ -271,6 +386,16 @@ class filter:
         return dasp.plot
 
     def frequency(b, a, **kwargs):
+        """
+        Plot frequency response of the transfer function specified by b and a coefficients.
+
+        Parameters
+        ----------
+        b : array
+            The numerator coefficient array.
+        a : array
+            The denominator coefficient array.
+        """
 
         y, x = dasp.filter.frequency(b, a, **kwargs)
 
@@ -281,6 +406,16 @@ class filter:
         return dasp.plot
 
     def poleszeros(b, a):
+        """
+        Plot poles and zeros in Z plane for the transfer function specified by b and a coefficients.
+
+        Parameters
+        ----------
+        b : array
+            The numerator coefficient array.
+        a : array
+            The denominator coefficient array.
+        """
 
         # https://gist.github.com/endolith/4625838
 

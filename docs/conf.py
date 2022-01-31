@@ -42,6 +42,8 @@ exclude_patterns = [
     '.DS_Store',
 ]
 
+numpydoc_show_class_members = False
+
 html_title = f'{project} docs'
 html_theme = 'sphinx_rtd_theme'
 
