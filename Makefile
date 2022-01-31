@@ -1,4 +1,5 @@
-BASEURL = \/docs\/html\/
+HTML = docs/html -type f -name '*.html' -exec sed -i ''
+ROOT = \/docs\/html\/
 DOTS = \.\.\/
 DOT = \.\/
 
@@ -34,21 +35,21 @@ docs:
 	@sphinx-build -M html docs docs
 
 docs-fix:
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|href="dhbw|href="$(BASEURL)dhbw|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|href="genindex|href="$(BASEURL)genindex|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|href="index|href="$(BASEURL)index|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|href="py-modindex|href="$(BASEURL)py-modindex|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|href="search|href="$(BASEURL)search|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|href="_modules|href="$(BASEURL)_modules|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|href="_static|href="$(BASEURL)_static|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|src="_static|src="$(BASEURL)_static|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|"searchindex.js"|"$(BASEURL)searchindex.js"|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|$(DOTS)$(DOTS)$(DOTS)$(DOTS)$(DOTS)|$(BASEURL)|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|$(DOTS)$(DOTS)$(DOTS)$(DOTS)|$(BASEURL)|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|$(DOTS)$(DOTS)$(DOTS)|$(BASEURL)|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|$(DOTS)$(DOTS)|$(BASEURL)|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|$(DOTS)|$(BASEURL)|g' {} \;
-	@find docs/html -type f -name '*.html' -exec sed -i '' 's|"$(DOT)"|"$(BASEURL)"|g' {} \;
+	@find $(HTML) 's|href="dhbw|href="$(ROOT)dhbw|g' {} \;
+	@find $(HTML) 's|href="genindex|href="$(ROOT)genindex|g' {} \;
+	@find $(HTML) 's|href="index|href="$(ROOT)index|g' {} \;
+	@find $(HTML) 's|href="py-modindex|href="$(ROOT)py-modindex|g' {} \;
+	@find $(HTML) 's|href="search|href="$(ROOT)search|g' {} \;
+	@find $(HTML) 's|href="_modules|href="$(ROOT)_modules|g' {} \;
+	@find $(HTML) 's|href="_static|href="$(ROOT)_static|g' {} \;
+	@find $(HTML) 's|src="_static|src="$(ROOT)_static|g' {} \;
+	@find $(HTML) 's|"searchindex.js"|"$(ROOT)searchindex.js"|g' {} \;
+	@find $(HTML) 's|$(DOTS)$(DOTS)$(DOTS)$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
+	@find $(HTML) 's|$(DOTS)$(DOTS)$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
+	@find $(HTML) 's|$(DOTS)$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
+	@find $(HTML) 's|$(DOTS)$(DOTS)|$(ROOT)|g' {} \;
+	@find $(HTML) 's|$(DOTS)|$(ROOT)|g' {} \;
+	@find $(HTML) 's|"$(DOT)"|"$(ROOT)"|g' {} \;
 
 install:
 	@python -m pip install dhbw

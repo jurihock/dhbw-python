@@ -1,4 +1,5 @@
 import datetime
+import markdown
 import os
 import sphinx_rtd_theme
 import sys
@@ -43,3 +44,10 @@ exclude_patterns = [
 
 html_title = f'{project} docs'
 html_theme = 'sphinx_rtd_theme'
+
+with open(os.path.join('..', 'README.md'), 'r') as file:
+    text = file.read()
+    html = markdown.markdown(text)
+
+with open(os.path.join('..', 'index.html'), 'w') as file:
+    file.write(html)
