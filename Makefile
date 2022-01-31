@@ -28,6 +28,7 @@ docs-fix:
 	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="index/href="$(BASEURL)index/g' {} \;
 	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="py-modindex/href="$(BASEURL)py-modindex/g' {} \;
 	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="search/href="$(BASEURL)search/g' {} \;
+	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="_modules/href="$(BASEURL)_modules/g' {} \;
 	@find docs/html -type f -name '*.html' -exec sed -i '' 's/href="_static/href="$(BASEURL)_static/g' {} \;
 	@find docs/html -type f -name '*.html' -exec sed -i '' 's/src="_static/src="$(BASEURL)_static/g' {} \;
 	@find docs/html -type f -name '*.html' -exec sed -i '' 's/"searchindex.js"/"$(BASEURL)searchindex.js"/g' {} \;
