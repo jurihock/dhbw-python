@@ -281,7 +281,8 @@ class filter:
         return dasp.plot
 
     def poleszeros(b, a):
-        """See also: https://gist.github.com/endolith/4625838"""
+
+        # https://gist.github.com/endolith/4625838
 
         p = dasp.filter.poles(b, a)
         z = dasp.filter.zeros(b, a)

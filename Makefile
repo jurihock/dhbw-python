@@ -21,6 +21,7 @@ help:
 boot:
 	@python -m pip install --upgrade build
 	@python -m pip install --upgrade twine
+	@python -m pip install --upgrade numpydoc
 	@python -m pip install --upgrade sphinx-rtd-theme
 
 build:

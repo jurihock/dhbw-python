@@ -84,92 +84,128 @@
 <dt class="sig sig-object py" id="dhbw.dasp.filter.frequency">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.filter.</span></span><span class="sig-name descname"><span class="pre">frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/filter.html#frequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.filter.frequency" title="Permalink to this definition"></a></dt>
 <dd><p>Returns frequency response of the transfer function specified by b and a coefficients.</p>
-<dl class="simple">
-<dt>b<span class="classifier">array</span></dt><dd><p>The numerator coefficient array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>b</strong><span class="classifier">array</span></dt><dd><p>The numerator coefficient array.</p>
 </dd>
-<dt>a<span class="classifier">array</span></dt><dd><p>The denominator coefficient array.</p>
+<dt><strong>a</strong><span class="classifier">array</span></dt><dd><p>The denominator coefficient array.</p>
 </dd>
-<dt>n<span class="classifier">int, optional</span></dt><dd><p>Optional number of samples.</p>
+<dt><strong>n</strong><span class="classifier">int, optional</span></dt><dd><p>Optional number of samples.</p>
 </dd>
-<dt>sr<span class="classifier">int, float, optional</span></dt><dd><p>Optional sample rate in hertz.</p>
+<dt><strong>sr</strong><span class="classifier">int, float, optional</span></dt><dd><p>Optional sample rate in hertz.</p>
 </dd>
-<dt>norm<span class="classifier">bool</span></dt><dd><p>Option whether to normalize the output frequency response.</p>
+<dt><strong>norm</strong><span class="classifier">bool</span></dt><dd><p>Option whether to normalize the output frequency response.</p>
 </dd>
-<dt>log<span class="classifier">bool</span></dt><dd><p>Option whether to express the output frequency values logarithmically.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>h<span class="classifier">array</span></dt><dd><p>Filter frequency response values.</p>
-</dd>
-<dt>w<span class="classifier">array</span></dt><dd><p>Corresponding frequency values.</p>
+<dt><strong>log</strong><span class="classifier">bool</span></dt><dd><p>Option whether to express the output frequency values logarithmically.</p>
 </dd>
 </dl>
-<blockquote>
-<div><p>scipy.signal.freqz</p>
-</div></blockquote>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>h</strong><span class="classifier">array</span></dt><dd><p>Filter frequency response values.</p>
+</dd>
+<dt><strong>w</strong><span class="classifier">array</span></dt><dd><p>Corresponding frequency values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.freqz</span></code></dt><dd></dd>
+</dl>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.filter.poles">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.filter.</span></span><span class="sig-name descname"><span class="pre">poles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/filter.html#poles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.filter.poles" title="Permalink to this definition"></a></dt>
 <dd><p>Returns poles of the transfer function specified by b and a coefficients.</p>
-<dl class="simple">
-<dt>b<span class="classifier">array</span></dt><dd><p>The numerator coefficient array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>b</strong><span class="classifier">array</span></dt><dd><p>The numerator coefficient array.</p>
 </dd>
-<dt>a<span class="classifier">array</span></dt><dd><p>The denominator coefficient array.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>p<span class="classifier">array</span></dt><dd><p>Poles of the transfer function.</p>
+<dt><strong>a</strong><span class="classifier">array</span></dt><dd><p>The denominator coefficient array.</p>
 </dd>
 </dl>
-<blockquote>
-<div><p>scipy.signal.tf2zpk</p>
-</div></blockquote>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>p</strong><span class="classifier">array</span></dt><dd><p>Poles of the transfer function.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.tf2zpk</span></code></dt><dd></dd>
+</dl>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.filter.response">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.filter.</span></span><span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/filter.html#response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.filter.response" title="Permalink to this definition"></a></dt>
 <dd><p>Returns impulse response of the transfer function specified by b and a coefficients.</p>
-<dl class="simple">
-<dt>b<span class="classifier">array</span></dt><dd><p>The numerator coefficient array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>b</strong><span class="classifier">array</span></dt><dd><p>The numerator coefficient array.</p>
 </dd>
-<dt>a<span class="classifier">array</span></dt><dd><p>The denominator coefficient array.</p>
+<dt><strong>a</strong><span class="classifier">array</span></dt><dd><p>The denominator coefficient array.</p>
 </dd>
-<dt>n<span class="classifier">int, optional</span></dt><dd><p>Optional number of samples.</p>
+<dt><strong>n</strong><span class="classifier">int, optional</span></dt><dd><p>Optional number of samples.</p>
 </dd>
-<dt>sr<span class="classifier">int, float, optional</span></dt><dd><p>Optional sample rate in hertz.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>y<span class="classifier">array</span></dt><dd><p>Filter impulse response values.</p>
-</dd>
-<dt>t<span class="classifier">array</span></dt><dd><p>Corresponding time values.</p>
+<dt><strong>sr</strong><span class="classifier">int, float, optional</span></dt><dd><p>Optional sample rate in hertz.</p>
 </dd>
 </dl>
-<blockquote>
-<div><p>scipy.signal.lfilter</p>
-</div></blockquote>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Filter impulse response values.</p>
+</dd>
+<dt><strong>t</strong><span class="classifier">array</span></dt><dd><p>Corresponding time values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.lfilter</span></code></dt><dd></dd>
+</dl>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.filter.zeros">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.filter.</span></span><span class="sig-name descname"><span class="pre">zeros</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/filter.html#zeros"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.filter.zeros" title="Permalink to this definition"></a></dt>
 <dd><p>Returns zeros of the transfer function specified by b and a coefficients.</p>
-<dl class="simple">
-<dt>b<span class="classifier">array</span></dt><dd><p>The numerator coefficient array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>b</strong><span class="classifier">array</span></dt><dd><p>The numerator coefficient array.</p>
 </dd>
-<dt>a<span class="classifier">array</span></dt><dd><p>The denominator coefficient array.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>z<span class="classifier">array</span></dt><dd><p>Zeros of the transfer function.</p>
+<dt><strong>a</strong><span class="classifier">array</span></dt><dd><p>The denominator coefficient array.</p>
 </dd>
 </dl>
-<blockquote>
-<div><p>scipy.signal.tf2zpk</p>
-</div></blockquote>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>z</strong><span class="classifier">array</span></dt><dd><p>Zeros of the transfer function.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.tf2zpk</span></code></dt><dd></dd>
+</dl>
+</div>
 </dd></dl>
 
 </section>

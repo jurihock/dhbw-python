@@ -84,14 +84,18 @@
 <dt class="sig sig-object py" id="dhbw.dasp.io.open">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'audacity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.open" title="Permalink to this definition"></a></dt>
 <dd><p>Executes custom command with specified .wav file path as an argument.</p>
-<dl class="simple">
-<dt>path<span class="classifier">string</span></dt><dd><p>File path with or without the .wav extension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">string</span></dt><dd><p>File path with or without the .wav extension.</p>
 </dd>
-<dt>cmd<span class="classifier">string</span></dt><dd><p>Command to execute, e.g. audacity (<a class="reference external" href="https://www.audacityteam.org">https://www.audacityteam.org</a>).</p>
+<dt><strong>cmd</strong><span class="classifier">string</span></dt><dd><p>Command to execute, e.g. audacity (<a class="reference external" href="https://www.audacityteam.org">https://www.audacityteam.org</a>).</p>
 </dd>
-<dt>shell<span class="classifier">bool</span></dt><dd><p>If true, the command will be executed through the shell.</p>
+<dt><strong>shell</strong><span class="classifier">bool</span></dt><dd><p>If true, the command will be executed through the shell.</p>
 </dd>
-<dt>wait<span class="classifier">bool</span></dt><dd><p>If true, wait for child process to terminate.</p>
+<dt><strong>wait</strong><span class="classifier">bool</span></dt><dd><p>If true, wait for child process to terminate.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -100,14 +104,18 @@
 <dt class="sig sig-object py" id="dhbw.dasp.io.play">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'play'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#play"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.play" title="Permalink to this definition"></a></dt>
 <dd><p>Executes custom command with specified .wav file path as an argument.</p>
-<dl class="simple">
-<dt>path<span class="classifier">string</span></dt><dd><p>File path with or without the .wav extension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">string</span></dt><dd><p>File path with or without the .wav extension.</p>
 </dd>
-<dt>cmd<span class="classifier">string</span></dt><dd><p>Command to execute, e.g. play (<a class="reference external" href="http://sox.sourceforge.net">http://sox.sourceforge.net</a>).</p>
+<dt><strong>cmd</strong><span class="classifier">string</span></dt><dd><p>Command to execute, e.g. play (<a class="reference external" href="http://sox.sourceforge.net">http://sox.sourceforge.net</a>).</p>
 </dd>
-<dt>shell<span class="classifier">bool</span></dt><dd><p>If true, the command will be executed through the shell.</p>
+<dt><strong>shell</strong><span class="classifier">bool</span></dt><dd><p>If true, the command will be executed through the shell.</p>
 </dd>
-<dt>wait<span class="classifier">bool</span></dt><dd><p>If true, wait for child process to terminate.</p>
+<dt><strong>wait</strong><span class="classifier">bool</span></dt><dd><p>If true, wait for child process to terminate.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -116,16 +124,22 @@
 <dt class="sig sig-object py" id="dhbw.dasp.io.read">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.read" title="Permalink to this definition"></a></dt>
 <dd><p>Reads a .wav file.</p>
-<dl class="simple">
-<dt>path<span class="classifier">string</span></dt><dd><p>File path with or without the .wav extension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">string</span></dt><dd><p>File path with or without the .wav extension.</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt>data<span class="classifier">ndarray</span></dt><dd><p>Content of the .wav file.</p>
 </dd>
-<dt>time<span class="classifier">ndarray</span></dt><dd><p>Corresponding timeline array.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">ndarray</span></dt><dd><p>Content of the .wav file.</p>
 </dd>
-<dt>sr<span class="classifier">integer</span></dt><dd><p>Sample rate in hertz.</p>
+<dt><strong>time</strong><span class="classifier">ndarray</span></dt><dd><p>Corresponding timeline array.</p>
+</dd>
+<dt><strong>sr</strong><span class="classifier">integer</span></dt><dd><p>Sample rate in hertz.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -134,14 +148,18 @@
 <dt class="sig sig-object py" id="dhbw.dasp.io.write">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">24</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.write" title="Permalink to this definition"></a></dt>
 <dd><p>Writes a .wav file.</p>
-<dl class="simple">
-<dt>path<span class="classifier">string</span></dt><dd><p>File path with or without the .wav extension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">string</span></dt><dd><p>File path with or without the .wav extension.</p>
 </dd>
-<dt>data<span class="classifier">ndarray</span></dt><dd><p>Content of the .wav file.</p>
+<dt><strong>data</strong><span class="classifier">ndarray</span></dt><dd><p>Content of the .wav file.</p>
 </dd>
-<dt>sr<span class="classifier">integer, optional</span></dt><dd><p>Sample rate in hertz.</p>
+<dt><strong>sr</strong><span class="classifier">integer, optional</span></dt><dd><p>Sample rate in hertz.</p>
 </dd>
-<dt>bits<span class="classifier">integer, optional</span></dt><dd><p>Sample bitwidth.</p>
+<dt><strong>bits</strong><span class="classifier">integer, optional</span></dt><dd><p>Sample bitwidth.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>

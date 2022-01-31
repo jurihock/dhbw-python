@@ -1,7 +1,6 @@
 import datetime
 import markdown
 import os
-import sphinx_rtd_theme
 import sys
 
 sys.path.insert(0, os.path.abspath('..'))
@@ -26,6 +25,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx_rtd_theme',
+    'numpydoc',
 ]
 
 autodoc_mock_imports = [

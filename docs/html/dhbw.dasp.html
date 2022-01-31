@@ -100,6 +100,18 @@
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dhbw.dasp.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp.html#log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.log" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Basic logger for package internal purposes.</p>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 56%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>echo</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <dl class="py method">
 <dt class="sig sig-object py" id="dhbw.dasp.log.echo">
 <span class="sig-name descname"><span class="pre">echo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp.html#log.echo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.log.echo" title="Permalink to this definition"></a></dt>
@@ -118,10 +130,14 @@
 <dd><p>Returns an array of numbers representing a
 discrete timeline of the specified duration in seconds
 and sample rate in hertz which defaults to 44100 Hz.</p>
-<dl class="simple">
-<dt>duration<span class="classifier">int, float</span></dt><dd><p>Total timeline length in seconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>duration</strong><span class="classifier">int, float</span></dt><dd><p>Total timeline length in seconds.</p>
 </dd>
-<dt>sr<span class="classifier">int, float, optional</span></dt><dd><p>Sample rate in hertz.</p>
+<dt><strong>sr</strong><span class="classifier">int, float, optional</span></dt><dd><p>Sample rate in hertz.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
