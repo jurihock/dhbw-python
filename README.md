@@ -18,4 +18,4 @@ Use:
 
 Discover:
 
-[read the docs](/docs/html/index.html)
+[read the docs](https://jurihock.github.io/dhbw-python/docs/html/index.html)
