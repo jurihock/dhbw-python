@@ -40,10 +40,24 @@ def window(name, size):
     raise Exception(f'Invalid or unsupported window "{name}"!')
 
 
-def ft(x, window='hanning', norm=True):
+def ft(x, norm=True, window='hanning'):
     """
-    Returns normalized DFT of the specified real-valued array excluding the DC component,
+    Returns DFT of the specified real-valued array excluding the DC component,
     so that the size of the resulting array will be exactly `dasp.math.pot(len(x)) / 2`.
+
+    Parameters
+    ----------
+    x : array
+        Real input array.
+    norm : bool, optional
+        Option whether to scale the output array by `1/N`.
+    window : str, optional
+        Window name.
+
+    Returns
+    -------
+    y : array
+        Complex output array of length `dasp.math.pot(len(x)) / 2`.
     """
 
     n = len(x)  # actual length
@@ -62,6 +76,18 @@ def ft(x, window='hanning', norm=True):
 def ift(x, norm=True):
     """
     Returns IDFT of the specified complex-valued array with inserted DC component.
+
+    Parameters
+    ----------
+    x : array
+        Complex input array of length `len(x) == dasp.math.pot(len(x))` without DC component.
+    norm : bool, optional
+        Option whether to scale the output array by `1*N`.
+
+    Returns
+    -------
+    y : array
+        Real output array of length `dasp.math.pot(len(x)) * 2`.
     """
 
     x = np.concatenate(([0 + 0j], x))  # prepend dc component skipped in ft
@@ -77,6 +103,24 @@ def abs(x, y, db=True, window='hanning'):
     of the specified timeline x and signal amplitudes y.
 
     Alternatively specify the sample rate instead of the timeline x.
+
+    Parameters
+    ----------
+    x : array or float
+        Timeline or sample rate.
+    y : array
+        Input signal amplitudes.
+    db : bool, optional
+        Express frequencies in decibel.
+    window : str, optional
+        Window name.
+
+    Returns
+    -------
+    freqs : array
+        Frequency array.
+    power : array
+        Corresponding absolute values.
     """
 
     sr = x if numpy.isscalar(x) \
@@ -92,10 +136,28 @@ def abs(x, y, db=True, window='hanning'):
 
 def arg(x, y, wrap=None, window='hanning'):
     """
-    Returns DFT frequencies and corresponding angle values
+    Returns DFT frequencies and corresponding argument values
     of the specified timeline x and signal amplitudes y.
 
     Alternatively specify the sample rate instead of the timeline x.
+
+    Parameters
+    ----------
+    x : array or float
+        Timeline or sample rate.
+    y : array
+        Input signal amplitudes.
+    wrap : bool, optional
+        Explicitly wrap or unwrap argument values.
+    window : str, optional
+        Window name.
+
+    Returns
+    -------
+    freqs : array
+        Frequency array.
+    phase : array
+        Corresponding argument values.
     """
 
     sr = x if numpy.isscalar(x) \
@@ -110,6 +172,37 @@ def arg(x, y, wrap=None, window='hanning'):
 
 
 def stft(x, y, s, t, window='hanning', wola=False, crop=True, debug=False):
+    """
+    Computes STFT matrix.
+
+    Parameters
+    ----------
+    x : array or float
+        Timeline or sample rate.
+    y : array
+        Input signal amplitudes.
+    s : float
+        STFT step hop in seconds.
+    t : float
+        STFT time span in seconds.
+    window : bool, optional
+        Window name.
+    wola : bool, optional
+        Perform WOLA weighting.
+    crop : bool, optional
+        Skip the last hop if the input array is too short.
+    debug : bool, optional
+        Visualize STFT hop processing.
+
+    Returns
+    -------
+    frames : matrix
+        STFT matrix (hop, dft).
+    timestamps : array
+        Hop timestamps.
+    frequencies : array
+        DFT frequencies.
+    """
 
     def show(hop, hops, step, steps, data):
 
@@ -179,6 +272,31 @@ def stft(x, y, s, t, window='hanning', wola=False, crop=True, debug=False):
 
 
 def istft(x, y, s, t, window='hanning', wola=False, debug=False):
+    """
+    Synthesizes STFT matrix.
+
+    Parameters
+    ----------
+    x : array or float
+        Timeline or sample rate of the original signal (not hop timestamps).
+    y : array
+        STFT matrix (hop, dft).
+    s : float
+        ISTFT hop size in seconds.
+    t : float
+        ISTFT time span in seconds.
+    window : bool, optional
+        Window name.
+    wola : bool, optional
+        Perform WOLA weighting.
+    debug : bool, optional
+        Visualize ISTFT hop processing.
+
+    Returns
+    -------
+    frames : array
+        Synthesized output signal.
+    """
 
     def show(hop, hops, step, steps, data):
 

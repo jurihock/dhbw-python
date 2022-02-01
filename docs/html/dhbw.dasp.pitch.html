@@ -83,27 +83,74 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.pitch.frequency">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.pitch.</span></span><span class="sig-name descname"><span class="pre">frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">semitone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">octave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/pitch.html#frequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.pitch.frequency" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns frequency in hertz for the specified semitone index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>semitone</strong><span class="classifier">int</span></dt><dd><p>Semitone index in range <cite>[0..12)</cite> or multiple of <cite>12</cite>.</p>
+</dd>
+<dt><strong>octave</strong><span class="classifier">int, optional</span></dt><dd><p>Octave index.</p>
+</dd>
+<dt><strong>cp</strong><span class="classifier">float, optional</span></dt><dd><p>Concert pitch in hertz.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.pitch.note">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.pitch.</span></span><span class="sig-name descname"><span class="pre">note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">semitone</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/pitch.html#note"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.pitch.note" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns tone name for the specified semitone index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>semitone</strong><span class="classifier">int</span></dt><dd><p>Semitone index in range <cite>[0..12)</cite> or multiple of <cite>12</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.pitch.octave">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.pitch.</span></span><span class="sig-name descname"><span class="pre">octave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/pitch.html#octave"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.pitch.octave" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns octave index of the specified frequency value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>frequency</strong><span class="classifier">float</span></dt><dd><p>Frequency in hertz.</p>
+</dd>
+<dt><strong>cp</strong><span class="classifier">float, optional</span></dt><dd><p>Concert pitch in hertz.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.pitch.scale">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.pitch.</span></span><span class="sig-name descname"><span class="pre">scale</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/pitch.html#scale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.pitch.scale" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the <cite>12</cite> chromatic tone names.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.pitch.semitone">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.pitch.</span></span><span class="sig-name descname"><span class="pre">semitone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/pitch.html#semitone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.pitch.semitone" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns semitone index of the specified frequency value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>frequency</strong><span class="classifier">float</span></dt><dd><p>Frequency in hertz.</p>
+</dd>
+<dt><strong>relative</strong><span class="classifier">bool</span></dt><dd><p>Compute relative semitone index in range <cite>[0..12)</cite> or multiple of <cite>12</cite>.</p>
+</dd>
+<dt><strong>cp</strong><span class="classifier">float, optional</span></dt><dd><p>Concert pitch in hertz.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 

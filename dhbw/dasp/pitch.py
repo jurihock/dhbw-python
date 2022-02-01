@@ -7,16 +7,44 @@ C0 = 2 ** (-(9 + 4*12) / 12)
 
 
 def scale():
+    """
+    Returns the `12` chromatic tone names.
+    """
 
     return ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
 
 def note(semitone):
+    """
+    Returns tone name for the specified semitone index.
+
+    Parameters
+    ----------
+    semitone : int
+        Semitone index in range `[0..12)` or multiple of `12`.
+    """
+
+    assert isinstance(semitone, int)
 
     return scale()[semitone % 12]
 
 
 def frequency(semitone, octave=None, cp=None):
+    """
+    Returns frequency in hertz for the specified semitone index.
+
+    Parameters
+    ----------
+    semitone : int
+        Semitone index in range `[0..12)` or multiple of `12`.
+    octave : int, optional
+        Octave index.
+    cp : float, optional
+        Concert pitch in hertz.
+    """
+
+    assert isinstance(semitone, int)
+    assert isinstance(octave, int)
 
     cp = cp if cp is not None else dasp.CP
 
@@ -26,6 +54,16 @@ def frequency(semitone, octave=None, cp=None):
 
 
 def octave(frequency, cp=None):
+    """
+    Returns octave index of the specified frequency value.
+
+    Parameters
+    ----------
+    frequency : float
+        Frequency in hertz.
+    cp : float, optional
+        Concert pitch in hertz.
+    """
 
     cp = cp if cp is not None else dasp.CP
 
@@ -35,6 +73,18 @@ def octave(frequency, cp=None):
 
 
 def semitone(frequency, relative=False, cp=None):
+    """
+    Returns semitone index of the specified frequency value.
+
+    Parameters
+    ----------
+    frequency : float
+        Frequency in hertz.
+    relative : bool
+        Compute relative semitone index in range `[0..12)` or multiple of `12`.
+    cp : float, optional
+        Concert pitch in hertz.
+    """
 
     cp = cp if cp is not None else dasp.CP
 

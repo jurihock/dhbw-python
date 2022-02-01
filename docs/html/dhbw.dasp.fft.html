@@ -86,38 +86,176 @@
 <dd><p>Returns DFT frequencies and corresponding absolute values
 of the specified timeline x and signal amplitudes y.</p>
 <p>Alternatively specify the sample rate instead of the timeline x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">array or float</span></dt><dd><p>Timeline or sample rate.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Input signal amplitudes.</p>
+</dd>
+<dt><strong>db</strong><span class="classifier">bool, optional</span></dt><dd><p>Express frequencies in decibel.</p>
+</dd>
+<dt><strong>window</strong><span class="classifier">str, optional</span></dt><dd><p>Window name.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>freqs</strong><span class="classifier">array</span></dt><dd><p>Frequency array.</p>
+</dd>
+<dt><strong>power</strong><span class="classifier">array</span></dt><dd><p>Corresponding absolute values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.fft.arg">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.fft.</span></span><span class="sig-name descname"><span class="pre">arg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hanning'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/fft.html#arg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.fft.arg" title="Permalink to this definition"></a></dt>
-<dd><p>Returns DFT frequencies and corresponding angle values
+<dd><p>Returns DFT frequencies and corresponding argument values
 of the specified timeline x and signal amplitudes y.</p>
 <p>Alternatively specify the sample rate instead of the timeline x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">array or float</span></dt><dd><p>Timeline or sample rate.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Input signal amplitudes.</p>
+</dd>
+<dt><strong>wrap</strong><span class="classifier">bool, optional</span></dt><dd><p>Explicitly wrap or unwrap argument values.</p>
+</dd>
+<dt><strong>window</strong><span class="classifier">str, optional</span></dt><dd><p>Window name.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>freqs</strong><span class="classifier">array</span></dt><dd><p>Frequency array.</p>
+</dd>
+<dt><strong>phase</strong><span class="classifier">array</span></dt><dd><p>Corresponding argument values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.fft.ft">
-<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.fft.</span></span><span class="sig-name descname"><span class="pre">ft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hanning'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/fft.html#ft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.fft.ft" title="Permalink to this definition"></a></dt>
-<dd><p>Returns normalized DFT of the specified real-valued array excluding the DC component,
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.fft.</span></span><span class="sig-name descname"><span class="pre">ft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hanning'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/fft.html#ft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.fft.ft" title="Permalink to this definition"></a></dt>
+<dd><p>Returns DFT of the specified real-valued array excluding the DC component,
 so that the size of the resulting array will be exactly <cite>dasp.math.pot(len(x)) / 2</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">array</span></dt><dd><p>Real input array.</p>
+</dd>
+<dt><strong>norm</strong><span class="classifier">bool, optional</span></dt><dd><p>Option whether to scale the output array by <cite>1/N</cite>.</p>
+</dd>
+<dt><strong>window</strong><span class="classifier">str, optional</span></dt><dd><p>Window name.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Complex output array of length <cite>dasp.math.pot(len(x)) / 2</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.fft.ift">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.fft.</span></span><span class="sig-name descname"><span class="pre">ift</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/fft.html#ift"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.fft.ift" title="Permalink to this definition"></a></dt>
 <dd><p>Returns IDFT of the specified complex-valued array with inserted DC component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">array</span></dt><dd><p>Complex input array of length <cite>len(x) == dasp.math.pot(len(x))</cite> without DC component.</p>
+</dd>
+<dt><strong>norm</strong><span class="classifier">bool, optional</span></dt><dd><p>Option whether to scale the output array by <cite>1*N</cite>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Real output array of length <cite>dasp.math.pot(len(x)) * 2</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.fft.istft">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.fft.</span></span><span class="sig-name descname"><span class="pre">istft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hanning'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wola</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/fft.html#istft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.fft.istft" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Synthesizes STFT matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">array or float</span></dt><dd><p>Timeline or sample rate of the original signal (not hop timestamps).</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>STFT matrix (hop, dft).</p>
+</dd>
+<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>ISTFT hop size in seconds.</p>
+</dd>
+<dt><strong>t</strong><span class="classifier">float</span></dt><dd><p>ISTFT time span in seconds.</p>
+</dd>
+<dt><strong>window</strong><span class="classifier">bool, optional</span></dt><dd><p>Window name.</p>
+</dd>
+<dt><strong>wola</strong><span class="classifier">bool, optional</span></dt><dd><p>Perform WOLA weighting.</p>
+</dd>
+<dt><strong>debug</strong><span class="classifier">bool, optional</span></dt><dd><p>Visualize ISTFT hop processing.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>frames</strong><span class="classifier">array</span></dt><dd><p>Synthesized output signal.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.fft.stft">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.fft.</span></span><span class="sig-name descname"><span class="pre">stft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hanning'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wola</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/fft.html#stft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.fft.stft" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Computes STFT matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">array or float</span></dt><dd><p>Timeline or sample rate.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Input signal amplitudes.</p>
+</dd>
+<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>STFT step hop in seconds.</p>
+</dd>
+<dt><strong>t</strong><span class="classifier">float</span></dt><dd><p>STFT time span in seconds.</p>
+</dd>
+<dt><strong>window</strong><span class="classifier">bool, optional</span></dt><dd><p>Window name.</p>
+</dd>
+<dt><strong>wola</strong><span class="classifier">bool, optional</span></dt><dd><p>Perform WOLA weighting.</p>
+</dd>
+<dt><strong>crop</strong><span class="classifier">bool, optional</span></dt><dd><p>Skip the last hop if the input array is too short.</p>
+</dd>
+<dt><strong>debug</strong><span class="classifier">bool, optional</span></dt><dd><p>Visualize STFT hop processing.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>frames</strong><span class="classifier">matrix</span></dt><dd><p>STFT matrix (hop, dft).</p>
+</dd>
+<dt><strong>timestamps</strong><span class="classifier">array</span></dt><dd><p>Hop timestamps.</p>
+</dd>
+<dt><strong>frequencies</strong><span class="classifier">array</span></dt><dd><p>DFT frequencies.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.fft.window">

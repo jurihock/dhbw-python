@@ -106,10 +106,24 @@
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid or unsupported window &quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot;!&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="ft"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.ft">[docs]</a><span class="k">def</span> <span class="nf">ft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="ft"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.ft">[docs]</a><span class="k">def</span> <span class="nf">ft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns normalized DFT of the specified real-valued array excluding the DC component,</span>
+<span class="sd">    Returns DFT of the specified real-valued array excluding the DC component,</span>
 <span class="sd">    so that the size of the resulting array will be exactly `dasp.math.pot(len(x)) / 2`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array</span>
+<span class="sd">        Real input array.</span>
+<span class="sd">    norm : bool, optional</span>
+<span class="sd">        Option whether to scale the output array by `1/N`.</span>
+<span class="sd">    window : str, optional</span>
+<span class="sd">        Window name.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    y : array</span>
+<span class="sd">        Complex output array of length `dasp.math.pot(len(x)) / 2`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># actual length</span>
@@ -128,6 +142,18 @@
 <div class="viewcode-block" id="ift"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.ift">[docs]</a><span class="k">def</span> <span class="nf">ift</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns IDFT of the specified complex-valued array with inserted DC component.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array</span>
+<span class="sd">        Complex input array of length `len(x) == dasp.math.pot(len(x))` without DC component.</span>
+<span class="sd">    norm : bool, optional</span>
+<span class="sd">        Option whether to scale the output array by `1*N`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    y : array</span>
+<span class="sd">        Real output array of length `dasp.math.pot(len(x)) * 2`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mi">0</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span><span class="p">],</span> <span class="n">x</span><span class="p">))</span>  <span class="c1"># prepend dc component skipped in ft</span>
@@ -143,6 +169,24 @@
 <span class="sd">    of the specified timeline x and signal amplitudes y.</span>
 
 <span class="sd">    Alternatively specify the sample rate instead of the timeline x.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array or float</span>
+<span class="sd">        Timeline or sample rate.</span>
+<span class="sd">    y : array</span>
+<span class="sd">        Input signal amplitudes.</span>
+<span class="sd">    db : bool, optional</span>
+<span class="sd">        Express frequencies in decibel.</span>
+<span class="sd">    window : str, optional</span>
+<span class="sd">        Window name.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    freqs : array</span>
+<span class="sd">        Frequency array.</span>
+<span class="sd">    power : array</span>
+<span class="sd">        Corresponding absolute values.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">sr</span> <span class="o">=</span> <span class="n">x</span> <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> \
@@ -158,10 +202,28 @@
 
 <div class="viewcode-block" id="arg"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.arg">[docs]</a><span class="k">def</span> <span class="nf">arg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns DFT frequencies and corresponding angle values</span>
+<span class="sd">    Returns DFT frequencies and corresponding argument values</span>
 <span class="sd">    of the specified timeline x and signal amplitudes y.</span>
 
 <span class="sd">    Alternatively specify the sample rate instead of the timeline x.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array or float</span>
+<span class="sd">        Timeline or sample rate.</span>
+<span class="sd">    y : array</span>
+<span class="sd">        Input signal amplitudes.</span>
+<span class="sd">    wrap : bool, optional</span>
+<span class="sd">        Explicitly wrap or unwrap argument values.</span>
+<span class="sd">    window : str, optional</span>
+<span class="sd">        Window name.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    freqs : array</span>
+<span class="sd">        Frequency array.</span>
+<span class="sd">    phase : array</span>
+<span class="sd">        Corresponding argument values.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">sr</span> <span class="o">=</span> <span class="n">x</span> <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> \
@@ -176,6 +238,37 @@
 
 
 <div class="viewcode-block" id="stft"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.stft">[docs]</a><span class="k">def</span> <span class="nf">stft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">,</span> <span class="n">wola</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes STFT matrix.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array or float</span>
+<span class="sd">        Timeline or sample rate.</span>
+<span class="sd">    y : array</span>
+<span class="sd">        Input signal amplitudes.</span>
+<span class="sd">    s : float</span>
+<span class="sd">        STFT step hop in seconds.</span>
+<span class="sd">    t : float</span>
+<span class="sd">        STFT time span in seconds.</span>
+<span class="sd">    window : bool, optional</span>
+<span class="sd">        Window name.</span>
+<span class="sd">    wola : bool, optional</span>
+<span class="sd">        Perform WOLA weighting.</span>
+<span class="sd">    crop : bool, optional</span>
+<span class="sd">        Skip the last hop if the input array is too short.</span>
+<span class="sd">    debug : bool, optional</span>
+<span class="sd">        Visualize STFT hop processing.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    frames : matrix</span>
+<span class="sd">        STFT matrix (hop, dft).</span>
+<span class="sd">    timestamps : array</span>
+<span class="sd">        Hop timestamps.</span>
+<span class="sd">    frequencies : array</span>
+<span class="sd">        DFT frequencies.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="n">hop</span><span class="p">,</span> <span class="n">hops</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 
@@ -245,6 +338,31 @@
 
 
 <div class="viewcode-block" id="istft"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.istft">[docs]</a><span class="k">def</span> <span class="nf">istft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">,</span> <span class="n">wola</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Synthesizes STFT matrix.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array or float</span>
+<span class="sd">        Timeline or sample rate of the original signal (not hop timestamps).</span>
+<span class="sd">    y : array</span>
+<span class="sd">        STFT matrix (hop, dft).</span>
+<span class="sd">    s : float</span>
+<span class="sd">        ISTFT hop size in seconds.</span>
+<span class="sd">    t : float</span>
+<span class="sd">        ISTFT time span in seconds.</span>
+<span class="sd">    window : bool, optional</span>
+<span class="sd">        Window name.</span>
+<span class="sd">    wola : bool, optional</span>
+<span class="sd">        Perform WOLA weighting.</span>
+<span class="sd">    debug : bool, optional</span>
+<span class="sd">        Visualize ISTFT hop processing.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    frames : array</span>
+<span class="sd">        Synthesized output signal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="n">hop</span><span class="p">,</span> <span class="n">hops</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 
