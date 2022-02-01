@@ -49,10 +49,12 @@ class log:
     enable = False
     """Enable or disable the log output."""
 
-    def echo(what):
+    def echo(message):
         """
         Print a message and newline.
         """
 
-        if log.enable: click.echo(what)
-        else: pass
+        if not log.enable:
+            pass
+
+        click.echo(message)
