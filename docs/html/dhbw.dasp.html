@@ -95,6 +95,19 @@
 </section>
 <section id="module-dhbw.dasp">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dhbw.dasp" title="Permalink to this headline"></a></h2>
+<p>Digital Audio Signal Processing.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="dhbw.dasp.CP">
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.</span></span><span class="sig-name descname"><span class="pre">CP</span></span><em class="property"> <span class="pre">=</span> <span class="pre">440</span></em><a class="headerlink" href="#dhbw.dasp.CP" title="Permalink to this definition"></a></dt>
+<dd><p>Default concert pitch in hertz.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="dhbw.dasp.SR">
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.</span></span><span class="sig-name descname"><span class="pre">SR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">44100</span></em><a class="headerlink" href="#dhbw.dasp.SR" title="Permalink to this definition"></a></dt>
+<dd><p>Default sample rate in hertz.</p>
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="dhbw.dasp.log">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dhbw.dasp.</span></span><span class="sig-name descname"><span class="pre">log</span></span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp.html#log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.log" title="Permalink to this definition"></a></dt>
@@ -103,25 +116,27 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="dhbw.dasp.log.echo">
 <span class="sig-name descname"><span class="pre">echo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp.html#log.echo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.log.echo" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Print a message and newline.</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="dhbw.dasp.log.enable">
 <span class="sig-name descname"><span class="pre">enable</span></span><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#dhbw.dasp.log.enable" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Enable or disable the log output.</p>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.timeline">
-<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.</span></span><span class="sig-name descname"><span class="pre">timeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp.html#timeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.timeline" title="Permalink to this definition"></a></dt>
-<dd><p>Returns an array of numbers representing a
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.</span></span><span class="sig-name descname"><span class="pre">timeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp.html#timeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.timeline" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an array of time points representing a
 discrete timeline of the specified duration in seconds
 and sample rate in hertz which defaults to 44100 Hz.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>duration</strong><span class="classifier">int, float</span></dt><dd><p>Total timeline length in seconds.</p>
+<dt><strong>d</strong><span class="classifier">int, float</span></dt><dd><p>Total timeline length in seconds.</p>
 </dd>
 <dt><strong>sr</strong><span class="classifier">int, float, optional</span></dt><dd><p>Sample rate in hertz.</p>
 </dd>

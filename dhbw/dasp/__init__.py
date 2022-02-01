@@ -1,3 +1,11 @@
+"""
+Digital Audio Signal Processing.
+"""
+
+
+import click
+import numpy
+
 from . import fft
 from . import filter
 from . import io
@@ -6,23 +14,23 @@ from . import pitch
 from . import plot
 from . import signal
 
-import click
-import numpy
+
+CP = 440
+"""Default concert pitch in hertz."""
+
+SR = 44100
+"""Default sample rate in hertz."""
 
 
-CP = 440    # default concert pitch in hertz
-SR = 44100  # default sample rate in hertz
-
-
-def timeline(duration, sr=None):
+def timeline(d, sr=None):
     """
-    Returns an array of numbers representing a
+    Returns an array of time points representing a
     discrete timeline of the specified duration in seconds
     and sample rate in hertz which defaults to 44100 Hz.
 
     Parameters
     ----------
-    duration : int, float
+    d : int, float
         Total timeline length in seconds.
     sr : int, float, optional
         Sample rate in hertz.
@@ -30,7 +38,7 @@ def timeline(duration, sr=None):
 
     sr = sr if sr is not None else SR
 
-    return numpy.arange(0, duration, 1 / sr)
+    return numpy.arange(0, d, 1 / sr)
 
 
 class log:
@@ -39,8 +47,12 @@ class log:
     """
 
     enable = False
+    """Enable or disable the log output."""
 
     def echo(what):
+        """
+        Print a message and newline.
+        """
 
         if log.enable: click.echo(what)
         else: pass

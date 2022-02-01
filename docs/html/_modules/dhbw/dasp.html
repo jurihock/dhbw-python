@@ -63,7 +63,15 @@
            <div itemprop="articleBody">
              
   <h1>Source code for dhbw.dasp</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">fft</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Digital Audio Signal Processing.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">click</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">fft</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="nb">filter</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">io</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">math</span>
@@ -71,23 +79,23 @@
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">plot</span>
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">signal</span>
 
-<span class="kn">import</span> <span class="nn">click</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">CP</span> <span class="o">=</span> <span class="mi">440</span>
+<span class="sd">&quot;&quot;&quot;Default concert pitch in hertz.&quot;&quot;&quot;</span>
+
+<span class="n">SR</span> <span class="o">=</span> <span class="mi">44100</span>
+<span class="sd">&quot;&quot;&quot;Default sample rate in hertz.&quot;&quot;&quot;</span>
 
 
-<span class="n">CP</span> <span class="o">=</span> <span class="mi">440</span>    <span class="c1"># default concert pitch in hertz</span>
-<span class="n">SR</span> <span class="o">=</span> <span class="mi">44100</span>  <span class="c1"># default sample rate in hertz</span>
-
-
-<div class="viewcode-block" id="timeline"><a class="viewcode-back" href="/docs/html/dhbw.dasp.html#dhbw.dasp.timeline">[docs]</a><span class="k">def</span> <span class="nf">timeline</span><span class="p">(</span><span class="n">duration</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="timeline"><a class="viewcode-back" href="/docs/html/dhbw.dasp.html#dhbw.dasp.timeline">[docs]</a><span class="k">def</span> <span class="nf">timeline</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns an array of numbers representing a</span>
+<span class="sd">    Returns an array of time points representing a</span>
 <span class="sd">    discrete timeline of the specified duration in seconds</span>
 <span class="sd">    and sample rate in hertz which defaults to 44100 Hz.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    duration : int, float</span>
+<span class="sd">    d : int, float</span>
 <span class="sd">        Total timeline length in seconds.</span>
 <span class="sd">    sr : int, float, optional</span>
 <span class="sd">        Sample rate in hertz.</span>
@@ -95,7 +103,7 @@
 
     <span class="n">sr</span> <span class="o">=</span> <span class="n">sr</span> <span class="k">if</span> <span class="n">sr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">SR</span>
 
-    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sr</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sr</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="log"><a class="viewcode-back" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log">[docs]</a><span class="k">class</span> <span class="nc">log</span><span class="p">:</span>
@@ -104,8 +112,12 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">enable</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="sd">&quot;&quot;&quot;Enable or disable the log output.&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="log.echo"><a class="viewcode-back" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.echo">[docs]</a>    <span class="k">def</span> <span class="nf">echo</span><span class="p">(</span><span class="n">what</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Print a message and newline.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">log</span><span class="o">.</span><span class="n">enable</span><span class="p">:</span> <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="n">what</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span> <span class="k">pass</span></div></div>
