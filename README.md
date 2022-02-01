@@ -2,20 +2,20 @@
 
 DHBW lecture accompanying Python package.
 
-Install:
+**Install**
 
 `pip install dhbw`
 
-Upgrade:
+**Upgrade**
 
 `pip uninstall -y dhbw`
 
 `pip install dhbw`
 
-Use:
+**Use**
 
 `from dhbw import dasp`
 
-Discover:
+**Discover**
 
 [read the docs](https://jurihock.github.io/dhbw-python/docs/html/index.html)
