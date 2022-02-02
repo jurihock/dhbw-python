@@ -1,6 +1,11 @@
 dhbw package
 ============
 
+.. automodule:: dhbw
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Subpackages
 -----------
 
@@ -8,11 +13,3 @@ Subpackages
    :maxdepth: 4
 
    dhbw.dasp
-
-Module contents
----------------
-
-.. automodule:: dhbw
-   :members:
-   :undoc-members:
-   :show-inheritance:

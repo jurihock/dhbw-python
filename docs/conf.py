@@ -42,6 +42,7 @@ exclude_patterns = [
     '.DS_Store',
 ]
 
+autodoc_member_order = 'groupwise'
 numpydoc_show_class_members = False
 
 html_title = f'{project} docs'

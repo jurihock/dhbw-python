@@ -1,6 +1,11 @@
 dhbw.dasp package
 =================
 
+.. automodule:: dhbw.dasp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Submodules
 ----------
 
@@ -14,11 +19,3 @@ Submodules
    dhbw.dasp.pitch
    dhbw.dasp.plot
    dhbw.dasp.signal
-
-Module contents
----------------
-
-.. automodule:: dhbw.dasp
-   :members:
-   :undoc-members:
-   :show-inheritance:
