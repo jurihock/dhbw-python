@@ -18,6 +18,42 @@ def exit():
     sys.exit()
 
 
+def save(path, size=None, dpi=None):
+    """
+    Save current figure to specified image file.
+
+    Parameters
+    ----------
+    path : str
+        Output image file path.
+    size : tuple, optional
+        Output image size (w, h) in inches.
+    dpi : int, optional
+        Output image resolution in dots per inch.
+    """
+
+    assert isinstance(path, str)
+    assert isinstance(size, (tuple, type(None)))
+    assert isinstance(dpi, (int, type(None)))
+
+    figure = plotpy.gcf()
+
+    origin = figure.get_size_inches()
+
+    if size is not None:
+        figure.set_size_inches(size, forward=True)
+
+    if dpi is not None:
+        figure.savefig(path, dpi=dpi)
+    else:
+        figure.savefig(path)
+
+    if size is not None:
+        figure.set_size_inches(origin, forward=True)
+
+    return dasp.plot
+
+
 def show(*args, **kwargs):
     """
      Display all open figures.
