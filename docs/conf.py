@@ -46,7 +46,13 @@ autodoc_member_order = 'groupwise'
 numpydoc_show_class_members = False
 
 html_title = f'{project} docs'
+html_logo = 'https://upload.wikimedia.org/wikipedia/de/1/1d/DHBW-Logo.svg'
 html_theme = 'sphinx_rtd_theme'
+html_theme_options = {
+    'collapse_navigation': False,
+    'navigation_depth': 5,
+    'style_nav_header_background': '#bbbbbb',
+}
 
 with open(os.path.join('..', 'README.md'), 'r') as file:
     text = file.read()
