@@ -127,21 +127,29 @@ def signal(x, y=None, xlim=None, ylim=1.1):
         x = None
 
     if isinstance(y, dict):
+        axes = []
         for i, (k, v) in enumerate(y.items()):
-            plotpy.gcf().add_subplot(len(y), 1, i + 1, title=k)
+            axes += [plotpy.gcf().add_subplot(len(y), 1, i + 1, title=k)]
             if x is not None:
                 plotpy.plot(x, v)
             else:
                 plotpy.plot(v)
             lim()
+        if len(axes) > 1:
+            axes[0].get_shared_x_axes().join(*axes)
+            axes[0].get_shared_y_axes().join(*axes)
     elif isinstance(y, (list, tuple)):
+        axes = []
         for i, v in enumerate(y):
-            plotpy.gcf().add_subplot(len(y), 1, i + 1)
+            axes += [plotpy.gcf().add_subplot(len(y), 1, i + 1)]
             if x is not None:
                 plotpy.plot(x, v)
             else:
                 plotpy.plot(v)
             lim()
+        if len(axes) > 1:
+            axes[0].get_shared_x_axes().join(*axes)
+            axes[0].get_shared_y_axes().join(*axes)
     else:
         if x is not None:
             plotpy.plot(x, y)
