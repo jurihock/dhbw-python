@@ -429,7 +429,7 @@ class filter:
 
         return dasp.plot
 
-    def frequency(b, a, **kwargs):
+    def frequency(b, a, xlim=None, ylim=None, **kwargs):
         """
         Plot frequency response of the transfer function specified by b and a coefficients.
 
@@ -439,13 +439,32 @@ class filter:
             The numerator coefficient array.
         a : array
             The denominator coefficient array.
+        xlim : float, tuple, optional
+            Frequency limits in Hz.
+        ylim : float, tuple, optional
+            Amplitude limits in dB.
         """
+
+        def lim():
+
+            if xlim is not None:
+                if isinstance(xlim, (list, tuple)):
+                    plotpy.xlim(xlim)
+                else:
+                    plotpy.xlim(0, xlim)
+
+            if ylim is not None:
+                if isinstance(ylim, (list, tuple)):
+                    plotpy.ylim(ylim)
+                else:
+                    plotpy.ylim(ylim, 0)
 
         y, x = dasp.filter.frequency(b, a, **kwargs)
 
         plotpy.plot(x, dasp.math.abs(y, db=True))
         plotpy.xlabel('Hz')
         plotpy.ylabel('dB')
+        lim()
 
         return dasp.plot
 
