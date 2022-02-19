@@ -409,7 +409,7 @@ class fft:
 
 class filter:
 
-    def response(b, a, **kwargs):
+    def impulse(b, a, **kwargs):
         """
         Plot impulse response of the transfer function specified by b and a coefficients.
 
@@ -421,7 +421,7 @@ class filter:
             The denominator coefficient array.
         """
 
-        y, x = dasp.filter.response(b, a, **kwargs)
+        y, x = dasp.filter.impulse(b, a, **kwargs)
 
         plotpy.plot(x, y)
         plotpy.xlabel('s')
@@ -442,7 +442,7 @@ class filter:
         xlim : float, tuple, optional
             Frequency limits in Hz.
         ylim : float, tuple, optional
-            Amplitude limits in dB.
+            Amplitude value limits in dB.
         """
 
         def lim():
@@ -459,11 +459,54 @@ class filter:
                 else:
                     plotpy.ylim(ylim, 0)
 
-        y, x = dasp.filter.frequency(b, a, **kwargs)
+        y, x = dasp.filter.response(b, a, **kwargs)
 
         plotpy.plot(x, dasp.math.abs(y, db=True))
         plotpy.xlabel('Hz')
         plotpy.ylabel('dB')
+
+        lim()
+
+        return dasp.plot
+
+    def phase(b, a, xlim=None, ylim=None, **kwargs):
+        """
+        Plot phase response of the transfer function specified by b and a coefficients.
+
+        Parameters
+        ----------
+        b : array
+            The numerator coefficient array.
+        a : array
+            The denominator coefficient array.
+        xlim : float, tuple, optional
+            Frequency limits in Hz.
+        ylim : float, tuple, optional
+            Phase value limits in rad.
+        """
+
+        def lim():
+
+            if xlim is not None:
+                if isinstance(xlim, (list, tuple)):
+                    plotpy.xlim(xlim)
+                else:
+                    plotpy.xlim(0, xlim)
+
+            if ylim is not None:
+                if isinstance(ylim, (list, tuple)):
+                    plotpy.ylim(ylim)
+                else:
+                    plotpy.ylim(-ylim, +ylim)
+            else:
+                plotpy.ylim(-numpy.pi, +numpy.pi)
+
+        y, x = dasp.filter.response(b, a, **kwargs)
+
+        plotpy.plot(x, dasp.math.arg(y, wrap=True))
+        plotpy.xlabel('Hz')
+        plotpy.ylabel('rad')
+
         lim()
 
         return dasp.plot

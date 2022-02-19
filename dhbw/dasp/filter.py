@@ -58,7 +58,7 @@ def zeros(b, a):
     return z
 
 
-def response(b, a, n=None, sr=None):
+def impulse(b, a, n=None, sr=None):
     """
     Returns impulse response of the transfer function specified by b and a coefficients.
 
@@ -91,7 +91,7 @@ def response(b, a, n=None, sr=None):
     sr = sr if sr is not None else dasp.SR
     n = n or sr
 
-    x = [1] * (n > 0) + [0] * (n - 1)
+    x = numpy.array([1] * (n > 0) + [0] * (n - 1), dtype=float)
     y = scipy.signal.lfilter(b, a, x)
 
     t = numpy.arange(0, n / sr, 1 / sr)
@@ -99,9 +99,9 @@ def response(b, a, n=None, sr=None):
     return y, t
 
 
-def frequency(b, a, n=None, sr=None, norm=False, log=False):
+def response(b, a, n=None, sr=None, norm=False, log=False):
     """
-    Returns frequency response of the transfer function specified by b and a coefficients.
+    Returns frequency and phase response of the transfer function specified by b and a coefficients.
 
     Parameters
     ----------
