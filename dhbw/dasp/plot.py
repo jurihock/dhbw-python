@@ -209,7 +209,6 @@ class fft:
         elif isinstance(y, (list, tuple)):
             for i, v in enumerate(y):
                 plotpy.gcf().add_subplot(len(y), 1, i + 1)
-                plotpy.plot(x, v)
                 f, a = dasp.fft.abs(x, v, **kwargs)
                 plotpy.plot(f, a)
                 plotpy.ylabel('dB')
@@ -267,7 +266,6 @@ class fft:
         elif isinstance(y, (list, tuple)):
             for i, v in enumerate(y):
                 plotpy.gcf().add_subplot(len(y), 1, i + 1)
-                plotpy.plot(x, v)
                 f, a = dasp.fft.arg(x, v, **kwargs)
                 plotpy.plot(f, a)
                 plotpy.ylabel('rad')
