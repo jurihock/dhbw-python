@@ -75,10 +75,10 @@ def impulse(b, a, n=None, sr=None):
 
     Returns
     -------
-    y : array
-        Filter impulse response values.
     t : array
         Corresponding time values.
+    y : array
+        Filter impulse response values.
 
     See also
     --------
@@ -96,7 +96,7 @@ def impulse(b, a, n=None, sr=None):
 
     t = numpy.arange(0, n / sr, 1 / sr)
 
-    return y, t
+    return t, y
 
 
 def response(b, a, n=None, sr=None, norm=False, log=False):
@@ -120,10 +120,10 @@ def response(b, a, n=None, sr=None, norm=False, log=False):
 
     Returns
     -------
-    h : array
-        Filter frequency response values.
     w : array
         Corresponding frequency values.
+    h : array
+        Complex filter response values.
 
     See also
     --------
@@ -153,4 +153,4 @@ def response(b, a, n=None, sr=None, norm=False, log=False):
     # normalize frequency values according to sr
     w = (w * sr) / (2 * numpy.pi)
 
-    return h, w
+    return w, h

@@ -407,7 +407,7 @@ class fft:
 
 class filter:
 
-    def impulse(b, a, **kwargs):
+    def impulse(b, a, clip=1e3, xlim=None, ylim=None, **kwargs):
         """
         Plot impulse response of the transfer function specified by b and a coefficients.
 
@@ -417,13 +417,40 @@ class filter:
             The numerator coefficient array.
         a : array
             The denominator coefficient array.
+        clip : float, optional
+            Clip response amplitudes outside the specified interval.
+        xlim : float, tuple, optional
+            Time limits.
+        ylim : float, tuple, optional
+            Amplitude limits.
         """
 
-        y, x = dasp.filter.impulse(b, a, **kwargs)
+        def lim():
 
-        plotpy.plot(x, y)
+            if xlim is not None:
+                if isinstance(xlim, (list, tuple)):
+                    plotpy.xlim(xlim)
+                else:
+                    plotpy.xlim(0, xlim)
+
+            if ylim is not None:
+                if isinstance(ylim, (list, tuple)):
+                    plotpy.ylim(ylim)
+                else:
+                    plotpy.ylim(-ylim, +ylim)
+
+        x, y = dasp.filter.impulse(b, a, **kwargs)
+
+        if isinstance(clip, (list, tuple)):
+            y = numpy.clip(y, clip[0], clip[1])
+        elif clip is not None:
+            y = numpy.clip(y, -clip, +clip)
+
+        plotpy.stem(x, y)
         plotpy.xlabel('s')
         plotpy.ylabel('')
+
+        lim()
 
         return dasp.plot
 
@@ -457,7 +484,7 @@ class filter:
                 else:
                     plotpy.ylim(ylim, 0)
 
-        y, x = dasp.filter.response(b, a, **kwargs)
+        x, y = dasp.filter.response(b, a, **kwargs)
 
         plotpy.plot(x, dasp.math.abs(y, db=True))
         plotpy.xlabel('Hz')
@@ -499,7 +526,7 @@ class filter:
             else:
                 plotpy.ylim(-numpy.pi, +numpy.pi)
 
-        y, x = dasp.filter.response(b, a, **kwargs)
+        x, y = dasp.filter.response(b, a, **kwargs)
 
         plotpy.plot(x, dasp.math.arg(y, wrap=True))
         plotpy.xlabel('Hz')
