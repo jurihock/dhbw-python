@@ -16,7 +16,7 @@ def scale():
 
 def note(semitone):
     """
-    Returns tone name for the specified semitone index.
+    Returns note name for the specified semitone index.
 
     Parameters
     ----------
@@ -27,6 +27,21 @@ def note(semitone):
     assert isinstance(semitone, int)
 
     return scale()[semitone % 12]
+
+
+def tone(notename):
+    """
+    Returns semitone index for the specified note name.
+
+    Parameters
+    ----------
+    notename : str
+        Scale note name.
+    """
+
+    assert isinstance(notename, str)
+
+    return scale().index(notename.upper())
 
 
 def frequency(semitone, octave=None, cp=None):
