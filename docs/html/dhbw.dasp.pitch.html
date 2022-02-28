@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dhbw.dasp.pitch module &mdash; dhbw-python 1.3 docs</title>
+  <title>dhbw.dasp.pitch module &mdash; dhbw-python 1.4 docs</title>
       <link rel="stylesheet" href="/docs/html/_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="/docs/html/_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -27,7 +27,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #bbbbbb" >
-            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.3
+            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.4
             <img src="https://upload.wikimedia.org/wikipedia/de/1/1d/DHBW-Logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -66,7 +66,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #bbbbbb" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="/docs/html/index.html">dhbw-python 1.3</a>
+          <a href="/docs/html/index.html">dhbw-python 1.4</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -109,7 +109,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.pitch.note">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.pitch.</span></span><span class="sig-name descname"><span class="pre">note</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">semitone</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/pitch.html#note"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.pitch.note" title="Permalink to this definition"></a></dt>
-<dd><p>Returns tone name for the specified semitone index.</p>
+<dd><p>Returns note name for the specified semitone index.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -154,6 +154,20 @@
 <dt><strong>relative</strong><span class="classifier">bool</span></dt><dd><p>Compute relative semitone index in range <cite>[0..12)</cite> or multiple of <cite>12</cite>.</p>
 </dd>
 <dt><strong>cp</strong><span class="classifier">float, optional</span></dt><dd><p>Concert pitch in hertz.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dhbw.dasp.pitch.tone">
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.pitch.</span></span><span class="sig-name descname"><span class="pre">tone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">notename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/pitch.html#tone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.pitch.tone" title="Permalink to this definition"></a></dt>
+<dd><p>Returns semitone index for the specified note name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>notename</strong><span class="classifier">str</span></dt><dd><p>Scale note name.</p>
 </dd>
 </dl>
 </dd>

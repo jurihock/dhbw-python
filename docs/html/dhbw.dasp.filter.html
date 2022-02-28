@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dhbw.dasp.filter module &mdash; dhbw-python 1.3 docs</title>
+  <title>dhbw.dasp.filter module &mdash; dhbw-python 1.4 docs</title>
       <link rel="stylesheet" href="/docs/html/_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="/docs/html/_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -27,7 +27,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #bbbbbb" >
-            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.3
+            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.4
             <img src="https://upload.wikimedia.org/wikipedia/de/1/1d/DHBW-Logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -66,7 +66,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #bbbbbb" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="/docs/html/index.html">dhbw-python 1.3</a>
+          <a href="/docs/html/index.html">dhbw-python 1.4</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -89,9 +89,9 @@
   <section id="module-dhbw.dasp.filter">
 <span id="dhbw-dasp-filter-module"></span><h1>dhbw.dasp.filter module<a class="headerlink" href="#module-dhbw.dasp.filter" title="Permalink to this headline"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="dhbw.dasp.filter.frequency">
-<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.filter.</span></span><span class="sig-name descname"><span class="pre">frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/filter.html#frequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.filter.frequency" title="Permalink to this definition"></a></dt>
-<dd><p>Returns frequency response of the transfer function specified by b and a coefficients.</p>
+<dt class="sig sig-object py" id="dhbw.dasp.filter.impulse">
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.filter.</span></span><span class="sig-name descname"><span class="pre">impulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/filter.html#impulse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.filter.impulse" title="Permalink to this definition"></a></dt>
+<dd><p>Returns impulse response of the transfer function specified by b and a coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -103,17 +103,13 @@
 </dd>
 <dt><strong>sr</strong><span class="classifier">int, float, optional</span></dt><dd><p>Optional sample rate in hertz.</p>
 </dd>
-<dt><strong>norm</strong><span class="classifier">bool</span></dt><dd><p>Option whether to normalize the output frequency response.</p>
-</dd>
-<dt><strong>log</strong><span class="classifier">bool</span></dt><dd><p>Option whether to express the output frequency values logarithmically.</p>
-</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>h</strong><span class="classifier">array</span></dt><dd><p>Filter frequency response values.</p>
+<dt><strong>t</strong><span class="classifier">array</span></dt><dd><p>Corresponding time values.</p>
 </dd>
-<dt><strong>w</strong><span class="classifier">array</span></dt><dd><p>Corresponding frequency values.</p>
+<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Filter impulse response values.</p>
 </dd>
 </dl>
 </dd>
@@ -121,7 +117,7 @@
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.freqz</span></code></dt><dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.lfilter</span></code></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>
@@ -156,8 +152,8 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.filter.response">
-<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.filter.</span></span><span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/filter.html#response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.filter.response" title="Permalink to this definition"></a></dt>
-<dd><p>Returns impulse response of the transfer function specified by b and a coefficients.</p>
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.filter.</span></span><span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/filter.html#response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.filter.response" title="Permalink to this definition"></a></dt>
+<dd><p>Returns frequency and phase response of the transfer function specified by b and a coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -169,13 +165,17 @@
 </dd>
 <dt><strong>sr</strong><span class="classifier">int, float, optional</span></dt><dd><p>Optional sample rate in hertz.</p>
 </dd>
+<dt><strong>norm</strong><span class="classifier">bool</span></dt><dd><p>Option whether to normalize the output frequency response.</p>
+</dd>
+<dt><strong>log</strong><span class="classifier">bool</span></dt><dd><p>Option whether to express the output frequency values logarithmically.</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Filter impulse response values.</p>
+<dt><strong>w</strong><span class="classifier">array</span></dt><dd><p>Corresponding frequency values.</p>
 </dd>
-<dt><strong>t</strong><span class="classifier">array</span></dt><dd><p>Corresponding time values.</p>
+<dt><strong>h</strong><span class="classifier">array</span></dt><dd><p>Complex filter response values.</p>
 </dd>
 </dl>
 </dd>
@@ -183,7 +183,7 @@
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.lfilter</span></code></dt><dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.freqz</span></code></dt><dd></dd>
 </dl>
 </div>
 </dd></dl>

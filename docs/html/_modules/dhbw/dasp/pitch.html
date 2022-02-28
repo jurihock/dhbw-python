@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dhbw.dasp.pitch &mdash; dhbw-python 1.3 docs</title>
+  <title>dhbw.dasp.pitch &mdash; dhbw-python 1.4 docs</title>
       <link rel="stylesheet" href="/docs/html/_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="/docs/html/_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -24,7 +24,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #bbbbbb" >
-            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.3
+            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.4
             <img src="https://upload.wikimedia.org/wikipedia/de/1/1d/DHBW-Logo.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -63,7 +63,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #bbbbbb" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="/docs/html/index.html">dhbw-python 1.3</a>
+          <a href="/docs/html/index.html">dhbw-python 1.4</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -101,7 +101,7 @@
 
 <div class="viewcode-block" id="note"><a class="viewcode-back" href="/docs/html/dhbw.dasp.pitch.html#dhbw.dasp.pitch.note">[docs]</a><span class="k">def</span> <span class="nf">note</span><span class="p">(</span><span class="n">semitone</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns tone name for the specified semitone index.</span>
+<span class="sd">    Returns note name for the specified semitone index.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -112,6 +112,21 @@
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">semitone</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">scale</span><span class="p">()[</span><span class="n">semitone</span> <span class="o">%</span> <span class="mi">12</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="tone"><a class="viewcode-back" href="/docs/html/dhbw.dasp.pitch.html#dhbw.dasp.pitch.tone">[docs]</a><span class="k">def</span> <span class="nf">tone</span><span class="p">(</span><span class="n">notename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns semitone index for the specified note name.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    notename : str</span>
+<span class="sd">        Scale note name.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">notename</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">scale</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">notename</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span></div>
 
 
 <div class="viewcode-block" id="frequency"><a class="viewcode-back" href="/docs/html/dhbw.dasp.pitch.html#dhbw.dasp.pitch.frequency">[docs]</a><span class="k">def</span> <span class="nf">frequency</span><span class="p">(</span><span class="n">semitone</span><span class="p">,</span> <span class="n">octave</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
