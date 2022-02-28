@@ -1,4 +1,5 @@
 import numpy
+import os
 import subprocess
 import sys
 import wave
@@ -21,6 +22,9 @@ def open(path, cmd='audacity', shell=False, wait=False):
     wait : bool
         If true, wait for child process to terminate.
     """
+
+    if path.startswith('~'):
+        path = os.path.expanduser(path)
 
     if not path.lower().endswith('.wav'):
         path += '.wav'
@@ -71,6 +75,9 @@ def read(path):
         Sample rate in hertz.
     """
 
+    if path.startswith('~'):
+        path = os.path.expanduser(path)
+
     if not path.lower().endswith('.wav'):
         path += '.wav'
 
@@ -120,6 +127,9 @@ def write(path, data, sr=None, bits=24):
     """
 
     sr = sr if sr is not None else dasp.SR
+
+    if path.startswith('~'):
+        path = os.path.expanduser(path)
 
     if not path.lower().endswith('.wav'):
         path += '.wav'
