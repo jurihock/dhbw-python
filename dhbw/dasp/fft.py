@@ -42,7 +42,7 @@ def window(name, size):
 
 def ft(x, norm=True, window='hanning'):
     """
-    Returns DFT of the specified real-valued array excluding the DC component,
+    Returns DFT of the specified real-valued array excluding the Nyquist component,
     so that the size of the resulting array will be exactly `dasp.math.pot(len(x)) / 2`.
 
     Parameters
@@ -68,19 +68,19 @@ def ft(x, norm=True, window='hanning'):
 
     y = numpy.fft.rfft(x, n=m)
     y /= len(y) if norm else 1  # normalize
-    y = y[1:]  # skip dc component
+    y = y[:-1]  # skip Nyquist component
 
     return y
 
 
 def ift(x, norm=True):
     """
-    Returns IDFT of the specified complex-valued array with inserted DC component.
+    Returns IDFT of the specified complex-valued array with inserted Nyquist component.
 
     Parameters
     ----------
     x : array
-        Complex input array of length `len(x) == dasp.math.pot(len(x))` without DC component.
+        Complex input array of length `len(x) == dasp.math.pot(len(x))` without Nyquist component.
     norm : bool, optional
         Option whether to scale the output array by `1*N`.
 
@@ -90,7 +90,7 @@ def ift(x, norm=True):
         Real output array of length `dasp.math.pot(len(x)) * 2`.
     """
 
-    x = np.concatenate(([0 + 0j], x))  # prepend dc component skipped in ft
+    x = np.concatenate((x, [0 + 0j]))  # prepend Nyquist component skipped in ft
     x *= len(x) if norm else 1  # denormalize
     y = numpy.fft.irfft(x)
 
@@ -182,17 +182,17 @@ def stft(x, y, s, t, window='hanning', wola=False, crop=True, debug=False):
     y : array
         Input signal amplitudes.
     s : float
-        STFT step hop in seconds.
+        STFT step size in seconds.
     t : float
-        STFT time span in seconds.
+        STFT frame size in seconds.
     window : bool, optional
         Window name.
     wola : bool, optional
         Perform WOLA weighting.
     crop : bool, optional
-        Skip the last hop if the input array is too short.
+        Skip the last step if the input array is too short.
     debug : bool, optional
-        Visualize STFT hop processing.
+        Visualize STFT step by step.
 
     Returns
     -------
@@ -282,15 +282,15 @@ def istft(x, y, s, t, window='hanning', wola=False, debug=False):
     y : array
         STFT matrix (hop, dft).
     s : float
-        ISTFT hop size in seconds.
+        ISTFT step size in seconds.
     t : float
-        ISTFT time span in seconds.
+        ISTFT frame size in seconds.
     window : bool, optional
         Window name.
     wola : bool, optional
         Perform WOLA weighting.
     debug : bool, optional
-        Visualize ISTFT hop processing.
+        Visualize ISTFT step by step.
 
     Returns
     -------
