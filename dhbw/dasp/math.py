@@ -1,6 +1,49 @@
 import numpy
 
 
+def db(x):
+    """
+    Converts the specified value into decibel scale.
+
+    Parameters
+    ----------
+    x : array
+        Input array to be converted.
+    """
+
+    return 20 * numpy.log10(x)
+
+
+def wrap(x):
+    """
+    Wraps the specified phase value into 2*pi range.
+
+    Parameters
+    ----------
+    x : array
+        Input phase values to be wrapped.
+    """
+
+    # https://stackoverflow.com/questions/15927755
+
+    return (x + numpy.pi) % (2 * numpy.pi) - numpy.pi
+
+
+def unwrap(x):
+    """
+    Unwraps the specified phase value.
+
+    Parameters
+    ----------
+    x : array
+        Input phase values to be unwrapped.
+    """
+
+    # https://stackoverflow.com/questions/15927755
+
+    return numpy.unwrap(x)
+
+
 def abs(x, db=True):
     """
     Returns the absolute value of the specified complex number sequence.
@@ -33,7 +76,6 @@ def arg(x, wrap=None):
         return numpy.angle(x)
 
     if wrap:
-        # https://stackoverflow.com/questions/15927755
         return (numpy.angle(x) + numpy.pi) % (2 * numpy.pi) - numpy.pi
     else:
         return numpy.unwrap(numpy.angle(x))
