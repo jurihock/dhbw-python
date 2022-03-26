@@ -11,7 +11,8 @@ def db(x):
         Input array to be converted.
     """
 
-    return 20 * numpy.log10(x)
+    with numpy.errstate(divide='ignore', invalid='ignore'):
+        return 20 * numpy.log10(x)
 
 
 def wrap(x):
@@ -56,8 +57,9 @@ def abs(x, db=True):
         Option whether to express the output values in decibels.
     """
 
-    return 20 * numpy.log10(numpy.abs(x)) \
-        if db else numpy.abs(x)
+    with numpy.errstate(divide='ignore', invalid='ignore'):
+        return 20 * numpy.log10(numpy.abs(x)) \
+            if db else numpy.abs(x)
 
 
 def arg(x, wrap=None):
