@@ -90,7 +90,7 @@ def ift(x, norm=True):
         Real output array of length `dasp.math.pot(len(x)) * 2`.
     """
 
-    x = np.concatenate((x, [0 + 0j]))  # prepend Nyquist component skipped in ft
+    x = np.concatenate((x, [0]))  # append Nyquist component skipped in ft
     x *= len(x) if norm else 1  # denormalize
     y = numpy.fft.irfft(x)
 
