@@ -224,7 +224,7 @@ def stft(x, y, s, t, window='hanning', wola=False, crop=True, debug=False):
     assert n > 0
 
     w = dasp.fft.window(window, t)  # window coefficients
-    w /= numpy.sqrt(numpy.dot(w, w) / s) if wola else 1  # optionally prepare for wola
+    w *= numpy.sqrt(s / numpy.dot(w, w)) if wola else 1  # scale to give unity gain with wola
 
     frames = []  # frames to be extracted
     hops = [i * s for i in range(n // s)]  # hop indices
@@ -318,7 +318,7 @@ def istft(x, y, s, t, window='hanning', wola=False, debug=False):
     assert n > 0
 
     w = dasp.fft.window(window, t)  # window coefficients
-    w /= numpy.sqrt(numpy.dot(w, w) / s) if wola else 1  # optionally prepare for wola
+    w *= numpy.sqrt(s / numpy.dot(w, w)) if wola else 1  # scale to give unity gain with wola
 
     frames = np.zeros(n)  # frames to be extracted
     hops = [i * s for i in range(len(y))]  # hop indices
