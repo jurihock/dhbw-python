@@ -66,8 +66,7 @@ def ft(x, norm=True, window='hanning'):
     if window is not None:
         x = x * dasp.fft.window(window, n)
 
-    y = numpy.fft.rfft(x, n=m)
-    y /= len(y) if norm else 1  # normalize
+    y = numpy.fft.rfft(x, n=m, norm=('forward' if norm else 'backward'))
     y = y[:-1]  # skip Nyquist component
 
     return y
@@ -91,8 +90,7 @@ def ift(x, norm=True):
     """
 
     x = np.concatenate((x, [0]))  # append Nyquist component skipped in ft
-    x *= len(x) if norm else 1  # denormalize
-    y = numpy.fft.irfft(x)
+    y = numpy.fft.irfft(x, norm=('forward' if norm else 'backward'))
 
     return y
 
