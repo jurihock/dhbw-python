@@ -5,6 +5,7 @@ Each function returns an instance of this module.
 
 import matplotlib.pyplot as plotpy
 import numpy
+import os
 import sys
 
 from dhbw import dasp
@@ -35,6 +36,9 @@ def save(path, size=None, dpi=None):
     assert isinstance(path, str)
     assert isinstance(size, (tuple, type(None)))
     assert isinstance(dpi, (int, type(None)))
+
+    if path.startswith('~'):
+        path = os.path.expanduser(path)
 
     figure = plotpy.gcf()
 
