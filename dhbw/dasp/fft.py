@@ -16,6 +16,8 @@ def window(name, size):
         Number of window coefficients to compute.
     """
 
+    # TODO https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.get_window.html
+
     assert isinstance(name, str)
     assert isinstance(size, int)
 
@@ -223,8 +225,8 @@ def stft(x, y, s, t, window='hanning', wola=False, crop=True, debug=False):
     assert t > 0
     assert n > 0
 
-    w = dasp.fft.window(window, t)  # window coefficients
-    w *= numpy.sqrt(s / numpy.dot(w, w)) if wola else 1  # scale to give unity gain with wola
+    w = dasp.fft.window(window, t + 1)[:-1]  # periodic window coefficients
+    w *= numpy.sqrt(s / numpy.dot(w, w)) if wola else 1  # scaled to give unity gain with wola
 
     frames = []  # frames to be extracted
     hops = [i * s for i in range(n // s)]  # hop indices
@@ -317,8 +319,8 @@ def istft(x, y, s, t, window='hanning', wola=False, debug=False):
     assert t > 0
     assert n > 0
 
-    w = dasp.fft.window(window, t)  # window coefficients
-    w *= numpy.sqrt(s / numpy.dot(w, w)) if wola else 1  # scale to give unity gain with wola
+    w = dasp.fft.window(window, t + 1)[:-1]  # periodic window coefficients
+    w *= numpy.sqrt(s / numpy.dot(w, w)) if wola else 1  # scaled to give unity gain with wola
 
     frames = np.zeros(n)  # frames to be extracted
     hops = [i * s for i in range(len(y))]  # hop indices
