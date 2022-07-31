@@ -1,5 +1,4 @@
 import numpy
-import numpy as np
 
 from dhbw import dasp
 
@@ -91,7 +90,7 @@ def ift(x, norm=True):
         Real output array of length `dasp.math.pot(len(x)) * 2`.
     """
 
-    x = np.concatenate((x, [0]))  # append Nyquist component skipped in ft
+    x = numpy.concatenate((x, [0]))  # append Nyquist component skipped in ft
     y = numpy.fft.irfft(x, norm=('forward' if norm else 'backward'))
 
     return y
@@ -322,7 +321,7 @@ def istft(x, y, s, t, window='hanning', wola=False, debug=False):
     w = dasp.fft.window(window, t + 1)[:-1]  # periodic window coefficients
     w *= numpy.sqrt(s / numpy.dot(w, w)) if wola else 1  # scaled to give unity gain with wola
 
-    frames = np.zeros(n)  # frames to be extracted
+    frames = numpy.zeros(n)  # frames to be extracted
     hops = [i * s for i in range(len(y))]  # hop indices
 
     for i, h in enumerate(hops):
