@@ -41,7 +41,7 @@ def window(name, size):
     raise Exception(f'Invalid or unsupported window "{name}"!')
 
 
-def ft(x, norm=True, window='hanning'):
+def fft(x, norm=True, window='hanning'):
     """
     Returns DFT of the specified real-valued array excluding the Nyquist component,
     so that the size of the resulting array will be exactly `dasp.math.pot(len(x)) / 2`.
@@ -73,7 +73,7 @@ def ft(x, norm=True, window='hanning'):
     return y
 
 
-def ift(x, norm=True):
+def ifft(x, norm=True):
     """
     Returns IDFT of the specified complex-valued array with inserted Nyquist component.
 
@@ -125,7 +125,7 @@ def abs(x, y, db=True, window='hanning'):
     sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
 
-    dft = dasp.fft.ft(y, window=window)
+    dft = dasp.fft.fft(y, window=window)
 
     freqs = numpy.linspace(0, sr / 2, len(dft))
     power = dasp.math.abs(dft, db=db)
@@ -162,185 +162,9 @@ def arg(x, y, wrap=None, window='hanning'):
     sr = x if numpy.isscalar(x) \
            else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
 
-    dft = dasp.fft.ft(y, window=window)
+    dft = dasp.fft.fft(y, window=window)
 
     freqs = numpy.linspace(0, sr / 2, len(dft))
     phase = dasp.math.arg(dft, wrap=wrap)
 
     return freqs, phase
-
-
-def stft(x, y, s, t, window='hanning', wola=False, crop=True, debug=False):
-    """
-    Computes STFT matrix.
-
-    Parameters
-    ----------
-    x : array or float
-        Timeline or sample rate.
-    y : array
-        Input signal amplitudes.
-    s : float
-        STFT step size in seconds.
-    t : float
-        STFT frame size in seconds.
-    window : bool, optional
-        Window name.
-    wola : bool, optional
-        Perform WOLA weighting.
-    crop : bool, optional
-        Skip the last step if the input array is too short.
-    debug : bool, optional
-        Visualize STFT step by step.
-
-    Returns
-    -------
-    frames : matrix
-        STFT matrix (hop, dft).
-    timestamps : array
-        Hop timestamps.
-    frequencies : array
-        DFT frequencies.
-    """
-
-    def show(hop, hops, step, steps, data):
-
-        if not debug:
-            return
-
-        if data.dtype == numpy.complex:
-            data = dasp.math.abs(data, db=True)
-
-        dasp.plot.figure(f'STFT Hop {hop}/{hops} Step {step}/{steps}').plot(data).show()
-
-    sr = x if numpy.isscalar(x) \
-           else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
-
-    s = max(1, int(s * sr))  # samples per hop
-    t = dasp.math.even(t * sr)  # samples per frame
-    n = len(y)  # total input samples
-
-    assert s > 0
-    assert t > 0
-    assert n > 0
-
-    w = dasp.fft.window(window, t + 1)[:-1]  # periodic window coefficients
-    w *= numpy.sqrt(s / numpy.dot(w, w)) if wola else 1  # scaled to give unity gain with wola
-
-    frames = []  # frames to be extracted
-    hops = [i * s for i in range(n // s)]  # hop indices
-
-    for i, h in enumerate(hops):
-
-        # optionally skip too short fragments
-        # at the end of the input
-        if crop and (h+t) > y.size:
-            continue
-
-        frame = y[h:h+t]  # extract next frame
-        show(i + 1, len(hops), 1, 5, frame)
-
-        if crop:
-            assert frame.size == t  # check frame size
-        else:
-            frame = numpy.pad(frame, (0, t - frame.size))  # pad right to expected frame size
-
-        frame = frame * w  # apply window
-        show(i + 1, len(hops), 2, 5, frame)
-
-        frame = numpy.pad(frame, (dasp.math.pot(frame.size) - frame.size) // 2)  # pad left and right to pot
-        show(i + 1, len(hops), 3, 5, frame)
-
-        frame = numpy.roll(frame, frame.size // 2)  # center frame data
-        show(i + 1, len(hops), 4, 5, frame)
-
-        frame = dasp.fft.ft(frame, window=None)  # compute dft without window
-        show(i + 1, len(hops), 5, 5, frame)
-
-        frames.append(frame)  # append to frame buffer
-
-    hops = hops[:len(frames) - len(hops) if len(hops) > len(frames) else len(hops)]  # remove cropped hops
-    frames = numpy.stack(frames)  # stack frames vertically (hop, dft)
-    timestamps = numpy.array([h / sr for h in hops])  # compute hop timestamps in seconds
-    frequencies = numpy.linspace(0, sr / 2, frames.shape[-1])  # compute dft frequencies
-
-    assert (timestamps.size == frames.shape[0])
-    assert (frequencies.size == frames.shape[1])
-
-    return frames, timestamps, frequencies
-
-
-def istft(x, y, s, t, window='hanning', wola=False, debug=False):
-    """
-    Synthesizes STFT matrix.
-
-    Parameters
-    ----------
-    x : array or float
-        Timeline or sample rate of the original signal (not hop timestamps).
-    y : array
-        STFT matrix (hop, dft).
-    s : float
-        ISTFT step size in seconds.
-    t : float
-        ISTFT frame size in seconds.
-    window : bool, optional
-        Window name.
-    wola : bool, optional
-        Perform WOLA weighting.
-    debug : bool, optional
-        Visualize ISTFT step by step.
-
-    Returns
-    -------
-    frames : array
-        Synthesized output signal.
-    """
-
-    def show(hop, hops, step, steps, data):
-
-        if not debug:
-            return
-
-        if data.dtype == numpy.complex:
-            data = dasp.math.abs(data, db=True)
-
-        dasp.plot.figure(f'ISTFT Hop {hop}/{hops} Step {step}/{steps}').plot(data).show()
-
-    sr = x if numpy.isscalar(x) \
-           else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
-
-    s = max(1, int(s * sr))  # samples per hop
-    t = dasp.math.even(t * sr)  # samples per frame
-    n = len(y) * s + t  # total output samples
-
-    assert s > 0
-    assert t > 0
-    assert n > 0
-
-    w = dasp.fft.window(window, t + 1)[:-1]  # periodic window coefficients
-    w *= numpy.sqrt(s / numpy.dot(w, w)) if wola else 1  # scaled to give unity gain with wola
-
-    frames = numpy.zeros(n)  # frames to be extracted
-    hops = [i * s for i in range(len(y))]  # hop indices
-
-    for i, h in enumerate(hops):
-
-        frame = y[i]  # extract next frame
-        show(i + 1, len(hops), 1, 5, frame)
-
-        frame = dasp.fft.ift(frame)  # compute idft
-        show(i + 1, len(hops), 2, 5, frame)
-
-        frame = numpy.roll(frame, frame.size // 2)  # center frame data
-        show(i + 1, len(hops), 3, 5, frame)
-
-        frame = numpy.roll(frame, (t - frame.size) // 2)[:t]  # crop to t
-        show(i + 1, len(hops), 4, 5, frame)
-
-        frame = frame * w  # apply window
-        show(i + 1, len(hops), 5, 5, frame)
-
-        frames[h:h+t] += frame  # append to frame buffer
-
-    return frames

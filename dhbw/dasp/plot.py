@@ -168,6 +168,150 @@ def signal(x, y=None, xlim=None, ylim=1.1):
     return dasp.plot
 
 
+def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, cmap='inferno', **kwargs):
+    """
+    Plot STFT amplitude of the audio signal.
+
+    Parameters
+    ----------
+    x : array
+        Timeline array.
+    y : array
+        Signal amplitude array.
+    s : float
+        STFT step size in seconds.
+    t : float
+        STFT time span in seconds.
+    xlim : float, tuple, optional
+        Time limits.
+    ylim : float, tuple, optional
+        STFT frequency limits in Hz.
+    clim : float, tuple, optional
+        STFT amplitude limits in dB.
+    cmap : str, optional
+        Plot color map.
+    """
+
+    def lim():
+
+        if xlim is not None:
+            if isinstance(xlim, (list, tuple)):
+                plotpy.xlim(xlim)
+            else:
+                plotpy.xlim(0, xlim)
+
+        if ylim is not None:
+            if isinstance(ylim, (list, tuple)):
+                plotpy.ylim(ylim)
+            else:
+                plotpy.ylim(0, ylim)
+
+        if clim is not None:
+            if isinstance(clim, (list, tuple)):
+                plotpy.clim(clim)
+            else:
+                plotpy.clim(clim, 0)
+
+    sr = x if numpy.isscalar(x) \
+           else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
+
+    fs = int(t * sr)  # compute framesize in samples
+    hs = int(s * sr)  # compute hopsize in samples
+
+    s = dasp.stft.stft(y, fs, hs)
+    s = dasp.math.abs(s, db=True)
+
+    t = numpy.array([h * hs / sr for h in range(s.shape[0])])  # compute hop timestamps in seconds
+    f = numpy.linspace(0, sr / 2, s.shape[1])  # compute dft frequencies in hertz
+
+    # prefer real coordinates to indices (left, right, bottom, top)
+    extent = (numpy.min(t), numpy.max(t), numpy.min(f), numpy.max(f))
+
+    plotpy.imshow(s.T, aspect='auto', cmap=cmap, extent=extent, interpolation='nearest', origin='lower')
+    colorbar = plotpy.colorbar()
+
+    plotpy.xlabel('s')
+    plotpy.ylabel('Hz')
+    colorbar.set_label('dB')
+
+    lim()
+
+    return dasp.plot
+
+
+def phasogram(x, y, s, t, xlim=None, ylim=None, clim=None, cmap='twilight', **kwargs):
+    """
+    Plot STFT phase of the audio signal.
+
+    Parameters
+    ----------
+    x : array
+        Timeline array.
+    y : array
+        Signal amplitude array.
+    s : float
+        STFT step size in seconds.
+    t : float
+        STFT time span in seconds.
+    xlim : float, tuple, optional
+        Time limits.
+    ylim : float, tuple, optional
+        STFT frequency limits in Hz.
+    clim : float, tuple, optional
+        STFT phase value limits in dB.
+    cmap : str, optional
+        Plot color map.
+    """
+
+    def lim():
+
+        if xlim is not None:
+            if isinstance(xlim, (list, tuple)):
+                plotpy.xlim(xlim)
+            else:
+                plotpy.xlim(0, xlim)
+
+        if ylim is not None:
+            if isinstance(ylim, (list, tuple)):
+                plotpy.ylim(ylim)
+            else:
+                plotpy.ylim(0, ylim)
+
+        if clim is not None:
+            if isinstance(clim, (list, tuple)):
+                plotpy.clim(clim)
+            else:
+                plotpy.clim(-clim, +clim)
+        else:
+            plotpy.clim(-numpy.pi, +numpy.pi)
+
+    sr = x if numpy.isscalar(x) \
+           else int(len(x) / numpy.ptp(x))  # 1 / (duration / samples)
+
+    fs = int(t * sr)  # compute framesize in samples
+    hs = int(s * sr)  # compute hopsize in samples
+
+    s = dasp.stft.stft(y, fs, hs)
+    s = dasp.math.arg(s, wrap=True)
+
+    t = numpy.array([h * hs / sr for h in range(s.shape[0])])  # compute hop timestamps in seconds
+    f = numpy.linspace(0, sr / 2, s.shape[1])  # compute dft frequencies in hertz
+
+    # prefer real coordinates to indices (left, right, bottom, top)
+    extent = (numpy.min(t), numpy.max(t), numpy.min(f), numpy.max(f))
+
+    plotpy.imshow(s.T, aspect='auto', cmap=cmap, extent=extent, interpolation='nearest', origin='lower')
+    colorbar = plotpy.colorbar()
+
+    plotpy.xlabel('s')
+    plotpy.ylabel('Hz')
+    colorbar.set_label('rad')
+
+    lim()
+
+    return dasp.plot
+
+
 class fft:
 
     def abs(x, y, xlim=None, ylim=-120, **kwargs):
@@ -281,130 +425,6 @@ class fft:
             lim()
 
         plotpy.xlabel('Hz')
-
-        return dasp.plot
-
-    def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, cmap='inferno', **kwargs):
-        """
-        Plot STFT amplitude of the audio signal.
-
-        Parameters
-        ----------
-        x : array
-            Timeline array.
-        y : array
-            Signal amplitude array.
-        s : float
-            STFT step size in seconds.
-        t : float
-            STFT time span in seconds.
-        xlim : float, tuple, optional
-            Time limits.
-        ylim : float, tuple, optional
-            STFT frequency limits in Hz.
-        clim : float, tuple, optional
-            STFT amplitude limits in dB.
-        cmap : str, optional
-            Plot color map.
-        """
-
-        def lim():
-
-            if xlim is not None:
-                if isinstance(xlim, (list, tuple)):
-                    plotpy.xlim(xlim)
-                else:
-                    plotpy.xlim(0, xlim)
-
-            if ylim is not None:
-                if isinstance(ylim, (list, tuple)):
-                    plotpy.ylim(ylim)
-                else:
-                    plotpy.ylim(0, ylim)
-
-            if clim is not None:
-                if isinstance(clim, (list, tuple)):
-                    plotpy.clim(clim)
-                else:
-                    plotpy.clim(clim, 0)
-
-        s, t, f = dasp.fft.stft(x, y, s, t, **kwargs)
-        s = dasp.math.abs(s, db=True)
-
-        # prefer real coordinates to indices (left, right, bottom, top)
-        extent = (numpy.min(t), numpy.max(t), numpy.min(f), numpy.max(f))
-
-        plotpy.imshow(s.T, aspect='auto', cmap=cmap, extent=extent, interpolation='nearest', origin='lower')
-        colorbar = plotpy.colorbar()
-
-        plotpy.xlabel('s')
-        plotpy.ylabel('Hz')
-        colorbar.set_label('dB')
-
-        lim()
-
-        return dasp.plot
-
-    def phasogram(x, y, s, t, xlim=None, ylim=None, clim=None, cmap='twilight', **kwargs):
-        """
-        Plot STFT phase of the audio signal.
-
-        Parameters
-        ----------
-        x : array
-            Timeline array.
-        y : array
-            Signal amplitude array.
-        s : float
-            STFT step size in seconds.
-        t : float
-            STFT time span in seconds.
-        xlim : float, tuple, optional
-            Time limits.
-        ylim : float, tuple, optional
-            STFT frequency limits in Hz.
-        clim : float, tuple, optional
-            STFT phase value limits in dB.
-        cmap : str, optional
-            Plot color map.
-        """
-
-        def lim():
-
-            if xlim is not None:
-                if isinstance(xlim, (list, tuple)):
-                    plotpy.xlim(xlim)
-                else:
-                    plotpy.xlim(0, xlim)
-
-            if ylim is not None:
-                if isinstance(ylim, (list, tuple)):
-                    plotpy.ylim(ylim)
-                else:
-                    plotpy.ylim(0, ylim)
-
-            if clim is not None:
-                if isinstance(clim, (list, tuple)):
-                    plotpy.clim(clim)
-                else:
-                    plotpy.clim(-clim, +clim)
-            else:
-                plotpy.clim(-numpy.pi, +numpy.pi)
-
-        s, t, f = dasp.fft.stft(x, y, s, t, **kwargs)
-        s = dasp.math.arg(s, wrap=True)
-
-        # prefer real coordinates to indices (left, right, bottom, top)
-        extent = (numpy.min(t), numpy.max(t), numpy.min(f), numpy.max(f))
-
-        plotpy.imshow(s.T, aspect='auto', cmap=cmap, extent=extent, interpolation='nearest', origin='lower')
-        colorbar = plotpy.colorbar()
-
-        plotpy.xlabel('s')
-        plotpy.ylabel('Hz')
-        colorbar.set_label('rad')
-
-        lim()
 
         return dasp.plot
 
