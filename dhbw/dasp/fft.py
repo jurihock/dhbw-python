@@ -43,8 +43,7 @@ def window(name, size):
 
 def fft(x, norm=True, window='hanning'):
     """
-    Returns DFT of the specified real-valued array excluding the Nyquist component,
-    so that the size of the resulting array will be exactly `dasp.math.pot(len(x)) / 2`.
+    Returns DFT of the specified real-valued array.
 
     Parameters
     ----------
@@ -58,39 +57,34 @@ def fft(x, norm=True, window='hanning'):
     Returns
     -------
     y : array
-        Complex output array of length `dasp.math.pot(len(x)) / 2`.
+        Complex output array.
     """
 
-    n = len(x)  # actual length
-    m = dasp.math.pot(n)  # power of two length
-
     if window is not None:
-        x = x * dasp.fft.window(window, n)
+        x = x * dasp.fft.window(window, len(x))
 
-    y = numpy.fft.rfft(x, n=m, norm=('forward' if norm else 'backward'))
-    y = y[:-1]  # skip Nyquist component
+    y = numpy.fft.rfft(x, norm=('forward' if norm else 'backward'))
 
     return y
 
 
 def ifft(x, norm=True):
     """
-    Returns IDFT of the specified complex-valued array with inserted Nyquist component.
+    Returns IDFT of the specified complex-valued array.
 
     Parameters
     ----------
     x : array
-        Complex input array of length `len(x) == dasp.math.pot(len(x))` without Nyquist component.
+        Complex input array.
     norm : bool, optional
         Option whether to scale the output array by `1*N`.
 
     Returns
     -------
     y : array
-        Real output array of length `dasp.math.pot(len(x)) * 2`.
+        Real output array.
     """
 
-    x = numpy.concatenate((x, [0]))  # append Nyquist component skipped in ft
     y = numpy.fft.irfft(x, norm=('forward' if norm else 'backward'))
 
     return y
@@ -127,7 +121,7 @@ def abs(x, y, db=True, window='hanning'):
 
     dft = dasp.fft.fft(y, window=window)
 
-    freqs = numpy.linspace(0, sr / 2, len(dft))
+    freqs = numpy.fft.rfftfreq(len(x), 1 / sr)
     power = dasp.math.abs(dft, db=db)
 
     return freqs, power
@@ -164,7 +158,7 @@ def arg(x, y, wrap=None, window='hanning'):
 
     dft = dasp.fft.fft(y, window=window)
 
-    freqs = numpy.linspace(0, sr / 2, len(dft))
+    freqs = numpy.fft.rfftfreq(len(x), 1 / sr)
     phase = dasp.math.arg(dft, wrap=wrap)
 
     return freqs, phase
