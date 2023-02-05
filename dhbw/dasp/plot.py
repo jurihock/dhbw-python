@@ -222,7 +222,7 @@ def spectrogram(x, y, s, t, xlim=None, ylim=None, clim=-120, cmap='inferno', **k
     s = dasp.math.abs(s, db=True)
 
     t = numpy.array([h * hs / sr for h in range(s.shape[0])])  # compute hop timestamps in seconds
-    f = numpy.linspace(0, sr / 2, s.shape[1])  # compute dft frequencies in hertz
+    f = numpy.fft.rfftfreq(fs, 1 / sr)  # compute dft frequencies in hertz
 
     # prefer real coordinates to indices (left, right, bottom, top)
     extent = (numpy.min(t), numpy.max(t), numpy.min(f), numpy.max(f))
@@ -295,7 +295,7 @@ def phasogram(x, y, s, t, xlim=None, ylim=None, clim=None, cmap='twilight', **kw
     s = dasp.math.arg(s, wrap=True)
 
     t = numpy.array([h * hs / sr for h in range(s.shape[0])])  # compute hop timestamps in seconds
-    f = numpy.linspace(0, sr / 2, s.shape[1])  # compute dft frequencies in hertz
+    f = numpy.fft.rfftfreq(fs, 1 / sr)  # compute dft frequencies in hertz
 
     # prefer real coordinates to indices (left, right, bottom, top)
     extent = (numpy.min(t), numpy.max(t), numpy.min(f), numpy.max(f))
