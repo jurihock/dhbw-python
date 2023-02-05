@@ -12,7 +12,6 @@ from . import math
 from . import pitch
 from . import plot
 from . import signal
-from . import sdft
 from . import stft
 
 
