@@ -29,7 +29,6 @@ extensions = [
 ]
 
 autodoc_mock_imports = [
-    'click',
     'matplotlib',
     'numpy',
     'scipy',

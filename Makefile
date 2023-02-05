@@ -33,7 +33,7 @@ docs:
 	@rm -rf docs/*.rst
 	@rm -rf docs/doctrees
 	@rm -rf docs/html
-	@sphinx-apidoc -o docs --tocfile index --separate --module-first .
+	@sphinx-apidoc -o docs --tocfile index --separate --module-first . tests
 	@sphinx-build -M html docs docs
 
 docs-fix:
