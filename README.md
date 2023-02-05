@@ -1,4 +1,4 @@
-# dhbw-python
+# dhbw-python ![pypi](https://img.shields.io/pypi/v/dhbw?color=gold)
 
 DHBW lecture accompanying Python package.
 
