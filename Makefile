@@ -3,7 +3,7 @@ ROOT = \/docs\/html\/
 DOTS = \.\.\/
 DOT = \.\/
 
-.PHONY: help boot build docs docs-fix install install-test reinstall uninstall upload upload-test which
+.PHONY: help boot build docs docs-fix install install-test reinstall uninstall upload upload-test test which
 
 help:
 	@echo boot
@@ -17,6 +17,7 @@ help:
 	@echo upload
 	@echo upload-test
 	@echo which
+	@echo test
 
 boot:
 	@python -m pip install --upgrade build
@@ -70,6 +71,9 @@ upload:
 
 upload-test:
 	@python -m twine upload --repository testpypi dist/*
+
+test:
+	@python -m unittest discover tests
 
 which:
 	@which python
