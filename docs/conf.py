@@ -45,7 +45,7 @@ autodoc_member_order = 'groupwise'
 numpydoc_show_class_members = False
 
 html_title = f'{project} docs'
-html_logo = 'https://upload.wikimedia.org/wikipedia/de/1/1d/DHBW-Logo.svg'
+html_logo = 'https://github.com/jurihock/dhbw-python/raw/main/dhbw.svg'
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'collapse_navigation': False,
