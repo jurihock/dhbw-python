@@ -13,7 +13,9 @@
         <script data-url_root="/docs/html/" id="documentation_options" src="/docs/html/_static/documentation_options.js"></script>
         <script src="/docs/html/_static/jquery.js"></script>
         <script src="/docs/html/_static/underscore.js"></script>
+        <script src="/docs/html/_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="/docs/html/_static/doctools.js"></script>
+        <script src="/docs/html/_static/sphinx_highlight.js"></script>
     <script src="/docs/html/_static/js/theme.js"></script>
     <link rel="index" title="Index" href="/docs/html/genindex.html" />
     <link rel="search" title="Search" href="/docs/html/search.html" /> 
@@ -39,6 +41,14 @@
 <li class="toctree-l1"><a class="reference internal" href="/docs/html/dhbw.html">dhbw package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="/docs/html/dhbw.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.echo"><code class="docutils literal notranslate"><span class="pre">log.echo()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.enable"><code class="docutils literal notranslate"><span class="pre">log.enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.timeline"><code class="docutils literal notranslate"><span class="pre">timeline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.CP"><code class="docutils literal notranslate"><span class="pre">CP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.SR"><code class="docutils literal notranslate"><span class="pre">SR</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#submodules">Submodules</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.fft.html">dhbw.dasp.fft module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.filter.html">dhbw.dasp.filter module</a></li>
@@ -47,6 +57,7 @@
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.pitch.html">dhbw.dasp.pitch module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.plot.html">dhbw.dasp.plot module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.signal.html">dhbw.dasp.signal module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.stft.html">dhbw.dasp.stft module</a></li>
 </ul>
 </li>
 </ul>
@@ -70,10 +81,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="/docs/html/index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="/docs/html/index.html">Module code</a> &raquo;</li>
-          <li><a href="/docs/html/dasp.html">dhbw.dasp</a> &raquo;</li>
-      <li>dhbw.dasp.fft</li>
+      <li><a href="/docs/html/index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="/docs/html/index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="/docs/html/dasp.html">dhbw.dasp</a></li>
+      <li class="breadcrumb-item active">dhbw.dasp.fft</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -84,13 +95,12 @@
              
   <h1>Source code for dhbw.dasp.fft</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">dhbw</span> <span class="kn">import</span> <span class="n">dasp</span>
 
 
 <div class="viewcode-block" id="window"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.window">[docs]</a><span class="k">def</span> <span class="nf">window</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns coefficients of the specified window and size.</span>
 
 <span class="sd">    Parameters</span>
@@ -100,6 +110,8 @@
 <span class="sd">    size : int</span>
 <span class="sd">        Number of window coefficients to compute.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># TODO https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.get_window.html</span>
 
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
@@ -125,10 +137,9 @@
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid or unsupported window &quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot;!&#39;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="ft"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.ft">[docs]</a><span class="k">def</span> <span class="nf">ft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns DFT of the specified real-valued array excluding the DC component,</span>
-<span class="sd">    so that the size of the resulting array will be exactly `dasp.math.pot(len(x)) / 2`.</span>
+<div class="viewcode-block" id="fft"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.fft">[docs]</a><span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns DFT of the specified real-valued array.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -142,48 +153,41 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    y : array</span>
-<span class="sd">        Complex output array of length `dasp.math.pot(len(x)) / 2`.</span>
+<span class="sd">        Complex output array.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># actual length</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">pot</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># power of two length</span>
-
     <span class="k">if</span> <span class="n">window</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">dasp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">dasp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
-    <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">/=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">norm</span> <span class="k">else</span> <span class="mi">1</span>  <span class="c1"># normalize</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># skip dc component</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;forward&#39;</span> <span class="k">if</span> <span class="n">norm</span> <span class="k">else</span> <span class="s1">&#39;backward&#39;</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">y</span></div>
 
 
-<div class="viewcode-block" id="ift"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.ift">[docs]</a><span class="k">def</span> <span class="nf">ift</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns IDFT of the specified complex-valued array with inserted DC component.</span>
+<div class="viewcode-block" id="ifft"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.ifft">[docs]</a><span class="k">def</span> <span class="nf">ifft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns IDFT of the specified complex-valued array.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    x : array</span>
-<span class="sd">        Complex input array of length `len(x) == dasp.math.pot(len(x))` without DC component.</span>
+<span class="sd">        Complex input array.</span>
 <span class="sd">    norm : bool, optional</span>
 <span class="sd">        Option whether to scale the output array by `1*N`.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    y : array</span>
-<span class="sd">        Real output array of length `dasp.math.pot(len(x)) * 2`.</span>
+<span class="sd">        Real output array.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mi">0</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span><span class="p">],</span> <span class="n">x</span><span class="p">))</span>  <span class="c1"># prepend dc component skipped in ft</span>
-    <span class="n">x</span> <span class="o">*=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">norm</span> <span class="k">else</span> <span class="mi">1</span>  <span class="c1"># denormalize</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;forward&#39;</span> <span class="k">if</span> <span class="n">norm</span> <span class="k">else</span> <span class="s1">&#39;backward&#39;</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">y</span></div>
 
 
 <div class="viewcode-block" id="abs"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.abs">[docs]</a><span class="k">def</span> <span class="nf">abs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns DFT frequencies and corresponding absolute values</span>
 <span class="sd">    of the specified timeline x and signal amplitudes y.</span>
 
@@ -211,16 +215,16 @@
     <span class="n">sr</span> <span class="o">=</span> <span class="n">x</span> <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> \
            <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ptp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 1 / (duration / samples)</span>
 
-    <span class="n">dft</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span>
+    <span class="n">dft</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span>
 
-    <span class="n">freqs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sr</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dft</span><span class="p">))</span>
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sr</span><span class="p">)</span>
     <span class="n">power</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dft</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">power</span></div>
 
 
 <div class="viewcode-block" id="arg"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.arg">[docs]</a><span class="k">def</span> <span class="nf">arg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns DFT frequencies and corresponding argument values</span>
 <span class="sd">    of the specified timeline x and signal amplitudes y.</span>
 
@@ -248,188 +252,12 @@
     <span class="n">sr</span> <span class="o">=</span> <span class="n">x</span> <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> \
            <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ptp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 1 / (duration / samples)</span>
 
-    <span class="n">dft</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span>
+    <span class="n">dft</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">)</span>
 
-    <span class="n">freqs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sr</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dft</span><span class="p">))</span>
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sr</span><span class="p">)</span>
     <span class="n">phase</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">arg</span><span class="p">(</span><span class="n">dft</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="n">wrap</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">phase</span></div>
-
-
-<div class="viewcode-block" id="stft"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.stft">[docs]</a><span class="k">def</span> <span class="nf">stft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">,</span> <span class="n">wola</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">crop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes STFT matrix.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    x : array or float</span>
-<span class="sd">        Timeline or sample rate.</span>
-<span class="sd">    y : array</span>
-<span class="sd">        Input signal amplitudes.</span>
-<span class="sd">    s : float</span>
-<span class="sd">        STFT step hop in seconds.</span>
-<span class="sd">    t : float</span>
-<span class="sd">        STFT time span in seconds.</span>
-<span class="sd">    window : bool, optional</span>
-<span class="sd">        Window name.</span>
-<span class="sd">    wola : bool, optional</span>
-<span class="sd">        Perform WOLA weighting.</span>
-<span class="sd">    crop : bool, optional</span>
-<span class="sd">        Skip the last hop if the input array is too short.</span>
-<span class="sd">    debug : bool, optional</span>
-<span class="sd">        Visualize STFT hop processing.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    frames : matrix</span>
-<span class="sd">        STFT matrix (hop, dft).</span>
-<span class="sd">    timestamps : array</span>
-<span class="sd">        Hop timestamps.</span>
-<span class="sd">    frequencies : array</span>
-<span class="sd">        DFT frequencies.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="n">hop</span><span class="p">,</span> <span class="n">hops</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">debug</span><span class="p">:</span>
-            <span class="k">return</span>
-
-        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">numpy</span><span class="o">.</span><span class="n">complex</span><span class="p">:</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-        <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;STFT Hop </span><span class="si">{</span><span class="n">hop</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">hops</span><span class="si">}</span><span class="s1"> Step </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">steps</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-    <span class="n">sr</span> <span class="o">=</span> <span class="n">x</span> <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> \
-           <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ptp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 1 / (duration / samples)</span>
-
-    <span class="n">s</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="n">sr</span><span class="p">))</span>  <span class="c1"># samples per hop</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">even</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">sr</span><span class="p">)</span>  <span class="c1"># samples per frame</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># total input samples</span>
-
-    <span class="k">assert</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span>
-
-    <span class="n">w</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>  <span class="c1"># window coefficients</span>
-    <span class="n">w</span> <span class="o">/=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span><span class="p">)</span> <span class="k">if</span> <span class="n">wola</span> <span class="k">else</span> <span class="mi">1</span>  <span class="c1"># optionally prepare for wola</span>
-
-    <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># frames to be extracted</span>
-    <span class="n">hops</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">s</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="n">s</span><span class="p">)]</span>  <span class="c1"># hop indices</span>
-
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hops</span><span class="p">):</span>
-
-        <span class="c1"># optionally skip too short fragments</span>
-        <span class="c1"># at the end of the input</span>
-        <span class="k">if</span> <span class="n">crop</span> <span class="ow">and</span> <span class="p">(</span><span class="n">h</span><span class="o">+</span><span class="n">t</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
-            <span class="k">continue</span>
-
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">h</span><span class="p">:</span><span class="n">h</span><span class="o">+</span><span class="n">t</span><span class="p">]</span>  <span class="c1"># extract next frame</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">crop</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="n">frame</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">t</span>  <span class="c1"># check frame size</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">frame</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span> <span class="o">-</span> <span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>  <span class="c1"># pad right to expected frame size</span>
-
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span> <span class="o">*</span> <span class="n">w</span>  <span class="c1"># apply window</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
-
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="p">(</span><span class="n">dasp</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">pot</span><span class="p">(</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="o">-</span> <span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># pad left and right to pot</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
-
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">frame</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># center frame data</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
-
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ft</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># compute dft without window</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
-
-        <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>  <span class="c1"># append to frame buffer</span>
-
-    <span class="n">hops</span> <span class="o">=</span> <span class="n">hops</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">)]</span>  <span class="c1"># remove cropped hops</span>
-    <span class="n">frames</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>  <span class="c1"># stack frames vertically (hop, dft)</span>
-    <span class="n">timestamps</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">h</span> <span class="o">/</span> <span class="n">sr</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hops</span><span class="p">])</span>  <span class="c1"># compute hop timestamps in seconds</span>
-    <span class="n">frequencies</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sr</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">frames</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># compute dft frequencies</span>
-
-    <span class="k">assert</span> <span class="p">(</span><span class="n">timestamps</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">frames</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="k">assert</span> <span class="p">(</span><span class="n">frequencies</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">frames</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-    <span class="k">return</span> <span class="n">frames</span><span class="p">,</span> <span class="n">timestamps</span><span class="p">,</span> <span class="n">frequencies</span></div>
-
-
-<div class="viewcode-block" id="istft"><a class="viewcode-back" href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.istft">[docs]</a><span class="k">def</span> <span class="nf">istft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hanning&#39;</span><span class="p">,</span> <span class="n">wola</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Synthesizes STFT matrix.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    x : array or float</span>
-<span class="sd">        Timeline or sample rate of the original signal (not hop timestamps).</span>
-<span class="sd">    y : array</span>
-<span class="sd">        STFT matrix (hop, dft).</span>
-<span class="sd">    s : float</span>
-<span class="sd">        ISTFT hop size in seconds.</span>
-<span class="sd">    t : float</span>
-<span class="sd">        ISTFT time span in seconds.</span>
-<span class="sd">    window : bool, optional</span>
-<span class="sd">        Window name.</span>
-<span class="sd">    wola : bool, optional</span>
-<span class="sd">        Perform WOLA weighting.</span>
-<span class="sd">    debug : bool, optional</span>
-<span class="sd">        Visualize ISTFT hop processing.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    frames : array</span>
-<span class="sd">        Synthesized output signal.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="n">hop</span><span class="p">,</span> <span class="n">hops</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">debug</span><span class="p">:</span>
-            <span class="k">return</span>
-
-        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">numpy</span><span class="o">.</span><span class="n">complex</span><span class="p">:</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-        <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ISTFT Hop </span><span class="si">{</span><span class="n">hop</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">hops</span><span class="si">}</span><span class="s1"> Step </span><span class="si">{</span><span class="n">step</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">steps</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-    <span class="n">sr</span> <span class="o">=</span> <span class="n">x</span> <span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> \
-           <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ptp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># 1 / (duration / samples)</span>
-
-    <span class="n">s</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="n">sr</span><span class="p">))</span>  <span class="c1"># samples per hop</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">even</span><span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="n">sr</span><span class="p">)</span>  <span class="c1"># samples per frame</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">s</span> <span class="o">+</span> <span class="n">t</span>  <span class="c1"># total output samples</span>
-
-    <span class="k">assert</span> <span class="n">s</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">assert</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span>
-
-    <span class="n">w</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>  <span class="c1"># window coefficients</span>
-    <span class="n">w</span> <span class="o">/=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span><span class="p">)</span> <span class="k">if</span> <span class="n">wola</span> <span class="k">else</span> <span class="mi">1</span>  <span class="c1"># optionally prepare for wola</span>
-
-    <span class="n">frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># frames to be extracted</span>
-    <span class="n">hops</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">s</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))]</span>  <span class="c1"># hop indices</span>
-
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hops</span><span class="p">):</span>
-
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="c1"># extract next frame</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
-
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ift</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>  <span class="c1"># compute idft</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
-
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">frame</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># center frame data</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
-
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)[:</span><span class="n">t</span><span class="p">]</span>  <span class="c1"># crop to t</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
-
-        <span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span> <span class="o">*</span> <span class="n">w</span>  <span class="c1"># apply window</span>
-        <span class="n">show</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hops</span><span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
-
-        <span class="n">frames</span><span class="p">[</span><span class="n">h</span><span class="p">:</span><span class="n">h</span><span class="o">+</span><span class="n">t</span><span class="p">]</span> <span class="o">+=</span> <span class="n">frame</span>  <span class="c1"># append to frame buffer</span>
-
-    <span class="k">return</span> <span class="n">frames</span></div>
 </pre></div>
 
            </div>
@@ -439,7 +267,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022 by Juergen Hock.</p>
+    <p>&#169; Copyright 2023 by Juergen Hock.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -13,7 +13,9 @@
         <script data-url_root="/docs/html/" id="documentation_options" src="/docs/html/_static/documentation_options.js"></script>
         <script src="/docs/html/_static/jquery.js"></script>
         <script src="/docs/html/_static/underscore.js"></script>
+        <script src="/docs/html/_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="/docs/html/_static/doctools.js"></script>
+        <script src="/docs/html/_static/sphinx_highlight.js"></script>
     <script src="/docs/html/_static/js/theme.js"></script>
     <link rel="index" title="Index" href="/docs/html/genindex.html" />
     <link rel="search" title="Search" href="/docs/html/search.html" /> 
@@ -39,6 +41,14 @@
 <li class="toctree-l1"><a class="reference internal" href="/docs/html/dhbw.html">dhbw package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="/docs/html/dhbw.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.echo"><code class="docutils literal notranslate"><span class="pre">log.echo()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.enable"><code class="docutils literal notranslate"><span class="pre">log.enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.timeline"><code class="docutils literal notranslate"><span class="pre">timeline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.CP"><code class="docutils literal notranslate"><span class="pre">CP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.SR"><code class="docutils literal notranslate"><span class="pre">SR</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#submodules">Submodules</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.fft.html">dhbw.dasp.fft module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.filter.html">dhbw.dasp.filter module</a></li>
@@ -47,6 +57,7 @@
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.pitch.html">dhbw.dasp.pitch module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.plot.html">dhbw.dasp.plot module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.signal.html">dhbw.dasp.signal module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.stft.html">dhbw.dasp.stft module</a></li>
 </ul>
 </li>
 </ul>
@@ -70,10 +81,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="/docs/html/index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="/docs/html/index.html">Module code</a> &raquo;</li>
-          <li><a href="/docs/html/dasp.html">dhbw.dasp</a> &raquo;</li>
-      <li>dhbw.dasp.pitch</li>
+      <li><a href="/docs/html/index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="/docs/html/index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="/docs/html/dasp.html">dhbw.dasp</a></li>
+      <li class="breadcrumb-item active">dhbw.dasp.pitch</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -92,7 +103,7 @@
 
 
 <div class="viewcode-block" id="scale"><a class="viewcode-back" href="/docs/html/dhbw.dasp.pitch.html#dhbw.dasp.pitch.scale">[docs]</a><span class="k">def</span> <span class="nf">scale</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the `12` chromatic tone names.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -100,7 +111,7 @@
 
 
 <div class="viewcode-block" id="note"><a class="viewcode-back" href="/docs/html/dhbw.dasp.pitch.html#dhbw.dasp.pitch.note">[docs]</a><span class="k">def</span> <span class="nf">note</span><span class="p">(</span><span class="n">semitone</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns note name for the specified semitone index.</span>
 
 <span class="sd">    Parameters</span>
@@ -115,7 +126,7 @@
 
 
 <div class="viewcode-block" id="tone"><a class="viewcode-back" href="/docs/html/dhbw.dasp.pitch.html#dhbw.dasp.pitch.tone">[docs]</a><span class="k">def</span> <span class="nf">tone</span><span class="p">(</span><span class="n">notename</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns semitone index for the specified note name.</span>
 
 <span class="sd">    Parameters</span>
@@ -130,7 +141,7 @@
 
 
 <div class="viewcode-block" id="frequency"><a class="viewcode-back" href="/docs/html/dhbw.dasp.pitch.html#dhbw.dasp.pitch.frequency">[docs]</a><span class="k">def</span> <span class="nf">frequency</span><span class="p">(</span><span class="n">semitone</span><span class="p">,</span> <span class="n">octave</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns frequency in hertz for the specified semitone index.</span>
 
 <span class="sd">    Parameters</span>
@@ -154,7 +165,7 @@
 
 
 <div class="viewcode-block" id="octave"><a class="viewcode-back" href="/docs/html/dhbw.dasp.pitch.html#dhbw.dasp.pitch.octave">[docs]</a><span class="k">def</span> <span class="nf">octave</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="n">cp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns octave index of the specified frequency value.</span>
 
 <span class="sd">    Parameters</span>
@@ -173,7 +184,7 @@
 
 
 <div class="viewcode-block" id="semitone"><a class="viewcode-back" href="/docs/html/dhbw.dasp.pitch.html#dhbw.dasp.pitch.semitone">[docs]</a><span class="k">def</span> <span class="nf">semitone</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="n">relative</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns semitone index of the specified frequency value.</span>
 
 <span class="sd">    Parameters</span>
@@ -203,7 +214,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022 by Juergen Hock.</p>
+    <p>&#169; Copyright 2023 by Juergen Hock.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

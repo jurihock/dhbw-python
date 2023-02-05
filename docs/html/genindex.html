@@ -13,7 +13,9 @@
         <script data-url_root="/docs/html/" id="documentation_options" src="/docs/html/_static/documentation_options.js"></script>
         <script src="/docs/html/_static/jquery.js"></script>
         <script src="/docs/html/_static/underscore.js"></script>
+        <script src="/docs/html/_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="/docs/html/_static/doctools.js"></script>
+        <script src="/docs/html/_static/sphinx_highlight.js"></script>
     <script src="/docs/html/_static/js/theme.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="/docs/html/search.html" /> 
@@ -39,6 +41,14 @@
 <li class="toctree-l1"><a class="reference internal" href="/docs/html/dhbw.html">dhbw package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="/docs/html/dhbw.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.echo"><code class="docutils literal notranslate"><span class="pre">log.echo()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.enable"><code class="docutils literal notranslate"><span class="pre">log.enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.timeline"><code class="docutils literal notranslate"><span class="pre">timeline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.CP"><code class="docutils literal notranslate"><span class="pre">CP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.SR"><code class="docutils literal notranslate"><span class="pre">SR</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#submodules">Submodules</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.fft.html">dhbw.dasp.fft module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.filter.html">dhbw.dasp.filter module</a></li>
@@ -47,6 +57,7 @@
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.pitch.html">dhbw.dasp.pitch module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.plot.html">dhbw.dasp.plot module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.signal.html">dhbw.dasp.signal module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.stft.html">dhbw.dasp.stft module</a></li>
 </ul>
 </li>
 </ul>
@@ -70,8 +81,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="/docs/html/index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Index</li>
+      <li><a href="/docs/html/index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Index</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -99,6 +110,7 @@
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
  | <a href="#W"><strong>W</strong></a>
  | <a href="#Z"><strong>Z</strong></a>
  
@@ -142,6 +154,8 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="/docs/html/dhbw.dasp.math.html#dhbw.dasp.math.db">db() (in module dhbw.dasp.math)</a>
+</li>
       <li>
     dhbw
 
@@ -207,6 +221,13 @@
         <li><a href="/docs/html/dhbw.dasp.signal.html#module-dhbw.dasp.signal">module</a>
 </li>
       </ul></li>
+      <li>
+    dhbw.dasp.stft
+
+      <ul>
+        <li><a href="/docs/html/dhbw.dasp.stft.html#module-dhbw.dasp.stft">module</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -231,20 +252,20 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.fft">fft (class in dhbw.dasp.plot)</a>
 </li>
-      <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.figure">figure() (in module dhbw.dasp.plot)</a>
+      <li><a href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.fft">fft() (in module dhbw.dasp.fft)</a>
 </li>
-      <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter">filter (class in dhbw.dasp.plot)</a>
+      <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.figure">figure() (in module dhbw.dasp.plot)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter">filter (class in dhbw.dasp.plot)</a>
+</li>
       <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.frequency">frequency() (dhbw.dasp.plot.filter method)</a>
 
       <ul>
         <li><a href="/docs/html/dhbw.dasp.pitch.html#dhbw.dasp.pitch.frequency">(in module dhbw.dasp.pitch)</a>
 </li>
       </ul></li>
-      <li><a href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.ft">ft() (in module dhbw.dasp.fft)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -263,7 +284,7 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.ift">ift() (in module dhbw.dasp.fft)</a>
+      <li><a href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.ifft">ifft() (in module dhbw.dasp.fft)</a>
 </li>
       <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.impulse">impulse() (dhbw.dasp.plot.filter method)</a>
 
@@ -273,7 +294,7 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.istft">istft() (in module dhbw.dasp.fft)</a>
+      <li><a href="/docs/html/dhbw.dasp.stft.html#dhbw.dasp.stft.istft">istft() (in module dhbw.dasp.stft)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -311,6 +332,8 @@
 </li>
         <li><a href="/docs/html/dhbw.dasp.signal.html#module-dhbw.dasp.signal">dhbw.dasp.signal</a>
 </li>
+        <li><a href="/docs/html/dhbw.dasp.stft.html#module-dhbw.dasp.stft">dhbw.dasp.stft</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -346,7 +369,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.phase">phase() (dhbw.dasp.plot.filter method)</a>
 </li>
-      <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.fft.phasogram">phasogram() (dhbw.dasp.plot.fft method)</a>
+      <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.phasogram">phasogram() (in module dhbw.dasp.plot)</a>
 </li>
       <li><a href="/docs/html/dhbw.dasp.io.html#dhbw.dasp.io.play">play() (in module dhbw.dasp.io)</a>
 </li>
@@ -394,13 +417,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.signal">signal() (in module dhbw.dasp.plot)</a>
 </li>
-      <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.fft.spectrogram">spectrogram() (dhbw.dasp.plot.fft method)</a>
+      <li><a href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.spectrogram">spectrogram() (in module dhbw.dasp.plot)</a>
 </li>
       <li><a href="/docs/html/dhbw.dasp.signal.html#dhbw.dasp.signal.square">square() (in module dhbw.dasp.signal)</a>
 </li>
       <li><a href="/docs/html/dhbw.dasp.html#dhbw.dasp.SR">SR (in module dhbw.dasp)</a>
 </li>
-      <li><a href="/docs/html/dhbw.dasp.fft.html#dhbw.dasp.fft.stft">stft() (in module dhbw.dasp.fft)</a>
+      <li><a href="/docs/html/dhbw.dasp.stft.html#dhbw.dasp.stft.stft">stft() (in module dhbw.dasp.stft)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -421,6 +444,14 @@
   </ul></td>
 </tr></table>
 
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="/docs/html/dhbw.dasp.math.html#dhbw.dasp.math.unwrap">unwrap() (in module dhbw.dasp.math)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -428,6 +459,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="/docs/html/dhbw.dasp.math.html#dhbw.dasp.math.wrap">wrap() (in module dhbw.dasp.math)</a>
+</li>
       <li><a href="/docs/html/dhbw.dasp.io.html#dhbw.dasp.io.write">write() (in module dhbw.dasp.io)</a>
 </li>
   </ul></td>
@@ -450,7 +483,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022 by Juergen Hock.</p>
+    <p>&#169; Copyright 2023 by Juergen Hock.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

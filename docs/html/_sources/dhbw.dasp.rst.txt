@@ -19,3 +19,4 @@ Submodules
    dhbw.dasp.pitch
    dhbw.dasp.plot
    dhbw.dasp.signal
+   dhbw.dasp.stft

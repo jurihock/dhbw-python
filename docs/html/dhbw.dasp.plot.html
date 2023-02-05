@@ -14,7 +14,9 @@
         <script data-url_root="/docs/html/" id="documentation_options" src="/docs/html/_static/documentation_options.js"></script>
         <script src="/docs/html/_static/jquery.js"></script>
         <script src="/docs/html/_static/underscore.js"></script>
+        <script src="/docs/html/_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="/docs/html/_static/doctools.js"></script>
+        <script src="/docs/html/_static/sphinx_highlight.js"></script>
     <script src="/docs/html/_static/js/theme.js"></script>
     <link rel="index" title="Index" href="/docs/html/genindex.html" />
     <link rel="search" title="Search" href="/docs/html/search.html" />
@@ -42,6 +44,14 @@
 <li class="toctree-l1 current"><a class="reference internal" href="/docs/html/dhbw.html">dhbw package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="/docs/html/dhbw.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.echo"><code class="docutils literal notranslate"><span class="pre">log.echo()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.enable"><code class="docutils literal notranslate"><span class="pre">log.enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.timeline"><code class="docutils literal notranslate"><span class="pre">timeline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.CP"><code class="docutils literal notranslate"><span class="pre">CP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.SR"><code class="docutils literal notranslate"><span class="pre">SR</span></code></a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="/docs/html/dhbw.dasp.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.fft.html">dhbw.dasp.fft module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.filter.html">dhbw.dasp.filter module</a></li>
@@ -50,6 +60,7 @@
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.pitch.html">dhbw.dasp.pitch module</a></li>
 <li class="toctree-l5 current"><a class="current reference internal" href="#">dhbw.dasp.plot module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.signal.html">dhbw.dasp.signal module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.stft.html">dhbw.dasp.stft module</a></li>
 </ul>
 </li>
 </ul>
@@ -73,10 +84,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="/docs/html/index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="/docs/html/dhbw.html">dhbw package</a> &raquo;</li>
-          <li><a href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a> &raquo;</li>
-      <li>dhbw.dasp.plot module</li>
+      <li><a href="/docs/html/index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="/docs/html/dhbw.html">dhbw package</a></li>
+          <li class="breadcrumb-item"><a href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a></li>
+      <li class="breadcrumb-item active">dhbw.dasp.plot module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/dhbw.dasp.plot.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -87,16 +98,16 @@
            <div itemprop="articleBody">
              
   <section id="module-dhbw.dasp.plot">
-<span id="dhbw-dasp-plot-module"></span><h1>dhbw.dasp.plot module<a class="headerlink" href="#module-dhbw.dasp.plot" title="Permalink to this headline"></a></h1>
+<span id="dhbw-dasp-plot-module"></span><h1>dhbw.dasp.plot module<a class="headerlink" href="#module-dhbw.dasp.plot" title="Permalink to this heading"></a></h1>
 <p>Collection of plot functions.
 Each function returns an instance of this module.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="dhbw.dasp.plot.fft">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dhbw.dasp.plot.</span></span><span class="sig-name descname"><span class="pre">fft</span></span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#fft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.fft" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhbw.dasp.plot.</span></span><span class="sig-name descname"><span class="pre">fft</span></span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#fft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.fft" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="dhbw.dasp.plot.fft.abs">
-<span class="sig-name descname"><span class="pre">abs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">120</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#fft.abs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.fft.abs" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">abs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-120</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#fft.abs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.fft.abs" title="Permalink to this definition"></a></dt>
 <dd><p>Plot DFT amplitude of the audio signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -134,67 +145,11 @@ Each function returns an instance of this module.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="dhbw.dasp.plot.fft.phasogram">
-<span class="sig-name descname"><span class="pre">phasogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'twilight'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#fft.phasogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.fft.phasogram" title="Permalink to this definition"></a></dt>
-<dd><p>Plot STFT phase of the audio signal.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">array</span></dt><dd><p>Timeline array.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Signal amplitude array.</p>
-</dd>
-<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>STFT step size in seconds.</p>
-</dd>
-<dt><strong>t</strong><span class="classifier">float</span></dt><dd><p>STFT time span in seconds.</p>
-</dd>
-<dt><strong>xlim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>Time limits.</p>
-</dd>
-<dt><strong>ylim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>STFT frequency limits in Hz.</p>
-</dd>
-<dt><strong>clim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>STFT phase value limits in dB.</p>
-</dd>
-<dt><strong>cmap</strong><span class="classifier">str, optional</span></dt><dd><p>Plot color map.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="dhbw.dasp.plot.fft.spectrogram">
-<span class="sig-name descname"><span class="pre">spectrogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">120</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'inferno'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#fft.spectrogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.fft.spectrogram" title="Permalink to this definition"></a></dt>
-<dd><p>Plot STFT amplitude of the audio signal.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">array</span></dt><dd><p>Timeline array.</p>
-</dd>
-<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Signal amplitude array.</p>
-</dd>
-<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>STFT step size in seconds.</p>
-</dd>
-<dt><strong>t</strong><span class="classifier">float</span></dt><dd><p>STFT time span in seconds.</p>
-</dd>
-<dt><strong>xlim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>Time limits.</p>
-</dd>
-<dt><strong>ylim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>STFT frequency limits in Hz.</p>
-</dd>
-<dt><strong>clim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>STFT amplitude limits in dB.</p>
-</dd>
-<dt><strong>cmap</strong><span class="classifier">str, optional</span></dt><dd><p>Plot color map.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="dhbw.dasp.plot.filter">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">dhbw.dasp.plot.</span></span><span class="sig-name descname"><span class="pre">filter</span></span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.filter" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dhbw.dasp.plot.</span></span><span class="sig-name descname"><span class="pre">filter</span></span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.filter" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="dhbw.dasp.plot.filter.frequency">
@@ -289,6 +244,34 @@ Each function returns an instance of this module.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="dhbw.dasp.plot.phasogram">
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.plot.</span></span><span class="sig-name descname"><span class="pre">phasogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'twilight'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#phasogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.phasogram" title="Permalink to this definition"></a></dt>
+<dd><p>Plot STFT phase of the audio signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">array</span></dt><dd><p>Timeline array.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Signal amplitude array.</p>
+</dd>
+<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>STFT step size in seconds.</p>
+</dd>
+<dt><strong>t</strong><span class="classifier">float</span></dt><dd><p>STFT time span in seconds.</p>
+</dd>
+<dt><strong>xlim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>Time limits.</p>
+</dd>
+<dt><strong>ylim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>STFT frequency limits in Hz.</p>
+</dd>
+<dt><strong>clim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>STFT phase value limits in dB.</p>
+</dd>
+<dt><strong>cmap</strong><span class="classifier">str, optional</span></dt><dd><p>Plot color map.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.plot.plot">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.plot.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.plot" title="Permalink to this definition"></a></dt>
 <dd><p>Plot y versus x.</p>
@@ -339,6 +322,34 @@ Each function returns an instance of this module.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="dhbw.dasp.plot.spectrogram">
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.plot.</span></span><span class="sig-name descname"><span class="pre">spectrogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-120</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'inferno'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#spectrogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.spectrogram" title="Permalink to this definition"></a></dt>
+<dd><p>Plot STFT amplitude of the audio signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">array</span></dt><dd><p>Timeline array.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">array</span></dt><dd><p>Signal amplitude array.</p>
+</dd>
+<dt><strong>s</strong><span class="classifier">float</span></dt><dd><p>STFT step size in seconds.</p>
+</dd>
+<dt><strong>t</strong><span class="classifier">float</span></dt><dd><p>STFT time span in seconds.</p>
+</dd>
+<dt><strong>xlim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>Time limits.</p>
+</dd>
+<dt><strong>ylim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>STFT frequency limits in Hz.</p>
+</dd>
+<dt><strong>clim</strong><span class="classifier">float, tuple, optional</span></dt><dd><p>STFT amplitude limits in dB.</p>
+</dd>
+<dt><strong>cmap</strong><span class="classifier">str, optional</span></dt><dd><p>Plot color map.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.plot.tight">
 <span class="sig-prename descclassname"><span class="pre">dhbw.dasp.plot.</span></span><span class="sig-name descname"><span class="pre">tight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/plot.html#tight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.plot.tight" title="Permalink to this definition"></a></dt>
 <dd><p>Adjust the padding between and around subplots.</p>
@@ -357,7 +368,7 @@ Each function returns an instance of this module.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022 by Juergen Hock.</p>
+    <p>&#169; Copyright 2023 by Juergen Hock.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
