@@ -3,7 +3,6 @@ Digital Audio Signal Processing.
 """
 
 
-import click
 import numpy
 
 from . import fft
@@ -59,4 +58,4 @@ class log:
         if not log.enable:
             pass
 
-        click.echo(message)
+        print(message)
