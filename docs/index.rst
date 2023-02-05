@@ -5,3 +5,4 @@ dhbw-python
    :maxdepth: 4
 
    dhbw
+   tests

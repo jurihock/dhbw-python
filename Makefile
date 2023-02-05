@@ -16,8 +16,8 @@ help:
 	@echo uninstall
 	@echo upload
 	@echo upload-test
-	@echo which
 	@echo test
+	@echo which
 
 boot:
 	@python -m pip install --upgrade build

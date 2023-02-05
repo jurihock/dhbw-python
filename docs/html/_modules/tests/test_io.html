@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview: module code &mdash; dhbw-python 1.5 docs</title>
+  <title>tests.test_io &mdash; dhbw-python 1.5 docs</title>
       <link rel="stylesheet" href="/docs/html/_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="/docs/html/_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -119,7 +119,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="/docs/html/index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">Overview: module code</li>
+          <li class="breadcrumb-item"><a href="/docs/html/index.html">Module code</a></li>
+      <li class="breadcrumb-item active">tests.test_io</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -128,21 +129,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>All modules for which code is available</h1>
-<ul><li><a href="/docs/html/dhbw/dasp.html">dhbw.dasp</a></li>
-<ul><li><a href="/docs/html/dhbw/dasp/fft.html">dhbw.dasp.fft</a></li>
-<li><a href="/docs/html/dhbw/dasp/filter.html">dhbw.dasp.filter</a></li>
-<li><a href="/docs/html/dhbw/dasp/io.html">dhbw.dasp.io</a></li>
-<li><a href="/docs/html/dhbw/dasp/math.html">dhbw.dasp.math</a></li>
-<li><a href="/docs/html/dhbw/dasp/pitch.html">dhbw.dasp.pitch</a></li>
-<li><a href="/docs/html/dhbw/dasp/plot.html">dhbw.dasp.plot</a></li>
-<li><a href="/docs/html/dhbw/dasp/signal.html">dhbw.dasp.signal</a></li>
-<li><a href="/docs/html/dhbw/dasp/stft.html">dhbw.dasp.stft</a></li>
-</ul><li><a href="tests/test_fft.html">tests.test_fft</a></li>
-<li><a href="tests/test_io.html">tests.test_io</a></li>
-<li><a href="tests/test_plot.html">tests.test_plot</a></li>
-<li><a href="tests/test_stft.html">tests.test_stft</a></li>
-</ul>
+  <h1>Source code for tests.test_io</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="n">src</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;..&#39;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">src</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">dhbw</span> <span class="kn">import</span> <span class="n">dasp</span>
+
+<div class="viewcode-block" id="IoTest"><a class="viewcode-back" href="/docs/html/tests.test_io.html#tests.test_io.IoTest">[docs]</a><span class="k">class</span> <span class="nc">IoTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="IoTest.setUp"><a class="viewcode-back" href="/docs/html/tests.test_io.html#tests.test_io.IoTest.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">timeline</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">harmonic</span><span class="p">(</span><span class="mi">440</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IoTest.test_write"><a class="viewcode-back" href="/docs/html/tests.test_io.html#tests.test_io.IoTest.test_write">[docs]</a>    <span class="k">def</span> <span class="nf">test_write</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">dasp</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;/tmp/dasp&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="IoTest.test_read"><a class="viewcode-back" href="/docs/html/tests.test_io.html#tests.test_io.IoTest.test_read">[docs]</a>    <span class="k">def</span> <span class="nf">test_read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">dasp</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;/tmp/dasp&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">dasp</span><span class="o">.</span><span class="n">SR</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="IoTest.test_play"><a class="viewcode-back" href="/docs/html/tests.test_io.html#tests.test_io.IoTest.test_play">[docs]</a>    <span class="k">def</span> <span class="nf">test_play</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">dasp</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s1">&#39;/tmp/dasp&#39;</span><span class="p">)</span></div></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
 
            </div>
           </div>
