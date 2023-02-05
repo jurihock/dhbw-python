@@ -56,6 +56,6 @@ class log:
         """
 
         if not log.enable:
-            pass
+            return
 
         print(message)
