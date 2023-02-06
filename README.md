@@ -8,9 +8,7 @@ DHBW lecture accompanying Python package.
 
 **Upgrade**
 
-`pip uninstall -y dhbw`
-
-`pip install dhbw`
+`pip install dhbw -U`
 
 **Use**
 
