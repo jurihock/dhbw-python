@@ -7,6 +7,40 @@ import wave
 from dhbw import dasp
 
 
+def display(data, sr=None):
+    """
+    Displays the specified audio data or file in a Python notebook.
+
+    Parameters
+    ----------
+    data : ndarray, string
+        Audio samples or string containing the file path,
+        with or without the .wav extension.
+    sr : integer, optional
+        Sample rate in hertz.
+    """
+
+    import IPython
+
+    if isinstance(data, str):
+
+        path = str(data)
+
+        if path.startswith('~'):
+            path = os.path.expanduser(path)
+
+        if not path.lower().endswith('.wav'):
+            path += '.wav'
+
+        IPython.display.Audio(filename=path)
+
+    else:
+
+        sr = sr if sr is not None else dasp.SR
+
+        IPython.display.Audio(data, rate=sr, normalize=False)
+
+
 def open(path, cmd='audacity', shell=False, wait=False):
     """
     Executes custom command with specified .wav file path as an argument.

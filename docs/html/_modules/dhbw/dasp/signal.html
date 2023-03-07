@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dhbw.dasp.signal &mdash; dhbw-python 1.5 docs</title>
+  <title>dhbw.dasp.signal &mdash; dhbw-python 1.5.1 docs</title>
       <link rel="stylesheet" href="/docs/html/_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="/docs/html/_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -15,7 +15,6 @@
         <script src="/docs/html/_static/underscore.js"></script>
         <script src="/docs/html/_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="/docs/html/_static/doctools.js"></script>
-        <script src="/docs/html/_static/sphinx_highlight.js"></script>
     <script src="/docs/html/_static/js/theme.js"></script>
     <link rel="index" title="Index" href="/docs/html/genindex.html" />
     <link rel="search" title="Search" href="/docs/html/search.html" /> 
@@ -26,7 +25,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #bbbbbb" >
-            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.5
+            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.5.1
             <img src="https://github.com/jurihock/dhbw-python/raw/main/dhbw.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -41,14 +40,6 @@
 <li class="toctree-l1"><a class="reference internal" href="/docs/html/dhbw.html">dhbw package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="/docs/html/dhbw.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a><ul>
-<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.echo"><code class="docutils literal notranslate"><span class="pre">log.echo()</span></code></a></li>
-<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.enable"><code class="docutils literal notranslate"><span class="pre">log.enable</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.timeline"><code class="docutils literal notranslate"><span class="pre">timeline()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.CP"><code class="docutils literal notranslate"><span class="pre">CP</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.SR"><code class="docutils literal notranslate"><span class="pre">SR</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#submodules">Submodules</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.fft.html">dhbw.dasp.fft module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.filter.html">dhbw.dasp.filter module</a></li>
@@ -74,7 +65,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #bbbbbb" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="/docs/html/index.html">dhbw-python 1.5</a>
+          <a href="/docs/html/index.html">dhbw-python 1.5.1</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -99,7 +90,7 @@
 
 
 <div class="viewcode-block" id="harmonic"><a class="viewcode-back" href="/docs/html/dhbw.dasp.signal.html#dhbw.dasp.signal.harmonic">[docs]</a><span class="k">def</span> <span class="nf">harmonic</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a sine wave of the specified frequency.</span>
 
 <span class="sd">    Parameters</span>
@@ -114,7 +105,7 @@
 
 
 <div class="viewcode-block" id="harmonics"><a class="viewcode-back" href="/docs/html/dhbw.dasp.signal.html#dhbw.dasp.signal.harmonics">[docs]</a><span class="k">def</span> <span class="nf">harmonics</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a harmonic wave including the specified amount of overtones.</span>
 
 <span class="sd">    Parameters</span>
@@ -138,7 +129,7 @@
 
 
 <div class="viewcode-block" id="square"><a class="viewcode-back" href="/docs/html/dhbw.dasp.signal.html#dhbw.dasp.signal.square">[docs]</a><span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a square shaped wave of the specified frequency.</span>
 
 <span class="sd">    Parameters</span>
@@ -153,7 +144,7 @@
 
 
 <div class="viewcode-block" id="sawtooth"><a class="viewcode-back" href="/docs/html/dhbw.dasp.signal.html#dhbw.dasp.signal.sawtooth">[docs]</a><span class="k">def</span> <span class="nf">sawtooth</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a sawtooth shaped wave of the specified frequency.</span>
 
 <span class="sd">    Parameters</span>
@@ -168,7 +159,7 @@
 
 
 <div class="viewcode-block" id="triangle"><a class="viewcode-back" href="/docs/html/dhbw.dasp.signal.html#dhbw.dasp.signal.triangle">[docs]</a><span class="k">def</span> <span class="nf">triangle</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a triangle shaped wave of the specified frequency.</span>
 
 <span class="sd">    Parameters</span>
@@ -183,7 +174,7 @@
 
 
 <div class="viewcode-block" id="chirp"><a class="viewcode-back" href="/docs/html/dhbw.dasp.signal.html#dhbw.dasp.signal.chirp">[docs]</a><span class="k">def</span> <span class="nf">chirp</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a chirp signal in which the frequency alterates over the time.</span>
 
 <span class="sd">    Parameters</span>
@@ -200,7 +191,7 @@
 
 
 <div class="viewcode-block" id="noise"><a class="viewcode-back" href="/docs/html/dhbw.dasp.signal.html#dhbw.dasp.signal.noise">[docs]</a><span class="k">def</span> <span class="nf">noise</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a random white noise based on the truncated normal distribution.</span>
 
 <span class="sd">    Parameters</span>

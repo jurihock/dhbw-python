@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dhbw.dasp.io &mdash; dhbw-python 1.5 docs</title>
+  <title>dhbw.dasp.io &mdash; dhbw-python 1.5.1 docs</title>
       <link rel="stylesheet" href="/docs/html/_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="/docs/html/_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -15,7 +15,6 @@
         <script src="/docs/html/_static/underscore.js"></script>
         <script src="/docs/html/_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="/docs/html/_static/doctools.js"></script>
-        <script src="/docs/html/_static/sphinx_highlight.js"></script>
     <script src="/docs/html/_static/js/theme.js"></script>
     <link rel="index" title="Index" href="/docs/html/genindex.html" />
     <link rel="search" title="Search" href="/docs/html/search.html" /> 
@@ -26,7 +25,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #bbbbbb" >
-            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.5
+            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.5.1
             <img src="https://github.com/jurihock/dhbw-python/raw/main/dhbw.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
@@ -41,14 +40,6 @@
 <li class="toctree-l1"><a class="reference internal" href="/docs/html/dhbw.html">dhbw package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="/docs/html/dhbw.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a><ul>
-<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.echo"><code class="docutils literal notranslate"><span class="pre">log.echo()</span></code></a></li>
-<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.enable"><code class="docutils literal notranslate"><span class="pre">log.enable</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.timeline"><code class="docutils literal notranslate"><span class="pre">timeline()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.CP"><code class="docutils literal notranslate"><span class="pre">CP</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.SR"><code class="docutils literal notranslate"><span class="pre">SR</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#submodules">Submodules</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.fft.html">dhbw.dasp.fft module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.filter.html">dhbw.dasp.filter module</a></li>
@@ -74,7 +65,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #bbbbbb" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="/docs/html/index.html">dhbw-python 1.5</a>
+          <a href="/docs/html/index.html">dhbw-python 1.5.1</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -103,8 +94,42 @@
 <span class="kn">from</span> <span class="nn">dhbw</span> <span class="kn">import</span> <span class="n">dasp</span>
 
 
+<div class="viewcode-block" id="display"><a class="viewcode-back" href="/docs/html/dhbw.dasp.io.html#dhbw.dasp.io.display">[docs]</a><span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Displays the specified audio data or file in a Python notebook.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : ndarray, string</span>
+<span class="sd">        Audio samples or string containing the file path,</span>
+<span class="sd">        with or without the .wav extension.</span>
+<span class="sd">    sr : integer, optional</span>
+<span class="sd">        Sample rate in hertz.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">import</span> <span class="nn">IPython</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+
+        <span class="n">path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">):</span>
+            <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.wav&#39;</span><span class="p">):</span>
+            <span class="n">path</span> <span class="o">+=</span> <span class="s1">&#39;.wav&#39;</span>
+
+        <span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">sr</span> <span class="o">=</span> <span class="n">sr</span> <span class="k">if</span> <span class="n">sr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">dasp</span><span class="o">.</span><span class="n">SR</span>
+
+        <span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="open"><a class="viewcode-back" href="/docs/html/dhbw.dasp.io.html#dhbw.dasp.io.open">[docs]</a><span class="k">def</span> <span class="nf">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;audacity&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Executes custom command with specified .wav file path as an argument.</span>
 
 <span class="sd">    Parameters</span>
@@ -134,7 +159,7 @@
 
 
 <div class="viewcode-block" id="play"><a class="viewcode-back" href="/docs/html/dhbw.dasp.io.html#dhbw.dasp.io.play">[docs]</a><span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="s1">&#39;play&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Executes custom command with specified .wav file path as an argument.</span>
 
 <span class="sd">    Parameters</span>
@@ -153,7 +178,7 @@
 
 
 <div class="viewcode-block" id="read"><a class="viewcode-back" href="/docs/html/dhbw.dasp.io.html#dhbw.dasp.io.read">[docs]</a><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Reads a .wav file.</span>
 
 <span class="sd">    Parameters</span>
@@ -183,7 +208,7 @@
         <span class="n">channels</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">getnchannels</span><span class="p">()</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readframes</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">getnframes</span><span class="p">())</span>
 
-    <span class="n">dasp</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Reading data from file </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="nb">dict</span><span class="p">(</span><span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span><span class="w"> </span><span class="nb">bytes</span><span class="o">=</span><span class="nb">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">dasp</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Reading data from file </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="nb">dict</span><span class="p">(</span><span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="nb">bytes</span><span class="o">=</span><span class="nb">bytes</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
     <span class="k">assert</span> <span class="nb">bytes</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
     <span class="n">bits</span> <span class="o">=</span> <span class="nb">bytes</span> <span class="o">*</span> <span class="mi">8</span>
@@ -207,7 +232,7 @@
 
 
 <div class="viewcode-block" id="write"><a class="viewcode-back" href="/docs/html/dhbw.dasp.io.html#dhbw.dasp.io.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bits</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Writes a .wav file.</span>
 
 <span class="sd">    Parameters</span>
@@ -261,7 +286,7 @@
         <span class="nb">int</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="nb">bytes</span><span class="p">,</span> <span class="n">signed</span><span class="o">=</span><span class="p">(</span><span class="n">bits</span> <span class="o">!=</span> <span class="mi">8</span><span class="p">),</span> <span class="n">byteorder</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">byteorder</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
 
-    <span class="n">dasp</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Writing data to file </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="nb">dict</span><span class="p">(</span><span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span><span class="w"> </span><span class="nb">bytes</span><span class="o">=</span><span class="nb">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">dasp</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Writing data to file </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="nb">dict</span><span class="p">(</span><span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="nb">bytes</span><span class="o">=</span><span class="nb">bytes</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
     <span class="k">with</span> <span class="n">wave</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
         <span class="n">file</span><span class="o">.</span><span class="n">setframerate</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
