@@ -32,13 +32,13 @@ def display(data, sr=None):
         if not path.lower().endswith('.wav'):
             path += '.wav'
 
-        IPython.display.Audio(filename=path)
+        return IPython.display.Audio(filename=path)
 
     else:
 
         sr = sr if sr is not None else dasp.SR
 
-        IPython.display.Audio(data, rate=sr, normalize=False)
+        return IPython.display.Audio(data, rate=sr, normalize=False)
 
 
 def open(path, cmd='audacity', shell=False, wait=False):
