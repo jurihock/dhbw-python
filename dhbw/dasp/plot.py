@@ -139,9 +139,9 @@ def signal(x, y=None, xlim=None, ylim=1.1):
             else:
                 plotpy.plot(v)
             lim()
-        if len(axes) > 1:
-            axes[0].get_shared_x_axes().join(*axes)
-            axes[0].get_shared_y_axes().join(*axes)
+        for i in range(1, len(axes)):
+            axes[i-1].sharex(axes[i])
+            axes[i-1].sharey(axes[i])
     elif isinstance(y, (list, tuple)):
         axes = []
         for i, v in enumerate(y):
@@ -151,9 +151,9 @@ def signal(x, y=None, xlim=None, ylim=1.1):
             else:
                 plotpy.plot(v)
             lim()
-        if len(axes) > 1:
-            axes[0].get_shared_x_axes().join(*axes)
-            axes[0].get_shared_y_axes().join(*axes)
+        for i in range(1, len(axes)):
+            axes[i-1].sharex(axes[i])
+            axes[i-1].sharey(axes[i])
     else:
         if x is not None:
             plotpy.plot(x, y)
