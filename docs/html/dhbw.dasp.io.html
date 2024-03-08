@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="/docs/html/">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dhbw.dasp.io module &mdash; dhbw-python 1.5.2 docs</title>
-      <link rel="stylesheet" href="/docs/html/_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="/docs/html/_static/css/theme.css" type="text/css" />
+  <title>dhbw.dasp.io module &mdash; dhbw-python 1.5.3 docs</title>
+      <link rel="stylesheet" type="text/css" href="/docs/html/_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="/docs/html/_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="/docs/html/_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="/docs/html/" id="documentation_options" src="/docs/html/_static/documentation_options.js"></script>
-        <script src="/docs/html/_static/jquery.js"></script>
-        <script src="/docs/html/_static/underscore.js"></script>
-        <script src="/docs/html/_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="/docs/html/_static/doctools.js"></script>
+        <script src="/docs/html/_static/jquery.js?v=5d32c60e"></script>
+        <script src="/docs/html/_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="/docs/html/_static/documentation_options.js?v=d75fd82e"></script>
+        <script src="/docs/html/_static/doctools.js?v=888ff710"></script>
+        <script src="/docs/html/_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="/docs/html/_static/js/theme.js"></script>
     <link rel="index" title="Index" href="/docs/html/genindex.html" />
     <link rel="search" title="Search" href="/docs/html/search.html" />
@@ -28,12 +30,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #bbbbbb" >
-            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.5.2
-            <img src="https://github.com/jurihock/dhbw-python/raw/main/dhbw.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="/docs/html/index.html" class="icon icon-home">
+            dhbw-python 1.5.3
+              <img src="https://github.com/jurihock/dhbw-python/raw/main/dhbw.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -43,6 +49,14 @@
 <li class="toctree-l1 current"><a class="reference internal" href="/docs/html/dhbw.html">dhbw package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="/docs/html/dhbw.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.echo"><code class="docutils literal notranslate"><span class="pre">log.echo()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.enable"><code class="docutils literal notranslate"><span class="pre">log.enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.timeline"><code class="docutils literal notranslate"><span class="pre">timeline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.CP"><code class="docutils literal notranslate"><span class="pre">CP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.SR"><code class="docutils literal notranslate"><span class="pre">SR</span></code></a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="/docs/html/dhbw.dasp.html#submodules">Submodules</a><ul class="current">
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.fft.html">dhbw.dasp.fft module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.filter.html">dhbw.dasp.filter module</a></li>
@@ -68,14 +82,14 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #bbbbbb" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="/docs/html/index.html">dhbw-python 1.5.2</a>
+          <a href="/docs/html/index.html">dhbw-python 1.5.3</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="/docs/html/index.html" class="icon icon-home"></a></li>
+      <li><a href="/docs/html/index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="/docs/html/dhbw.html">dhbw package</a></li>
           <li class="breadcrumb-item"><a href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a></li>
       <li class="breadcrumb-item active">dhbw.dasp.io module</li>
@@ -89,10 +103,10 @@
            <div itemprop="articleBody">
              
   <section id="module-dhbw.dasp.io">
-<span id="dhbw-dasp-io-module"></span><h1>dhbw.dasp.io module<a class="headerlink" href="#module-dhbw.dasp.io" title="Permalink to this heading"></a></h1>
+<span id="dhbw-dasp-io-module"></span><h1>dhbw.dasp.io module<a class="headerlink" href="#module-dhbw.dasp.io" title="Link to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.io.display">
-<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.display" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.display" title="Link to this definition"></a></dt>
 <dd><p>Displays the specified audio data or file in a Python notebook.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -109,7 +123,7 @@ with or without the .wav extension.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.io.open">
-<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'audacity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.open" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'audacity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.open" title="Link to this definition"></a></dt>
 <dd><p>Executes custom command with specified .wav file path as an argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -129,7 +143,7 @@ with or without the .wav extension.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.io.play">
-<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'play'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#play"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.play" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'play'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#play"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.play" title="Link to this definition"></a></dt>
 <dd><p>Executes custom command with specified .wav file path as an argument.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -149,7 +163,7 @@ with or without the .wav extension.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.io.read">
-<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.read" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.read" title="Link to this definition"></a></dt>
 <dd><p>Reads a .wav file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -173,7 +187,7 @@ with or without the .wav extension.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dhbw.dasp.io.write">
-<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">24</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.write" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">dhbw.dasp.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">24</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="/docs/html/_modules/dhbw/dasp/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dhbw.dasp.io.write" title="Link to this definition"></a></dt>
 <dd><p>Writes a .wav file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -204,7 +218,7 @@ with or without the .wav extension.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023 by Juergen Hock.</p>
+    <p>&#169; Copyright 2024 by Juergen Hock.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

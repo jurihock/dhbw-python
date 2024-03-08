@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="/docs/html/">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>dhbw.dasp.plot &mdash; dhbw-python 1.5.2 docs</title>
-      <link rel="stylesheet" href="/docs/html/_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="/docs/html/_static/css/theme.css" type="text/css" />
+  <title>dhbw.dasp.plot &mdash; dhbw-python 1.5.3 docs</title>
+      <link rel="stylesheet" type="text/css" href="/docs/html/_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="/docs/html/_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="/docs/html/_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="/docs/html/" id="documentation_options" src="/docs/html/_static/documentation_options.js"></script>
-        <script src="/docs/html/_static/jquery.js"></script>
-        <script src="/docs/html/_static/underscore.js"></script>
-        <script src="/docs/html/_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="/docs/html/_static/doctools.js"></script>
+        <script src="/docs/html/_static/jquery.js?v=5d32c60e"></script>
+        <script src="/docs/html/_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="/docs/html/_static/documentation_options.js?v=d75fd82e"></script>
+        <script src="/docs/html/_static/doctools.js?v=888ff710"></script>
+        <script src="/docs/html/_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="/docs/html/_static/js/theme.js"></script>
     <link rel="index" title="Index" href="/docs/html/genindex.html" />
     <link rel="search" title="Search" href="/docs/html/search.html" /> 
@@ -25,12 +27,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #bbbbbb" >
-            <a href="/docs/html/index.html" class="icon icon-home"> dhbw-python 1.5.2
-            <img src="https://github.com/jurihock/dhbw-python/raw/main/dhbw.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="/docs/html/index.html" class="icon icon-home">
+            dhbw-python 1.5.3
+              <img src="https://github.com/jurihock/dhbw-python/raw/main/dhbw.svg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="/docs/html/search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -40,6 +46,14 @@
 <li class="toctree-l1"><a class="reference internal" href="/docs/html/dhbw.html">dhbw package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="/docs/html/dhbw.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="/docs/html/dhbw.dasp.html">dhbw.dasp package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log"><code class="docutils literal notranslate"><span class="pre">log</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.echo"><code class="docutils literal notranslate"><span class="pre">log.echo()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.log.enable"><code class="docutils literal notranslate"><span class="pre">log.enable</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.timeline"><code class="docutils literal notranslate"><span class="pre">timeline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.CP"><code class="docutils literal notranslate"><span class="pre">CP</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#dhbw.dasp.SR"><code class="docutils literal notranslate"><span class="pre">SR</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="/docs/html/dhbw.dasp.html#submodules">Submodules</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.fft.html">dhbw.dasp.fft module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="/docs/html/dhbw.dasp.filter.html">dhbw.dasp.filter module</a></li>
@@ -65,14 +79,14 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #bbbbbb" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="/docs/html/index.html">dhbw-python 1.5.2</a>
+          <a href="/docs/html/index.html">dhbw-python 1.5.3</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="/docs/html/index.html" class="icon icon-home"></a></li>
+      <li><a href="/docs/html/index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="/docs/html/index.html">Module code</a></li>
           <li class="breadcrumb-item"><a href="/docs/html/dasp.html">dhbw.dasp</a></li>
       <li class="breadcrumb-item active">dhbw.dasp.plot</li>
@@ -98,16 +112,21 @@
 <span class="kn">from</span> <span class="nn">dhbw</span> <span class="kn">import</span> <span class="n">dasp</span>
 
 
-<div class="viewcode-block" id="exit"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.exit">[docs]</a><span class="k">def</span> <span class="nf">exit</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="exit">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.exit">[docs]</a>
+<span class="k">def</span> <span class="nf">exit</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Exit from Python.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="save"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.save">[docs]</a><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="save">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.save">[docs]</a>
+<span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Save current figure to specified image file.</span>
 
 <span class="sd">    Parameters</span>
@@ -145,8 +164,11 @@
     <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
 
-<div class="viewcode-block" id="show"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.show">[docs]</a><span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="show">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.show">[docs]</a>
+<span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">     Display all open figures.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -154,8 +176,11 @@
     <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
 
-<div class="viewcode-block" id="tight"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.tight">[docs]</a><span class="k">def</span> <span class="nf">tight</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="tight">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.tight">[docs]</a>
+<span class="k">def</span> <span class="nf">tight</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Adjust the padding between and around subplots.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -163,8 +188,11 @@
     <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
 
-<div class="viewcode-block" id="figure"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.figure">[docs]</a><span class="k">def</span> <span class="nf">figure</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="figure">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.figure">[docs]</a>
+<span class="k">def</span> <span class="nf">figure</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a new figure.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -172,8 +200,11 @@
     <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
 
-<div class="viewcode-block" id="plot"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.plot">[docs]</a><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="plot">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.plot">[docs]</a>
+<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plot y versus x.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -181,8 +212,11 @@
     <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
 
-<div class="viewcode-block" id="signal"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.signal">[docs]</a><span class="k">def</span> <span class="nf">signal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="mf">1.1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="signal">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.signal">[docs]</a>
+<span class="k">def</span> <span class="nf">signal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="mf">1.1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plot one or multiple audio signals.</span>
 
 <span class="sd">    Parameters</span>
@@ -226,9 +260,9 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">plotpy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
             <span class="n">lim</span><span class="p">()</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_shared_x_axes</span><span class="p">()</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">axes</span><span class="p">)</span>
-            <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_shared_y_axes</span><span class="p">()</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">axes</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)):</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sharex</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sharey</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
         <span class="n">axes</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
@@ -238,9 +272,9 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">plotpy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
             <span class="n">lim</span><span class="p">()</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_shared_x_axes</span><span class="p">()</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">axes</span><span class="p">)</span>
-            <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_shared_y_axes</span><span class="p">()</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">axes</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)):</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sharex</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sharey</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">plotpy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -255,8 +289,11 @@
     <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
 
-<div class="viewcode-block" id="spectrogram"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.spectrogram">[docs]</a><span class="k">def</span> <span class="nf">spectrogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=-</span><span class="mi">120</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="spectrogram">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.spectrogram">[docs]</a>
+<span class="k">def</span> <span class="nf">spectrogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=-</span><span class="mi">120</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plot STFT amplitude of the audio signal.</span>
 
 <span class="sd">    Parameters</span>
@@ -326,8 +363,11 @@
     <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
 
-<div class="viewcode-block" id="phasogram"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.phasogram">[docs]</a><span class="k">def</span> <span class="nf">phasogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;twilight&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="phasogram">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.phasogram">[docs]</a>
+<span class="k">def</span> <span class="nf">phasogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;twilight&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plot STFT phase of the audio signal.</span>
 
 <span class="sd">    Parameters</span>
@@ -399,10 +439,15 @@
     <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
 
-<div class="viewcode-block" id="fft"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.fft">[docs]</a><span class="k">class</span> <span class="nc">fft</span><span class="p">:</span>
 
-<div class="viewcode-block" id="fft.abs"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.fft.abs">[docs]</a>    <span class="k">def</span> <span class="nf">abs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=-</span><span class="mi">120</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="fft">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.fft">[docs]</a>
+<span class="k">class</span> <span class="nc">fft</span><span class="p">:</span>
+
+<div class="viewcode-block" id="fft.abs">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.fft.abs">[docs]</a>
+    <span class="k">def</span> <span class="nf">abs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=-</span><span class="mi">120</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot DFT amplitude of the audio signal.</span>
 
 <span class="sd">        Parameters</span>
@@ -458,8 +503,11 @@
 
         <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
-<div class="viewcode-block" id="fft.arg"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.fft.arg">[docs]</a>    <span class="k">def</span> <span class="nf">arg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="fft.arg">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.fft.arg">[docs]</a>
+    <span class="k">def</span> <span class="nf">arg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot DFT phase of the audio signal.</span>
 
 <span class="sd">        Parameters</span>
@@ -513,13 +561,19 @@
 
         <span class="n">plotpy</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hz&#39;</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div></div>
+        <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
+</div>
 
 
-<div class="viewcode-block" id="filter"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter">[docs]</a><span class="k">class</span> <span class="nc">filter</span><span class="p">:</span>
 
-<div class="viewcode-block" id="filter.impulse"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.impulse">[docs]</a>    <span class="k">def</span> <span class="nf">impulse</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="filter">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter">[docs]</a>
+<span class="k">class</span> <span class="nc">filter</span><span class="p">:</span>
+
+<div class="viewcode-block" id="filter.impulse">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.impulse">[docs]</a>
+    <span class="k">def</span> <span class="nf">impulse</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="mf">1e3</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot impulse response of the transfer function specified by b and a coefficients.</span>
 
 <span class="sd">        Parameters</span>
@@ -565,8 +619,11 @@
 
         <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
-<div class="viewcode-block" id="filter.frequency"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.frequency">[docs]</a>    <span class="k">def</span> <span class="nf">frequency</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="filter.frequency">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.frequency">[docs]</a>
+    <span class="k">def</span> <span class="nf">frequency</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot frequency response of the transfer function specified by b and a coefficients.</span>
 
 <span class="sd">        Parameters</span>
@@ -605,8 +662,11 @@
 
         <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
-<div class="viewcode-block" id="filter.phase"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.phase">[docs]</a>    <span class="k">def</span> <span class="nf">phase</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="filter.phase">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.phase">[docs]</a>
+    <span class="k">def</span> <span class="nf">phase</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot phase response of the transfer function specified by b and a coefficients.</span>
 
 <span class="sd">        Parameters</span>
@@ -647,8 +707,11 @@
 
         <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
 
-<div class="viewcode-block" id="filter.poleszeros"><a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.poleszeros">[docs]</a>    <span class="k">def</span> <span class="nf">poleszeros</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="filter.poleszeros">
+<a class="viewcode-back" href="/docs/html/dhbw.dasp.plot.html#dhbw.dasp.plot.filter.poleszeros">[docs]</a>
+    <span class="k">def</span> <span class="nf">poleszeros</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plot poles and zeros in Z plane for the transfer function specified by b and a coefficients.</span>
 
 <span class="sd">        Parameters</span>
@@ -686,7 +749,9 @@
         <span class="n">axis</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;scaled&#39;</span><span class="p">)</span>
         <span class="n">axis</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="n">r</span><span class="p">,</span> <span class="o">+</span><span class="n">r</span><span class="p">,</span> <span class="o">-</span><span class="n">r</span><span class="p">,</span> <span class="o">+</span><span class="n">r</span><span class="p">])</span>
 
-        <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div></div>
+        <span class="k">return</span> <span class="n">dasp</span><span class="o">.</span><span class="n">plot</span></div>
+</div>
+
 </pre></div>
 
            </div>
@@ -696,7 +761,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023 by Juergen Hock.</p>
+    <p>&#169; Copyright 2024 by Juergen Hock.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
